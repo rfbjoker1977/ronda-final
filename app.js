@@ -1,3 +1,17 @@
+const DEFAULT_CRESTS=[
+  "imagenes/escudos_equipos/atletico_lesterol_512x512.png",
+  "imagenes/escudos_equipos/aubameyang_y_10_mas_512x512.png",
+  "imagenes/escudos_equipos/mariscos_recio_512x512.png",
+  "imagenes/escudos_equipos/maccabi_de_levantar_512x512.png",
+  "imagenes/escudos_equipos/recreativo_de_juerga_512x512.png",
+  "imagenes/escudos_equipos/renacidos_cf_512x512.png",
+  "imagenes/escudos_equipos/sporting_de_finidi_512x512.png",
+  "imagenes/escudos_equipos/moleiros_team_512x512.png",
+  "imagenes/escudos_equipos/los_pridecines_512x512.png",
+  "imagenes/escudos_equipos/ozempic_de_leon_512x512.png",
+  "imagenes/escudos_equipos/equipo_11_512x512.png",
+  "imagenes/escudos_equipos/aston_birra_512x512.png"
+];
 const DEFAULT_CLUBS=Array.from({length:12},(_,i)=>({
   name:i===0?"Atlético Lesterol":`Equipo ${i+1}`,
   manager:"Por asignar",
@@ -5,7 +19,7 @@ const DEFAULT_CLUBS=Array.from({length:12},(_,i)=>({
   pointsApertura:0,
   pointsClausura:0,
   pointsGeneral:0,
-  crest:i===0?"imagenes/escudos_equipos/atletico_lesterol_512x512.png":"",
+  crest:DEFAULT_CRESTS[i],
   badges:Array.from({length:4},()=>({name:"",image:""})),
   players:Array.from({length:25},()=>({name:"",position:"Medio",marketValue:"",clause:"",points:0})),
   matchdays:Array.from({length:38},()=>0),

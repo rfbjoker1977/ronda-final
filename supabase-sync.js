@@ -4,7 +4,7 @@ window.remoteEnabled=true;
 async function initializeRemoteData(){
   const {data:row,error}=await supabaseClient.from("league_state").select("data").eq("id","main").single();
   if(error){console.error("No se pudieron cargar los datos online",error);return}
-  if(row?.data&&Object.keys(row.data).length){localStorage.setItem(STORAGE_KEY,JSON.stringify(row.data));data=loadData();render();navigate(location.hash.slice(1)||"inicio")}
+  if(row?.data&&Object.keys(row.data).length){localStorage.setItem(STORAGE_KEY,JSON.stringify(row.data));data=loadData();data.clubs.forEach((club,index)=>{if(!club.crest&&DEFAULT_CRESTS[index])club.crest=DEFAULT_CRESTS[index]});render();navigate(location.hash.slice(1)||"inicio")}
 }
 async function remoteLogin(password){
   const {data:authData,error}=await supabaseClient.auth.signInWithPassword({email:ADMIN_EMAIL,password});
