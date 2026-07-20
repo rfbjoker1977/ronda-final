@@ -138,14 +138,15 @@
         <span class="lock-icon">◆</span>
         <p class="eyebrow red">ÁREA PRIVADA</p>
         <h2 id="adminTitle">ACCESO ADMINISTRADOR</h2>
-        <p class="muted">Introduce tu contraseña para editar el contenido de la liga.</p>
+        <p class="muted">Acceso exclusivo para <strong>rfbjoker@gmail.com</strong>.</p>
         <form id="loginForm">
           <label for="password">Contraseña</label>
           <input id="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
           <p class="form-error" id="loginError" role="alert"></p>
           <button class="button button-red" type="submit">ENTRAR</button>
         </form>
-        <p class="demo-note">Primera entrada: <code>cambiar-esta-clave</code></p>
+        <button class="text-button" id="createAdminAccount" type="button">Crear mi cuenta de administrador</button>
+        <p class="demo-note" id="authHelp">La primera vez, escribe la contraseña que quieras utilizar y pulsa «Crear mi cuenta».</p>
       </div>
       <div id="editorView" hidden>
         <p class="eyebrow red">PANEL DE CONTROL</p>
@@ -162,6 +163,9 @@
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="app.js"></script>
+  <script src="supabase-sync.js"></script>
 </body>
 </html>
