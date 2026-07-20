@@ -5,9 +5,9 @@ const DEFAULT_CRESTS=[
   "imagenes/escudos_equipos/maccabi_de_levantar_transparent_512x512.png",
   "imagenes/escudos_equipos/recreativo_de_juerga_transparent_512x512.png",
   "imagenes/escudos_equipos/renacidos_cf_transparent_512x512.png",
-  "imagenes/escudos_equipos/sporting_de_finidi_transparent_512x512.png",
+  "imagenes/escudos_equipos/sporting_de_finidi_transparent_v2_512x512.png",
   "imagenes/escudos_equipos/moleiros_team_transparent_512x512.png",
-  "imagenes/escudos_equipos/los_pridecines_transparent_512x512.png",
+  "imagenes/escudos_equipos/los_pridecines_transparent_v5_512x512.png",
   "imagenes/escudos_equipos/ozempic_de_leon_transparent_512x512.png",
   "imagenes/escudos_equipos/equipo_11_transparent_512x512.png",
   "imagenes/escudos_equipos/aston_birra_transparent_512x512.png"
