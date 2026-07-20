@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#b80716">
+  <title>RONDA FINAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="badges.css">
+  <link rel="stylesheet" href="competitions.css">
+  <link rel="stylesheet" href="roster.css">
+  <link rel="stylesheet" href="matchdays.css">
+  <link rel="stylesheet" href="rounds.css">
+  <link rel="stylesheet" href="score-list.css">
+  <link rel="stylesheet" href="home-rankings.css">
+  <link rel="stylesheet" href="hero-compact.css">
+  <link rel="stylesheet" href="hero-final.css">
+  <link rel="stylesheet" href="graph-white.css">
+  <link rel="stylesheet" href="history.css">
+  <link rel="stylesheet" href="managers.css">
+  <link rel="stylesheet" href="lineup-transfers.css">
+  <link rel="stylesheet" href="field-markings.css">
+  <link rel="stylesheet" href="finance-formation.css">
+  <link rel="stylesheet" href="admin-refinements.css">
+  <link rel="stylesheet" href="admin-alternating.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" data-route="inicio" aria-label="Ir al inicio">
+      <span class="brand-mark">RF</span>
+      <span><strong id="brandName">RONDA FINAL</strong><small>FANTASY LEAGUE</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="nav" id="mainNav" aria-label="Navegación principal">
+      <a href="#inicio" data-route="inicio" class="active">Inicio</a>
+      <a href="#equipos" data-route="equipos">Equipos</a>
+      <a href="#apertura" data-route="apertura">Apertura</a>
+      <a href="#clausura" data-route="clausura">Clausura</a>
+      <a href="#liga-general" data-route="liga-general">Liga General</a>
+      <button class="admin-link" id="adminOpen"><span>●</span> Administrador</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page active" id="inicio">
+      <div class="hero">
+        <div class="hero-noise"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">TEMPORADA <span id="seasonText">2026 / 2027</span></p>
+          <h1>RONDA FINAL<br><em>LEAGUE</em></h1>
+          <p class="hero-lead" id="welcomeText" hidden></p>
+          <div class="hero-actions">
+            <a href="#equipos" data-route="equipos" class="button button-light">CONOCER LOS EQUIPOS <span>→</span></a>
+          </div>
+        </div>
+        <div class="league-logo-slot" aria-label="Espacio reservado para el logo oficial de la liga">
+          <img src="imagenes/liga/ronda_final_crest_512.png" alt="Escudo oficial de Ronda Final">
+        </div>
+      </div>
+      <section class="standings-section">
+        <div class="standings-heading">
+          <div><p class="eyebrow red">LAS TRES COMPETICIONES</p><h2>LA LUCHA POR <em>LA CORONA</em></h2></div>
+          <p>Apertura y Clausura tienen su propia clasificación. La Liga General recoge la puntuación global de la temporada.</p>
+        </div>
+        <div class="home-round-rankings">
+          <article class="home-ranking-card"><div class="home-ranking-title"><span>01</span><div><small>PRIMERA VUELTA</small><h3>TORNEO APERTURA</h3></div><a href="#apertura" data-route="apertura">VER TORNEO →</a></div><div class="compact-standings" id="aperturaHomeList"></div></article>
+          <article class="home-ranking-card"><div class="home-ranking-title"><span>02</span><div><small>SEGUNDA VUELTA</small><h3>TORNEO CLAUSURA</h3></div><a href="#clausura" data-route="clausura">VER TORNEO →</a></div><div class="compact-standings" id="clausuraHomeList"></div></article>
+        </div>
+        <article class="general-home-ranking"><div class="general-ranking-title"><div><small>TEMPORADA COMPLETA</small><h3>LIGA GENERAL</h3></div><a href="#liga-general" data-route="liga-general">VER CLASIFICACIÓN COMPLETA →</a></div><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="standingsList"></div></div></article>
+      </section>
+    </section>
+
+    <section class="page competition-page" id="apertura">
+      <div class="competition-hero"><p class="eyebrow">PRIMERA VUELTA</p><h2>TORNEO <em>APERTURA</em></h2><p>El primer gran desafío de la temporada. La clasificación recoge exclusivamente los puntos obtenidos durante la primera vuelta.</p></div>
+      <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="aperturaList"></div></div>
+    </section>
+
+    <section class="page competition-page" id="clausura">
+      <div class="competition-hero"><p class="eyebrow">SEGUNDA VUELTA</p><h2>TORNEO <em>CLAUSURA</em></h2><p>La segunda mitad del campeonato. Una nueva clasificación y otra oportunidad para conquistar un título.</p></div>
+      <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="clausuraList"></div></div>
+    </section>
+
+    <section class="page competition-page" id="liga-general">
+      <div class="competition-hero general"><p class="eyebrow">TEMPORADA COMPLETA</p><h2>LIGA <em>GENERAL</em></h2><p>La clasificación definitiva de la temporada, con la puntuación global acumulada por los doce clubes.</p></div>
+      <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="generalList"></div></div>
+    </section>
+
+    <section class="page teams-page" id="equipos">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow red">LOS PROTAGONISTAS</p>
+          <h2>NUESTROS <em>EQUIPOS</em></h2>
+        </div>
+        <p>Doce clubes, doce formas de vivir el fútbol. Entra en cada escudo para descubrir su historia.</p>
+      </div>
+      <div class="teams-grid" id="teamsGrid"></div>
+    </section>
+
+    <section class="page club-page" id="club">
+      <button class="back-button" data-route="equipos">← Volver a equipos</button>
+      <div class="club-hero">
+        <div class="club-crest" id="clubCrest">E1</div>
+        <div class="club-identity"><p class="eyebrow">FICHA DEL CLUB</p><h2 id="clubName">EQUIPO 1</h2><p class="club-manager">MANAGER · <strong id="clubManager">Por asignar</strong></p><p id="clubMotto">La historia está a punto de escribirse.</p></div>
+        <aside class="club-badges"><div class="manager-balance"><small>SALDO DEL MANAGER</small><strong id="managerBalance">0 €</strong><span id="balanceMovement">Saldo inicial: 0 €</span></div><p class="badges-label">INSIGNIAS DEL CLUB</p><div class="badges-list" id="clubBadges"></div></aside>
+      </div>
+      <section class="lineup-section">
+        <div class="lineup-heading"><div><p class="eyebrow red">ONCE TITULAR</p><h3>ALINEACIÓN DE LA <span>JORNADA</span></h3></div><label>SELECCIONAR JORNADA<select id="lineupMatchday"></select></label></div>
+        <div class="football-field" id="footballField"></div>
+        <div class="lineup-summary"><span>FORMACIÓN · <b id="lineupFormation">1-4-3-3</b></span><div><small>PUNTOS DEL ONCE</small><strong id="lineupTotal">0</strong><b>PTS</b></div></div>
+      </section>
+      <section class="transfers-section">
+        <div class="transfers-heading"><div><p class="eyebrow red">MOVIMIENTOS DEL CLUB</p><h3>MERCADO DE <span>FICHAJES</span></h3></div></div>
+        <div class="transfers-table-wrap"><table class="transfers-table"><thead><tr><th>#</th><th>Jugador</th><th>Operación</th><th>Precio</th></tr></thead><tbody id="transfersList"></tbody></table><div class="transfers-empty" id="transfersEmpty">Las compras y ventas del club aparecerán aquí.</div></div>
+      </section>
+      <section class="matchdays-section">
+        <div class="matchdays-heading"><div><p class="eyebrow red">RENDIMIENTO</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><div class="matchdays-total"><small>TOTAL ACUMULADO</small><strong id="matchdaysTotal">0</strong><span>PTS</span></div></div>
+        <div class="journey-highlights"><article class="highlight-card best"><small>MEJOR JORNADA</small><strong id="bestMatchdayPoints">0</strong><span>PTS</span><p id="bestMatchdayLabel">Jornada —</p></article><article class="highlight-card worst"><small>PEOR JORNADA</small><strong id="worstMatchdayPoints">0</strong><span>PTS</span><p id="worstMatchdayLabel">Jornada —</p></article></div>
+        <div class="chart-card white-chart"><div class="chart-scale" id="chartScale"></div><div class="columns-chart" id="matchdaysChart"></div></div>
+        <div class="rounds-columns">
+          <div class="round-block"><div class="round-title"><span>01</span><div><small>PRIMERA VUELTA</small><strong>TORNEO APERTURA</strong></div></div><div class="round-list" id="aperturaMatchdays"></div></div>
+          <div class="round-block"><div class="round-title"><span>02</span><div><small>SEGUNDA VUELTA</small><strong>TORNEO CLAUSURA</strong></div></div><div class="round-list" id="clausuraMatchdays"></div></div>
+        </div>
+      </section>
+      <section class="history-section">
+        <div class="history-heading"><div><p class="eyebrow red">ARCHIVO DEL CLUB</p><h3>JUGADORES <span>UTILIZADOS</span></h3></div><label>ORDENAR POR PUNTOS<select id="historySort"><option value="desc">Mayor a menor</option><option value="asc">Menor a mayor</option></select></label></div>
+        <div class="history-table-wrap"><table class="history-table"><thead><tr><th>#</th><th>Jugador</th><th>Puntos acumulados</th></tr></thead><tbody id="historyList"></tbody></table><div class="history-empty" id="historyEmpty">El histórico aparecerá cuando añadas jugadores desde Administración.</div></div>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal" id="adminModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="adminClose" aria-label="Cerrar">×</button>
+      <div id="loginView">
+        <span class="lock-icon">◆</span>
+        <p class="eyebrow red">ÁREA PRIVADA</p>
+        <h2 id="adminTitle">ACCESO ADMINISTRADOR</h2>
+        <p class="muted">Introduce tu contraseña para editar el contenido de la liga.</p>
+        <form id="loginForm">
+          <label for="password">Contraseña</label>
+          <input id="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+          <p class="form-error" id="loginError" role="alert"></p>
+          <button class="button button-red" type="submit">ENTRAR</button>
+        </form>
+        <p class="demo-note">Primera entrada: <code>cambiar-esta-clave</code></p>
+      </div>
+      <div id="editorView" hidden>
+        <p class="eyebrow red">PANEL DE CONTROL</p>
+        <h2>EDITAR LA LIGA</h2>
+        <form id="editorForm">
+          <div class="form-row"><label>Nombre de la liga<input id="editLeague" maxlength="24"></label><label>Temporada<input id="editSeason" maxlength="12"></label></div>
+          <label>Texto de bienvenida<textarea id="editWelcome" rows="3" maxlength="180"></textarea></label>
+          <h3>Equipos, managers y puntuación</h3>
+          <div class="team-inputs" id="teamInputs"></div>
+          <button class="button button-red" type="submit">GUARDAR CAMBIOS</button>
+          <button class="text-button" id="changePassword" type="button">Cambiar contraseña</button>
+          <p class="save-message" id="saveMessage"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
