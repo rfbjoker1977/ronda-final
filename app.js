@@ -108,16 +108,20 @@ document.getElementById("menuToggle").addEventListener("click",()=>document.getE
 const modal=document.getElementById("adminModal");
 function openModal(){modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.getElementById("password").focus()}
 function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.getElementById("loginError").textContent=""}
+function enterAdmin(){
+  document.getElementById("loginView").hidden=true;document.getElementById("editorView").hidden=false;
+  document.getElementById("editLeague").value=data.league;document.getElementById("editSeason").value=data.season;document.getElementById("editWelcome").value=data.welcome;renderTeamEditors();renderBadgeLibraries();
+}
+window.enterAdmin=enterAdmin;
 document.getElementById("adminOpen").addEventListener("click",openModal);
 document.getElementById("adminClose").addEventListener("click",closeModal);
 modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 document.getElementById("loginForm").addEventListener("submit",async e=>{
   e.preventDefault();const password=document.getElementById("password").value,errorBox=document.getElementById("loginError");
-  if(window.remoteEnabled){try{await remoteLogin(password)}catch(error){errorBox.textContent="No se pudo entrar. Comprueba la contraseña y que hayas confirmado tu correo.";return}}
+  if(window.remoteEnabled){try{await remoteLogin(password)}catch(error){errorBox.textContent=error.message||"No se pudo iniciar sesión.";return}}
   else{const saved=localStorage.getItem(PASSWORD_KEY)||"cambiar-esta-clave";if(password!==saved){errorBox.textContent="Contraseña incorrecta.";return}}
-  document.getElementById("loginView").hidden=true;document.getElementById("editorView").hidden=false;
-  document.getElementById("editLeague").value=data.league;document.getElementById("editSeason").value=data.season;document.getElementById("editWelcome").value=data.welcome;renderTeamEditors();renderBadgeLibraries();
+  enterAdmin();
 });
 document.getElementById("teamInputs").addEventListener("change",async e=>{
   const input=e.target.closest("[data-crest-input],[data-badge-input]");if(!input||!input.files[0])return;
