@@ -1,16 +1,16 @@
 const DEFAULT_CRESTS=[
   "imagenes/escudos_equipos/atletico_lesterol_512x512.png",
-  "imagenes/escudos_equipos/aubameyang_y_10_mas_512x512.png",
-  "imagenes/escudos_equipos/mariscos_recio_512x512.png",
-  "imagenes/escudos_equipos/maccabi_de_levantar_512x512.png",
-  "imagenes/escudos_equipos/recreativo_de_juerga_512x512.png",
-  "imagenes/escudos_equipos/renacidos_cf_512x512.png",
-  "imagenes/escudos_equipos/sporting_de_finidi_512x512.png",
-  "imagenes/escudos_equipos/moleiros_team_512x512.png",
-  "imagenes/escudos_equipos/los_pridecines_512x512.png",
-  "imagenes/escudos_equipos/ozempic_de_leon_512x512.png",
-  "imagenes/escudos_equipos/equipo_11_512x512.png",
-  "imagenes/escudos_equipos/aston_birra_512x512.png"
+  "imagenes/escudos_equipos/aubameyang_y_10_mas_transparent_512x512.png",
+  "imagenes/escudos_equipos/mariscos_recio_transparent_512x512.png",
+  "imagenes/escudos_equipos/maccabi_de_levantar_transparent_512x512.png",
+  "imagenes/escudos_equipos/recreativo_de_juerga_transparent_512x512.png",
+  "imagenes/escudos_equipos/renacidos_cf_transparent_512x512.png",
+  "imagenes/escudos_equipos/sporting_de_finidi_transparent_512x512.png",
+  "imagenes/escudos_equipos/moleiros_team_transparent_512x512.png",
+  "imagenes/escudos_equipos/los_pridecines_transparent_512x512.png",
+  "imagenes/escudos_equipos/ozempic_de_leon_transparent_512x512.png",
+  "imagenes/escudos_equipos/equipo_11_transparent_512x512.png",
+  "imagenes/escudos_equipos/aston_birra_transparent_512x512.png"
 ];
 const DEFAULT_CLUBS=Array.from({length:12},(_,i)=>({
   name:i===0?"Atlético Lesterol":`Equipo ${i+1}`,
