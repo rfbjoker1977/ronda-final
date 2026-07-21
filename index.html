@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="competitions.css">
   <link rel="stylesheet" href="cups.css?v=20260721-twelve-teams">
   <link rel="stylesheet" href="ranking-rf.css?v=20260721-ranking-lock">
+  <link rel="stylesheet" href="news-home.css?v=20260721-news">
   <link rel="stylesheet" href="roster.css">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
@@ -77,31 +78,32 @@
           <a class="home-cup-card" href="#copa-apertura" data-route="copa-apertura"><span>04</span><div><small>ELIMINATORIA · DOBLE PARTIDO</small><h3>COPA APERTURA</h3><p>Ronda previa, cuartos, semifinales y final.</p></div><b>VER CUADRO →</b></a>
           <a class="home-cup-card" href="#copa-clausura" data-route="copa-clausura"><span>05</span><div><small>ELIMINATORIA · DOBLE PARTIDO</small><h3>COPA CLAUSURA</h3><p>Una segunda oportunidad de levantar la copa.</p></div><b>VER CUADRO →</b></a>
         </div>
+        <section class="home-news-section"><div class="home-news-heading"><div><p class="eyebrow red">ACTUALIDAD RF</p><h2>NOTICIAS, NOVEDADES <em>Y EVENTOS</em></h2></div><p>Comunicados, fechas importantes y todo lo que ocurre alrededor de la competición.</p></div><div class="home-news-grid" id="homeNewsGrid"></div></section>
       </section>
     </section>
 
     <section class="page competition-page" id="apertura">
-      <div class="competition-hero"><p class="eyebrow">PRIMERA VUELTA</p><h2>LIGA <em>APERTURA</em></h2><p>El primer gran desafío de la temporada. La clasificación recoge exclusivamente los puntos obtenidos durante la primera vuelta.</p></div>
+      <div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Liga Apertura"><span>LIGA APERTURA</span></div><p class="eyebrow">PRIMERA VUELTA</p><h2>LIGA <em>APERTURA</em></h2><p>El primer gran desafío de la temporada. La clasificación recoge exclusivamente los puntos obtenidos durante la primera vuelta.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="aperturaList"></div></div>
     </section>
 
     <section class="page competition-page" id="clausura">
-      <div class="competition-hero"><p class="eyebrow">SEGUNDA VUELTA</p><h2>LIGA <em>CLAUSURA</em></h2><p>La segunda mitad del campeonato. Una nueva clasificación y otra oportunidad para conquistar un título.</p></div>
+      <div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Liga Clausura"><span>LIGA CLAUSURA</span></div><p class="eyebrow">SEGUNDA VUELTA</p><h2>LIGA <em>CLAUSURA</em></h2><p>La segunda mitad del campeonato. Una nueva clasificación y otra oportunidad para conquistar un título.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="clausuraList"></div></div>
     </section>
 
     <section class="page competition-page" id="liga-general">
-      <div class="competition-hero general"><p class="eyebrow">TEMPORADA COMPLETA</p><h2>LIGA <em>RONDA FINAL</em></h2><p>La clasificación definitiva de la temporada, con la puntuación global acumulada por todos los clubes.</p></div>
+      <div class="competition-hero general"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Liga Ronda Final"><span>LIGA RONDA FINAL</span></div><p class="eyebrow">TEMPORADA COMPLETA</p><h2>LIGA <em>RONDA FINAL</em></h2><p>La clasificación definitiva de la temporada, con la puntuación global acumulada por todos los clubes.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="generalList"></div></div>
     </section>
 
     <section class="page cup-page" id="copa-apertura">
-      <div class="cup-hero"><p class="eyebrow">PRIMER TORNEO ELIMINATORIO</p><h2>COPA <em>APERTURA</em></h2><p>Doce clubes y seis eliminatorias a doble partido. Los seis ganadores y los dos mejores segundos avanzan a cuartos.</p></div>
+      <div class="cup-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Copa Apertura"><span>COPA APERTURA</span></div><p class="eyebrow">PRIMER TORNEO ELIMINATORIO</p><h2>COPA <em>APERTURA</em></h2><p>Doce clubes y seis eliminatorias a doble partido. Los seis ganadores y los dos mejores segundos avanzan a cuartos.</p></div>
       <div class="cup-format" data-cup="Copa Apertura"></div>
     </section>
 
     <section class="page cup-page" id="copa-clausura">
-      <div class="cup-hero clausura"><p class="eyebrow">SEGUNDO TORNEO ELIMINATORIO</p><h2>COPA <em>CLAUSURA</em></h2><p>El mismo formato, un nuevo sorteo y otra ruta hacia el título. Todas las fechas permanecen pendientes.</p></div>
+      <div class="cup-hero clausura"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Copa Clausura"><span>COPA CLAUSURA</span></div><p class="eyebrow">SEGUNDO TORNEO ELIMINATORIO</p><h2>COPA <em>CLAUSURA</em></h2><p>El mismo formato, un nuevo sorteo y otra ruta hacia el título. Todas las fechas permanecen pendientes.</p></div>
       <div class="cup-format" data-cup="Copa Clausura"></div>
     </section>
 
@@ -178,6 +180,7 @@
           <div class="form-row"><label>Nombre de la liga<input id="editLeague" maxlength="24"></label><label>Temporada<input id="editSeason" maxlength="12"></label></div>
           <label>Texto de bienvenida<textarea id="editWelcome" rows="3" maxlength="180"></textarea></label>
           <fieldset class="league-status-editor"><legend>Cierre oficial para Ranking RF</legend><label><input id="completedApertura" type="checkbox"> Liga Apertura finalizada</label><label><input id="completedClausura" type="checkbox"> Liga Clausura finalizada</label><label><input id="completedGeneral" type="checkbox"> Liga Ronda Final finalizada</label><p>Hasta marcar una liga como finalizada, ni sus puntos ni su bonificación de clasificación se suman al Ranking RF.</p></fieldset>
+          <section class="news-admin-section"><h3>Noticias, novedades y eventos</h3><p class="muted">Publica y ordena los contenidos de la portada. El enlace es opcional.</p><div id="newsAdminList"></div><button class="news-add" type="button">＋ AÑADIR PUBLICACIÓN</button></section>
           <h3>Equipos, managers y puntuación</h3>
           <div class="team-inputs" id="teamInputs"></div>
           <section class="cup-admin-section"><h3>Copas · equipos y resultados</h3><p class="muted">Selecciona participantes, escribe los marcadores de ida y vuelta y marca el clasificado. Cada eliminatoria ganada sumará 50 PR automáticamente.</p><div id="cupAdminEditors"></div></section>
@@ -190,7 +193,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <script src="app.js?v=20260721-ranking-lock"></script>
-  <script src="supabase-sync.js?v=20260721-ranking-lock"></script>
+  <script src="app.js?v=20260721-news"></script>
+  <script src="supabase-sync.js?v=20260721-news"></script>
 </body>
 </html>
