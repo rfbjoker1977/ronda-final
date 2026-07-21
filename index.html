@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="competitions.css">
   <link rel="stylesheet" href="cups.css?v=20260721-twelve-teams">
   <link rel="stylesheet" href="ranking-rf.css?v=20260721-distinct-badges">
-  <link rel="stylesheet" href="news-home.css?v=20260721-news-horizontal-256">
+  <link rel="stylesheet" href="news-home.css?v=20260721-news-two-columns">
   <link rel="stylesheet" href="roster.css">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="finance-formation.css">
   <link rel="stylesheet" href="admin-refinements.css">
   <link rel="stylesheet" href="admin-alternating.css">
-  <link rel="stylesheet" href="badge-fit.css?v=20260721-ranking-compact-hero-3">
+  <link rel="stylesheet" href="badge-fit.css?v=20260721-club-visuals">
 </head>
 <body>
   <header class="site-header">
@@ -125,11 +125,11 @@
       <div class="club-hero">
         <div class="club-crest" id="clubCrest">E1</div>
         <div class="club-identity"><p class="eyebrow">FICHA DEL CLUB</p><h2 id="clubName">EQUIPO 1</h2><p class="club-manager">MANAGER · <strong id="clubManager">Por asignar</strong></p><p id="clubMotto">La historia está a punto de escribirse.</p></div>
-        <aside class="club-badges"><div class="manager-balance"><small>SALDO DEL MANAGER</small><strong id="managerBalance">0 €</strong><span id="balanceMovement">Saldo inicial: 0 €</span></div><p class="badges-label">INSIGNIAS DEL CLUB</p><div class="badges-list" id="clubBadges"></div></aside>
+        <aside class="club-badges"><p class="badges-label">INSIGNIAS DEL CLUB</p><div class="badges-list" id="clubBadges"></div></aside>
       </div>
-      <section class="transfers-section">
-        <div class="transfers-heading"><div><p class="eyebrow red">MOVIMIENTOS DEL CLUB</p><h3>MERCADO DE <span>FICHAJES</span></h3></div></div>
-        <div class="transfers-table-wrap"><table class="transfers-table"><thead><tr><th>#</th><th>Jugador</th><th>Operación</th><th>Precio</th></tr></thead><tbody id="transfersList"></tbody></table><div class="transfers-empty" id="transfersEmpty">Las compras y ventas del club aparecerán aquí.</div></div>
+      <section class="club-visuals" aria-label="Equipación y escudo del club">
+        <article><small>EQUIPACIÓN</small><div class="club-visual-frame"><img id="clubKitImage" alt="Equipación del club" hidden><span>IMAGEN 512 × 512</span></div></article>
+        <article><small>ESCUDO</small><div class="club-visual-frame"><img id="clubDisplayCrest" alt="Escudo del club" hidden><span>IMAGEN 512 × 512</span></div></article>
       </section>
       <section class="matchdays-section">
         <div class="matchdays-heading"><div><p class="eyebrow red">RENDIMIENTO</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><div class="matchdays-total"><small>TOTAL ACUMULADO</small><strong id="matchdaysTotal">0</strong><span>PTS</span></div></div>
@@ -139,6 +139,10 @@
           <div class="round-block"><div class="round-title"><span>01</span><div><small>PRIMERA VUELTA</small><strong>LIGA APERTURA</strong></div></div><div class="round-list" id="aperturaMatchdays"></div></div>
           <div class="round-block"><div class="round-title"><span>02</span><div><small>SEGUNDA VUELTA</small><strong>LIGA CLAUSURA</strong></div></div><div class="round-list" id="clausuraMatchdays"></div></div>
         </div>
+      </section>
+      <section class="transfers-section">
+        <div class="transfers-heading"><div><p class="eyebrow red">MOVIMIENTOS DEL CLUB</p><h3>MERCADO DE <span>FICHAJES</span></h3></div></div>
+        <div class="transfers-table-wrap"><table class="transfers-table"><thead><tr><th>#</th><th>Jugador</th><th>Operación</th><th>Precio</th></tr></thead><tbody id="transfersList"></tbody></table><div class="transfers-empty" id="transfersEmpty">Las compras y ventas del club aparecerán aquí.</div></div>
       </section>
       <section class="history-section">
         <div class="history-heading"><div><p class="eyebrow red">ARCHIVO DEL CLUB</p><h3>JUGADORES <span>UTILIZADOS</span></h3></div><label>ORDENAR POR PUNTOS<select id="historySort"><option value="desc">Mayor a menor</option><option value="asc">Menor a mayor</option></select></label></div>
@@ -185,7 +189,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <script src="app.js?v=20260721-ranking-news-lineups"></script>
+  <script src="app.js?v=20260721-club-visuals-motto"></script>
   <script src="supabase-sync.js?v=20260721-raster-badges"></script>
 </body>
 </html>
