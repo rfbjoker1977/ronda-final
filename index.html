@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="badges.css">
   <link rel="stylesheet" href="competitions.css">
   <link rel="stylesheet" href="cups.css?v=20260721-five-competitions">
+  <link rel="stylesheet" href="ranking-rf.css?v=20260721-ranking-rf">
   <link rel="stylesheet" href="roster.css">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
@@ -43,6 +44,7 @@
       <a href="#liga-general" data-route="liga-general">Liga Ronda Final</a>
       <a href="#copa-apertura" data-route="copa-apertura">Copa Apertura</a>
       <a href="#copa-clausura" data-route="copa-clausura">Copa Clausura</a>
+      <a href="#ranking-rf" data-route="ranking-rf">Ranking RF</a>
       <button class="admin-link" id="adminOpen"><span>●</span> Administrador</button>
     </nav>
   </header>
@@ -68,12 +70,10 @@
           <div><p class="eyebrow red">CINCO CAMPEONATOS</p><h2>LA LUCHA POR <em>CINCO CORONAS</em></h2></div>
           <p>Tres ligas por puntos y dos copas eliminatorias a doble partido componen la temporada de Ronda Final.</p>
         </div>
-        <div class="home-round-rankings">
-          <article class="home-ranking-card"><div class="home-ranking-title"><span>01</span><div><small>PRIMERA VUELTA</small><h3>LIGA APERTURA</h3></div><a href="#apertura" data-route="apertura">VER LIGA →</a></div><div class="compact-standings" id="aperturaHomeList"></div></article>
-          <article class="home-ranking-card"><div class="home-ranking-title"><span>02</span><div><small>SEGUNDA VUELTA</small><h3>LIGA CLAUSURA</h3></div><a href="#clausura" data-route="clausura">VER LIGA →</a></div><div class="compact-standings" id="clausuraHomeList"></div></article>
-        </div>
-        <article class="general-home-ranking"><div class="general-ranking-title"><div><small>TEMPORADA COMPLETA</small><h3>LIGA RONDA FINAL</h3></div><a href="#liga-general" data-route="liga-general">VER CLASIFICACIÓN COMPLETA →</a></div><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="standingsList"></div></div></article>
-        <div class="home-cups">
+        <div class="home-competitions">
+          <a class="home-cup-card" href="#apertura" data-route="apertura"><span>01</span><div><small>PRIMERA VUELTA · LIGA</small><h3>LIGA APERTURA</h3><p>Noticias, avisos y acceso a la clasificación.</p></div><b>ENTRAR →</b></a>
+          <a class="home-cup-card" href="#clausura" data-route="clausura"><span>02</span><div><small>SEGUNDA VUELTA · LIGA</small><h3>LIGA CLAUSURA</h3><p>Noticias, avisos y acceso a la clasificación.</p></div><b>ENTRAR →</b></a>
+          <a class="home-cup-card featured" href="#liga-general" data-route="liga-general"><span>03</span><div><small>TEMPORADA COMPLETA · LIGA</small><h3>LIGA RONDA FINAL</h3><p>Noticias, avisos y clasificación definitiva.</p></div><b>ENTRAR →</b></a>
           <a class="home-cup-card" href="#copa-apertura" data-route="copa-apertura"><span>04</span><div><small>ELIMINATORIA · DOBLE PARTIDO</small><h3>COPA APERTURA</h3><p>Ronda previa, cuartos, semifinales y final.</p></div><b>VER CUADRO →</b></a>
           <a class="home-cup-card" href="#copa-clausura" data-route="copa-clausura"><span>05</span><div><small>ELIMINATORIA · DOBLE PARTIDO</small><h3>COPA CLAUSURA</h3><p>Una segunda oportunidad de levantar la copa.</p></div><b>VER CUADRO →</b></a>
         </div>
@@ -103,6 +103,11 @@
     <section class="page cup-page" id="copa-clausura">
       <div class="cup-hero clausura"><p class="eyebrow">SEGUNDO TORNEO ELIMINATORIO</p><h2>COPA <em>CLAUSURA</em></h2><p>El mismo formato, un nuevo sorteo y otra ruta hacia el título. Todas las fechas permanecen pendientes.</p></div>
       <div class="cup-format" data-cup="Copa Clausura"></div>
+    </section>
+
+    <section class="page ranking-page" id="ranking-rf">
+      <div class="ranking-hero"><p class="eyebrow">CLASIFICACIÓN HISTÓRICA GLOBAL</p><h2>RANKING <em>RF</em></h2><p>Cada punto, cada posición y cada eliminatoria dejan huella. El Ranking RF reúne el rendimiento de todos los campeonatos.</p></div>
+      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado en cualquier liga</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición</span></article><article><b>+50 PR</b><span>Por eliminatoria de copa ganada. El exento no suma</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>PARTICIPACIÓN</span><span>BONUS LIGAS</span><span>COPAS</span><span>TOTAL</span></div><div id="rankingRfList"></div></section></div>
     </section>
 
     <section class="page teams-page" id="equipos">
@@ -174,6 +179,7 @@
           <label>Texto de bienvenida<textarea id="editWelcome" rows="3" maxlength="180"></textarea></label>
           <h3>Equipos, managers y puntuación</h3>
           <div class="team-inputs" id="teamInputs"></div>
+          <section class="cup-admin-section"><h3>Copas · equipos y resultados</h3><p class="muted">Selecciona participantes, escribe los marcadores de ida y vuelta y marca el clasificado. Cada eliminatoria ganada sumará 50 PR automáticamente.</p><div id="cupAdminEditors"></div></section>
           <button class="button button-red" type="submit">GUARDAR CAMBIOS</button>
           <button class="text-button" id="changePassword" type="button">Cambiar contraseña</button>
           <p class="save-message" id="saveMessage"></p>
@@ -183,7 +189,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <script src="app.js?v=20260721-five-competitions"></script>
-  <script src="supabase-sync.js?v=20260721-five-competitions"></script>
+  <script src="app.js?v=20260721-ranking-rf"></script>
+  <script src="supabase-sync.js?v=20260721-ranking-rf"></script>
 </body>
 </html>
