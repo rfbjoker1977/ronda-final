@@ -124,7 +124,7 @@ function renderTeamEditors(){
 function navigate(route){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
   const isClub=route.startsWith("club/");
-  const target=isClub?"club":(["inicio","equipos","apertura","clausura","liga-general","copa-apertura","copa-clausura","ranking-rf"].includes(route)?route:"inicio");
+  const target=isClub?"club":(["inicio","equipos","apertura","clausura","liga-general","copa-apertura","copa-clausura","ranking-rf","ayuda"].includes(route)?route:"inicio");
   document.getElementById(target).classList.add("active");
   document.querySelectorAll(".nav a").forEach(a=>a.classList.toggle("active",a.dataset.route===target));
   if(isClub){
@@ -144,6 +144,7 @@ function navigate(route){
   document.getElementById("mainNav").classList.remove("open");window.scrollTo(0,0);
 }
 document.addEventListener("click",e=>{const route=e.target.closest("[data-route]");if(route){e.preventDefault();location.hash=route.dataset.route}const club=e.target.closest("[data-club]");if(club){e.preventDefault();location.hash=`club/${club.dataset.club}`}});
+document.addEventListener("click",e=>{const jump=e.target.closest("[data-help-target]");if(!jump)return;e.preventDefault();document.getElementById(jump.dataset.helpTarget)?.scrollIntoView({behavior:"smooth",block:"start"})});
 window.addEventListener("hashchange",()=>navigate(location.hash.slice(1)||"inicio"));
 document.getElementById("historySort").addEventListener("change",()=>renderHistory(data.clubs[currentClubIndex]));
 document.getElementById("menuToggle").addEventListener("click",()=>document.getElementById("mainNav").classList.toggle("open"));

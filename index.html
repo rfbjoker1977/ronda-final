@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="admin-refinements.css">
   <link rel="stylesheet" href="admin-alternating.css">
   <link rel="stylesheet" href="badge-fit.css?v=20260721-club-visuals">
+  <link rel="stylesheet" href="help.css?v=20260721-help-guide">
 </head>
 <body>
   <header class="site-header">
@@ -47,6 +48,7 @@
       <a href="#copa-apertura" data-route="copa-apertura">Copa Apertura</a>
       <a href="#copa-clausura" data-route="copa-clausura">Copa Clausura</a>
       <a href="#ranking-rf" data-route="ranking-rf">Ranking RF</a>
+      <a href="#ayuda" data-route="ayuda">Ayuda</a>
       <button class="admin-link" id="adminOpen"><span>●</span> Administrador</button>
     </nav>
   </header>
@@ -149,6 +151,17 @@
         <div class="history-table-wrap"><table class="history-table"><thead><tr><th>#</th><th>Jugador</th><th>Puntos acumulados</th></tr></thead><tbody id="historyList"></tbody></table><div class="history-empty" id="historyEmpty">El histórico aparecerá cuando añadas jugadores desde Administración.</div></div>
       </section>
     </section>
+    <section class="page help-page" id="ayuda">
+      <header class="help-hero"><div><p class="eyebrow">MANUAL DE SUPERVIVENCIA RF</p><h2>¿CÓMO VA <em>TODO ESTO?</em></h2><p>La guía rápida para competir, seguir la temporada y saber por qué ese rival acaba de adelantarte en el Ranking RF.</p></div><div class="help-scoreboard"><small>TEMPORADA EN JUEGO</small><strong>5</strong><span>CAMPEONATOS</span><i>12 CLUBES · 1 UNIVERSO</i></div></header>
+      <div class="help-content">
+        <nav class="help-jump" aria-label="Índice de ayuda"><a href="#ayuda" data-help-target="ayuda-inicio">INICIO</a><a href="#ayuda" data-help-target="ayuda-competiciones">COMPETICIONES</a><a href="#ayuda" data-help-target="ayuda-ranking">RANKING RF</a><a href="#ayuda" data-help-target="ayuda-clubes">CLUBES</a><a href="#ayuda" data-help-target="ayuda-insignias">INSIGNIAS</a></nav>
+        <section class="help-block" id="ayuda-inicio"><div class="help-number">01</div><div class="help-copy"><p class="eyebrow red">EL PUNTO DE PARTIDA</p><h3>LA PORTADA ES TU <span>VESTUARIO</span></h3><p>Arriba aparecen las noticias oficiales y los avisos. Debajo están las cinco tarjetas de torneos: cada una abre directamente su clasificación o cuadro eliminatorio.</p><div class="help-tip"><b>CONSEJO DEL MÍSTER</b><span>Consulta las noticias antes de cada jornada. Los cambios de fechas, normas y resultados aparecerán ahí.</span></div></div><div class="help-mini-home"><article><span>RF</span><b>NOTICIAS</b><small>Lo último, primero</small></article><i>↓</i><article><span>05</span><b>TORNEOS</b><small>Un acceso por campeonato</small></article></div></section>
+        <section class="help-block reverse" id="ayuda-competiciones"><div class="help-number">02</div><div class="help-copy"><p class="eyebrow red">CINCO CAMINOS AL TÍTULO</p><h3>LAS <span>COMPETICIONES</span></h3><p>La temporada se divide en tres ligas y dos copas. Las tablas de liga ordenan a los clubes por puntos. Las copas se resuelven mediante eliminatorias a doble partido.</p><div class="help-league-cards"><a href="#apertura" data-route="apertura"><small>LIGA</small><b>APERTURA</b><span>Primera vuelta</span></a><a href="#clausura" data-route="clausura"><small>LIGA</small><b>CLAUSURA</b><span>Segunda vuelta</span></a><a class="queen" href="#liga-general" data-route="liga-general"><small>CATEGORÍA REINA</small><b>RONDA FINAL</b><span>Clasificación global</span></a></div></div><div class="help-cup-route"><div><b>12</b><span>EQUIPOS</span></div><i>→</i><div><b>6</b><span>GANADORES</span></div><em>+</em><div><b>2</b><span>MEJORES PERDEDORES</span></div><i>→</i><div class="red"><b>8</b><span>CUARTOS</span></div><i>→</i><div><b>4</b><span>SEMIS</span></div><i>→</i><div class="gold"><b>1</b><span>CAMPEÓN</span></div><p>En la primera ronda avanzan los seis ganadores y los dos mejores perdedores.</p></div></section>
+        <section class="help-block dark" id="ayuda-ranking"><div class="help-number">03</div><div class="help-copy"><p class="eyebrow">LA CLASIFICACIÓN DE CLASIFICACIONES</p><h3>RANKING <span>RF</span></h3><p>Reúne lo conseguido en todos los campeonatos. Los puntos ordinarios y las rondas de copa se actualizan al momento; las bonificaciones por posición entran cuando termina la liga correspondiente.</p><a class="help-link" href="#ranking-rf" data-route="ranking-rf">ABRIR RANKING RF →</a></div><div class="help-pr-grid"><article><b>+1</b><span>PR por cada punto ganado</span><small>JORNADA A JORNADA</small></article><article><b>+50</b><span>PR por eliminatoria ganada</span><small>EL EXENTO NO CUENTA</small></article><article><b>600</b><span>Campeón de Apertura o Clausura</span><small>400 AL 2.º · 300 AL 3.º · LUEGO −25</small></article><article><b>1200</b><span>Campeón de Liga Ronda Final</span><small>800 AL 2.º · 600 AL 3.º · LUEGO −50</small></article></div></section>
+        <section class="help-block" id="ayuda-clubes"><div class="help-number">04</div><div class="help-copy"><p class="eyebrow red">TU CASA, TUS COLORES</p><h3>LA FICHA DEL <span>CLUB</span></h3><p>Entra desde “Equipos” y pulsa cualquier tarjeta. Cada ficha concentra la identidad y el rendimiento del club.</p><ol class="help-checklist"><li><b>Hero:</b> nombre, manager, lema e insignias.</li><li><b>Equipación y escudo:</b> las imágenes oficiales.</li><li><b>Puntos por jornada:</b> total, mejores y peores fechas, gráfica y 38 jornadas.</li><li><b>Mercado:</b> historial de compras y ventas.</li><li><b>Jugadores utilizados:</b> archivo ordenable por puntos.</li></ol><a class="help-link light" href="#equipos" data-route="equipos">VER LOS EQUIPOS →</a></div><div class="help-club-map"><div class="help-shirt">RF</div><span class="map-line one">IDENTIDAD</span><span class="map-line two">RENDIMIENTO</span><span class="map-line three">MERCADO</span><span class="map-line four">HISTÓRICO</span></div></section>
+        <section class="help-block badges-help" id="ayuda-insignias"><div class="help-number">05</div><div class="help-copy"><p class="eyebrow red">LA VITRINA</p><h3>INSIGNIAS Y <span>ESTRELLAS</span></h3><p>Cada competición tiene su insignia. Al conquistar un título se ilumina una estrella: una estrella equivale a un campeonato ganado. Hay diez huecos por torneo.</p><div class="help-stars"><span>★</span><span>★</span><span class="empty">★</span><span class="empty">★</span><span class="empty">★</span><b>2 TÍTULOS</b></div><p>También pueden aparecer insignias especiales por hitos del club, como fundador, mejor jornada u otros reconocimientos.</p></div><div class="help-final-whistle"><small>SI SIGUES TENIENDO DUDAS…</small><strong>JUEGA.<br>MIRA LA TABLA.<br>REPITE.</strong><a href="#inicio" data-route="inicio">VOLVER AL INICIO →</a></div></section>
+      </div>
+    </section>
   </main>
 
   <div class="modal" id="adminModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
@@ -189,7 +202,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <script src="app.js?v=20260721-club-visuals-motto"></script>
+  <script src="app.js?v=20260721-help-guide"></script>
   <script src="supabase-sync.js?v=20260721-raster-badges"></script>
 </body>
 </html>
