@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="badges.css">
   <link rel="stylesheet" href="competitions.css">
+  <link rel="stylesheet" href="cups.css?v=20260721-five-competitions">
   <link rel="stylesheet" href="roster.css">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
@@ -37,9 +38,11 @@
     <nav class="nav" id="mainNav" aria-label="Navegación principal">
       <a href="#inicio" data-route="inicio" class="active">Inicio</a>
       <a href="#equipos" data-route="equipos">Equipos</a>
-      <a href="#apertura" data-route="apertura">Apertura</a>
-      <a href="#clausura" data-route="clausura">Clausura</a>
-      <a href="#liga-general" data-route="liga-general">Liga General</a>
+      <a href="#apertura" data-route="apertura">Liga Apertura</a>
+      <a href="#clausura" data-route="clausura">Liga Clausura</a>
+      <a href="#liga-general" data-route="liga-general">Liga Ronda Final</a>
+      <a href="#copa-apertura" data-route="copa-apertura">Copa Apertura</a>
+      <a href="#copa-clausura" data-route="copa-clausura">Copa Clausura</a>
       <button class="admin-link" id="adminOpen"><span>●</span> Administrador</button>
     </nav>
   </header>
@@ -62,30 +65,44 @@
       </div>
       <section class="standings-section">
         <div class="standings-heading">
-          <div><p class="eyebrow red">LAS TRES COMPETICIONES</p><h2>LA LUCHA POR <em>LA CORONA</em></h2></div>
-          <p>Apertura y Clausura tienen su propia clasificación. La Liga General recoge la puntuación global de la temporada.</p>
+          <div><p class="eyebrow red">CINCO CAMPEONATOS</p><h2>LA LUCHA POR <em>CINCO CORONAS</em></h2></div>
+          <p>Tres ligas por puntos y dos copas eliminatorias a doble partido componen la temporada de Ronda Final.</p>
         </div>
         <div class="home-round-rankings">
-          <article class="home-ranking-card"><div class="home-ranking-title"><span>01</span><div><small>PRIMERA VUELTA</small><h3>TORNEO APERTURA</h3></div><a href="#apertura" data-route="apertura">VER TORNEO →</a></div><div class="compact-standings" id="aperturaHomeList"></div></article>
-          <article class="home-ranking-card"><div class="home-ranking-title"><span>02</span><div><small>SEGUNDA VUELTA</small><h3>TORNEO CLAUSURA</h3></div><a href="#clausura" data-route="clausura">VER TORNEO →</a></div><div class="compact-standings" id="clausuraHomeList"></div></article>
+          <article class="home-ranking-card"><div class="home-ranking-title"><span>01</span><div><small>PRIMERA VUELTA</small><h3>LIGA APERTURA</h3></div><a href="#apertura" data-route="apertura">VER LIGA →</a></div><div class="compact-standings" id="aperturaHomeList"></div></article>
+          <article class="home-ranking-card"><div class="home-ranking-title"><span>02</span><div><small>SEGUNDA VUELTA</small><h3>LIGA CLAUSURA</h3></div><a href="#clausura" data-route="clausura">VER LIGA →</a></div><div class="compact-standings" id="clausuraHomeList"></div></article>
         </div>
-        <article class="general-home-ranking"><div class="general-ranking-title"><div><small>TEMPORADA COMPLETA</small><h3>LIGA GENERAL</h3></div><a href="#liga-general" data-route="liga-general">VER CLASIFICACIÓN COMPLETA →</a></div><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="standingsList"></div></div></article>
+        <article class="general-home-ranking"><div class="general-ranking-title"><div><small>TEMPORADA COMPLETA</small><h3>LIGA RONDA FINAL</h3></div><a href="#liga-general" data-route="liga-general">VER CLASIFICACIÓN COMPLETA →</a></div><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="standingsList"></div></div></article>
+        <div class="home-cups">
+          <a class="home-cup-card" href="#copa-apertura" data-route="copa-apertura"><span>04</span><div><small>ELIMINATORIA · DOBLE PARTIDO</small><h3>COPA APERTURA</h3><p>Ronda previa, cuartos, semifinales y final.</p></div><b>VER CUADRO →</b></a>
+          <a class="home-cup-card" href="#copa-clausura" data-route="copa-clausura"><span>05</span><div><small>ELIMINATORIA · DOBLE PARTIDO</small><h3>COPA CLAUSURA</h3><p>Una segunda oportunidad de levantar la copa.</p></div><b>VER CUADRO →</b></a>
+        </div>
       </section>
     </section>
 
     <section class="page competition-page" id="apertura">
-      <div class="competition-hero"><p class="eyebrow">PRIMERA VUELTA</p><h2>TORNEO <em>APERTURA</em></h2><p>El primer gran desafío de la temporada. La clasificación recoge exclusivamente los puntos obtenidos durante la primera vuelta.</p></div>
+      <div class="competition-hero"><p class="eyebrow">PRIMERA VUELTA</p><h2>LIGA <em>APERTURA</em></h2><p>El primer gran desafío de la temporada. La clasificación recoge exclusivamente los puntos obtenidos durante la primera vuelta.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="aperturaList"></div></div>
     </section>
 
     <section class="page competition-page" id="clausura">
-      <div class="competition-hero"><p class="eyebrow">SEGUNDA VUELTA</p><h2>TORNEO <em>CLAUSURA</em></h2><p>La segunda mitad del campeonato. Una nueva clasificación y otra oportunidad para conquistar un título.</p></div>
+      <div class="competition-hero"><p class="eyebrow">SEGUNDA VUELTA</p><h2>LIGA <em>CLAUSURA</em></h2><p>La segunda mitad del campeonato. Una nueva clasificación y otra oportunidad para conquistar un título.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="clausuraList"></div></div>
     </section>
 
     <section class="page competition-page" id="liga-general">
-      <div class="competition-hero general"><p class="eyebrow">TEMPORADA COMPLETA</p><h2>LIGA <em>GENERAL</em></h2><p>La clasificación definitiva de la temporada, con la puntuación global acumulada por los doce clubes.</p></div>
+      <div class="competition-hero general"><p class="eyebrow">TEMPORADA COMPLETA</p><h2>LIGA <em>RONDA FINAL</em></h2><p>La clasificación definitiva de la temporada, con la puntuación global acumulada por todos los clubes.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="generalList"></div></div>
+    </section>
+
+    <section class="page cup-page" id="copa-apertura">
+      <div class="cup-hero"><p class="eyebrow">PRIMER TORNEO ELIMINATORIO</p><h2>COPA <em>APERTURA</em></h2><p>Once clubes, una plaza exenta por sorteo y eliminatorias a doble partido. Las fechas se publicarán cuando quede cerrado el calendario.</p></div>
+      <div class="cup-format" data-cup="Copa Apertura"></div>
+    </section>
+
+    <section class="page cup-page" id="copa-clausura">
+      <div class="cup-hero clausura"><p class="eyebrow">SEGUNDO TORNEO ELIMINATORIO</p><h2>COPA <em>CLAUSURA</em></h2><p>El mismo formato, un nuevo sorteo y otra ruta hacia el título. Todas las fechas permanecen pendientes.</p></div>
+      <div class="cup-format" data-cup="Copa Clausura"></div>
     </section>
 
     <section class="page teams-page" id="equipos">
@@ -120,8 +137,8 @@
         <div class="journey-highlights"><article class="highlight-card best"><small>MEJOR JORNADA</small><strong id="bestMatchdayPoints">0</strong><span>PTS</span><p id="bestMatchdayLabel">Jornada —</p></article><article class="highlight-card worst"><small>PEOR JORNADA</small><strong id="worstMatchdayPoints">0</strong><span>PTS</span><p id="worstMatchdayLabel">Jornada —</p></article></div>
         <div class="chart-card white-chart"><div class="chart-scale" id="chartScale"></div><div class="columns-chart" id="matchdaysChart"></div></div>
         <div class="rounds-columns">
-          <div class="round-block"><div class="round-title"><span>01</span><div><small>PRIMERA VUELTA</small><strong>TORNEO APERTURA</strong></div></div><div class="round-list" id="aperturaMatchdays"></div></div>
-          <div class="round-block"><div class="round-title"><span>02</span><div><small>SEGUNDA VUELTA</small><strong>TORNEO CLAUSURA</strong></div></div><div class="round-list" id="clausuraMatchdays"></div></div>
+          <div class="round-block"><div class="round-title"><span>01</span><div><small>PRIMERA VUELTA</small><strong>LIGA APERTURA</strong></div></div><div class="round-list" id="aperturaMatchdays"></div></div>
+          <div class="round-block"><div class="round-title"><span>02</span><div><small>SEGUNDA VUELTA</small><strong>LIGA CLAUSURA</strong></div></div><div class="round-list" id="clausuraMatchdays"></div></div>
         </div>
       </section>
       <section class="history-section">
@@ -166,7 +183,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <script src="app.js?v=20260721-crest-retouch"></script>
-  <script src="supabase-sync.js?v=20260721-crest-retouch"></script>
+  <script src="app.js?v=20260721-five-competitions"></script>
+  <script src="supabase-sync.js?v=20260721-five-competitions"></script>
 </body>
 </html>
