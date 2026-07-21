@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="competitions.css">
   <link rel="stylesheet" href="cups.css?v=20260721-twelve-teams">
   <link rel="stylesheet" href="ranking-rf.css?v=20260721-distinct-badges">
-  <link rel="stylesheet" href="news-home.css?v=20260721-news-images-2">
+  <link rel="stylesheet" href="news-home.css?v=20260721-news-horizontal-256">
   <link rel="stylesheet" href="roster.css">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
@@ -106,7 +106,7 @@
 
     <section class="page ranking-page" id="ranking-rf">
       <div class="ranking-hero"><p class="eyebrow">CLASIFICACIÓN HISTÓRICA GLOBAL</p><h2>RANKING <em>RF</em></h2><p>Cada punto, cada posición y cada eliminatoria dejan huella. El Ranking RF reúne el rendimiento de todos los campeonatos.</p></div>
-      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><p class="ranking-lock-note">Los puntos y las bonificaciones de clasificación solo se incorporan cuando la liga ha finalizado oficialmente.</p><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado en una liga finalizada</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición</span></article><article><b>+50 PR</b><span>Por eliminatoria de copa ganada</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>PARTICIPACIÓN</span><span>BONUS LIGAS</span><span>COPAS</span><span>TOTAL</span></div><div id="rankingRfList"></div></section></div>
+      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><p class="ranking-lock-note">Los puntos de cada jornada y las rondas de copa se suman al momento. Solo las bonificaciones por posición de las ligas esperan al cierre oficial.</p><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado, actualizado jornada a jornada</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición al finalizar</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición al finalizar</span></article><article><b>+50 PR</b><span>Por eliminatoria de copa ganada, al pasar de ronda</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>PARTICIPACIÓN</span><span>BONUS LIGAS</span><span>COPAS</span><span>TOTAL</span></div><div id="rankingRfList"></div></section></div>
     </section>
 
     <section class="page teams-page" id="equipos">
@@ -127,11 +127,6 @@
         <div class="club-identity"><p class="eyebrow">FICHA DEL CLUB</p><h2 id="clubName">EQUIPO 1</h2><p class="club-manager">MANAGER · <strong id="clubManager">Por asignar</strong></p><p id="clubMotto">La historia está a punto de escribirse.</p></div>
         <aside class="club-badges"><div class="manager-balance"><small>SALDO DEL MANAGER</small><strong id="managerBalance">0 €</strong><span id="balanceMovement">Saldo inicial: 0 €</span></div><p class="badges-label">INSIGNIAS DEL CLUB</p><div class="badges-list" id="clubBadges"></div></aside>
       </div>
-      <section class="lineup-section">
-        <div class="lineup-heading"><div><p class="eyebrow red">ONCE TITULAR</p><h3>ALINEACIÓN DE LA <span>JORNADA</span></h3></div><label>SELECCIONAR JORNADA<select id="lineupMatchday"></select></label></div>
-        <div class="football-field" id="footballField"></div>
-        <div class="lineup-summary"><span>FORMACIÓN · <b id="lineupFormation">1-4-3-3</b></span><div><small>PUNTOS DEL ONCE</small><strong id="lineupTotal">0</strong><b>PTS</b></div></div>
-      </section>
       <section class="transfers-section">
         <div class="transfers-heading"><div><p class="eyebrow red">MOVIMIENTOS DEL CLUB</p><h3>MERCADO DE <span>FICHAJES</span></h3></div></div>
         <div class="transfers-table-wrap"><table class="transfers-table"><thead><tr><th>#</th><th>Jugador</th><th>Operación</th><th>Precio</th></tr></thead><tbody id="transfersList"></tbody></table><div class="transfers-empty" id="transfersEmpty">Las compras y ventas del club aparecerán aquí.</div></div>
@@ -176,7 +171,7 @@
         <form id="editorForm">
           <div class="form-row"><label>Nombre de la liga<input id="editLeague" maxlength="24"></label><label>Temporada<input id="editSeason" maxlength="12"></label></div>
           <label>Texto de bienvenida<textarea id="editWelcome" rows="3" maxlength="180"></textarea></label>
-          <fieldset class="league-status-editor"><legend>Cierre oficial para Ranking RF</legend><label><input id="completedApertura" type="checkbox"> Liga Apertura finalizada</label><label><input id="completedClausura" type="checkbox"> Liga Clausura finalizada</label><label><input id="completedGeneral" type="checkbox"> Liga Ronda Final finalizada</label><p>Hasta marcar una liga como finalizada, ni sus puntos ni su bonificación de clasificación se suman al Ranking RF.</p></fieldset>
+          <fieldset class="league-status-editor"><legend>Cierre oficial para Ranking RF</legend><label><input id="completedApertura" type="checkbox"> Liga Apertura finalizada</label><label><input id="completedClausura" type="checkbox"> Liga Clausura finalizada</label><label><input id="completedGeneral" type="checkbox"> Liga Ronda Final finalizada</label><p>Estas casillas activan únicamente la bonificación final por posición. Los puntos ordinarios ya se suman jornada a jornada.</p></fieldset>
           <section class="news-admin-section"><h3>Noticias, novedades y eventos</h3><p class="muted">Publica y ordena los contenidos de la portada. El enlace es opcional.</p><div id="newsAdminList"></div><button class="news-add" type="button">＋ AÑADIR PUBLICACIÓN</button></section>
           <h3>Equipos, managers y puntuación</h3>
           <div class="team-inputs" id="teamInputs"></div>
@@ -190,7 +185,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <script src="app.js?v=20260721-news-images"></script>
+  <script src="app.js?v=20260721-ranking-news-lineups"></script>
   <script src="supabase-sync.js?v=20260721-raster-badges"></script>
 </body>
 </html>
