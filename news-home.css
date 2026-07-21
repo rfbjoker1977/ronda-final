@@ -10,3 +10,4 @@
 @media(max-width:600px){.news-card.has-news-image{grid-template-columns:1fr}.news-card-image{width:256px;height:256px;margin:0 auto}.news-card-content{padding:22px}}
 .home-news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:760px){.home-news-grid{grid-template-columns:1fr}}
+.news-meta span{font-weight:900;text-transform:uppercase;letter-spacing:1.3px;color:#a9000f}
