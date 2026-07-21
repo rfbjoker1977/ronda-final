@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="badges.css">
   <link rel="stylesheet" href="competitions.css">
-  <link rel="stylesheet" href="cups.css?v=20260721-five-competitions">
-  <link rel="stylesheet" href="ranking-rf.css?v=20260721-ranking-rf">
+  <link rel="stylesheet" href="cups.css?v=20260721-twelve-teams">
+  <link rel="stylesheet" href="ranking-rf.css?v=20260721-ranking-lock">
   <link rel="stylesheet" href="roster.css">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
@@ -96,7 +96,7 @@
     </section>
 
     <section class="page cup-page" id="copa-apertura">
-      <div class="cup-hero"><p class="eyebrow">PRIMER TORNEO ELIMINATORIO</p><h2>COPA <em>APERTURA</em></h2><p>Once clubes, una plaza exenta por sorteo y eliminatorias a doble partido. Las fechas se publicarán cuando quede cerrado el calendario.</p></div>
+      <div class="cup-hero"><p class="eyebrow">PRIMER TORNEO ELIMINATORIO</p><h2>COPA <em>APERTURA</em></h2><p>Doce clubes y seis eliminatorias a doble partido. Los seis ganadores y los dos mejores segundos avanzan a cuartos.</p></div>
       <div class="cup-format" data-cup="Copa Apertura"></div>
     </section>
 
@@ -107,7 +107,7 @@
 
     <section class="page ranking-page" id="ranking-rf">
       <div class="ranking-hero"><p class="eyebrow">CLASIFICACIÓN HISTÓRICA GLOBAL</p><h2>RANKING <em>RF</em></h2><p>Cada punto, cada posición y cada eliminatoria dejan huella. El Ranking RF reúne el rendimiento de todos los campeonatos.</p></div>
-      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado en cualquier liga</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición</span></article><article><b>+50 PR</b><span>Por eliminatoria de copa ganada. El exento no suma</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>PARTICIPACIÓN</span><span>BONUS LIGAS</span><span>COPAS</span><span>TOTAL</span></div><div id="rankingRfList"></div></section></div>
+      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><p class="ranking-lock-note">Los puntos y las bonificaciones de clasificación solo se incorporan cuando la liga ha finalizado oficialmente.</p><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado en una liga finalizada</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición</span></article><article><b>+50 PR</b><span>Por eliminatoria de copa ganada</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>PARTICIPACIÓN</span><span>BONUS LIGAS</span><span>COPAS</span><span>TOTAL</span></div><div id="rankingRfList"></div></section></div>
     </section>
 
     <section class="page teams-page" id="equipos">
@@ -177,6 +177,7 @@
         <form id="editorForm">
           <div class="form-row"><label>Nombre de la liga<input id="editLeague" maxlength="24"></label><label>Temporada<input id="editSeason" maxlength="12"></label></div>
           <label>Texto de bienvenida<textarea id="editWelcome" rows="3" maxlength="180"></textarea></label>
+          <fieldset class="league-status-editor"><legend>Cierre oficial para Ranking RF</legend><label><input id="completedApertura" type="checkbox"> Liga Apertura finalizada</label><label><input id="completedClausura" type="checkbox"> Liga Clausura finalizada</label><label><input id="completedGeneral" type="checkbox"> Liga Ronda Final finalizada</label><p>Hasta marcar una liga como finalizada, ni sus puntos ni su bonificación de clasificación se suman al Ranking RF.</p></fieldset>
           <h3>Equipos, managers y puntuación</h3>
           <div class="team-inputs" id="teamInputs"></div>
           <section class="cup-admin-section"><h3>Copas · equipos y resultados</h3><p class="muted">Selecciona participantes, escribe los marcadores de ida y vuelta y marca el clasificado. Cada eliminatoria ganada sumará 50 PR automáticamente.</p><div id="cupAdminEditors"></div></section>
@@ -189,7 +190,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <script src="app.js?v=20260721-ranking-rf"></script>
-  <script src="supabase-sync.js?v=20260721-ranking-rf"></script>
+  <script src="app.js?v=20260721-ranking-lock"></script>
+  <script src="supabase-sync.js?v=20260721-ranking-lock"></script>
 </body>
 </html>

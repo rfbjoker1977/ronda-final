@@ -5,3 +5,6 @@
 .cup-stage.quarterfinals .cup-ties{grid-template-columns:repeat(4,1fr)}.cup-stage.semifinals .cup-ties{grid-template-columns:repeat(2,1fr)}.cup-stage.final .cup-ties{grid-template-columns:minmax(280px,520px);justify-content:center}
 @media(max-width:850px){.cup-stage.quarterfinals .cup-ties{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.cup-stage.quarterfinals .cup-ties,.cup-stage.semifinals .cup-ties{grid-template-columns:1fr}}
+.cup-stage.preliminary .cup-ties{grid-template-columns:repeat(3,1fr)}.qualification-strip.qualification-new{grid-template-columns:1fr auto 1.5fr auto 1fr}
+@media(max-width:850px){.cup-stage.preliminary .cup-ties{grid-template-columns:repeat(2,1fr)}.qualification-strip.qualification-new{grid-template-columns:1fr}}
+@media(max-width:560px){.cup-stage.preliminary .cup-ties{grid-template-columns:1fr}}
