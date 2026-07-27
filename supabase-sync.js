@@ -30,10 +30,13 @@ async function remoteSave(){
     if(refreshError)throw new Error("No se pudo renovar la sesión. Vuelve a entrar como administrador.");
     sessionData=refreshed;
   }
-  const payload={id:"main",data,updated_at:new Date().toISOString(),updated_by:sessionData.session.user.id};
-  const {data:saved,error}=await supabaseClient.from("league_state").upsert(payload,{onConflict:"id"}).select("id").single();
+  const payload={data,updated_at:new Date().toISOString(),updated_by:sessionData.session.user.id};
+  const {data:saved,error}=await supabaseClient.from("league_state").update(payload).eq("id","main").select("id").maybeSingle();
   if(error)throw new Error(`No se pudo publicar: ${error.message}`);
-  if(!saved)throw new Error("La publicación no se confirmó. Inténtalo de nuevo.");
+  if(!saved){
+    const {error:insertError}=await supabaseClient.from("league_state").insert({id:"main",...payload});
+    if(insertError)throw new Error(`No se pudo crear el espacio de publicación: ${insertError.message}`);
+  }
 }
 async function uploadLeagueAsset(file,folder){
   const safeName=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,"-");
