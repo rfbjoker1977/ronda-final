@@ -183,7 +183,30 @@ document.getElementById("teamInputs").addEventListener("click",e=>{const preset=
 document.getElementById("teamInputs").addEventListener("click",e=>{const remove=e.target.closest("[data-badge-remove]");if(!remove)return;const [clubIndex,badgeIndex]=remove.dataset.badgeRemove.split(":").map(Number),field=remove.closest(".badge-field");data.clubs[clubIndex].badges[badgeIndex]={name:"",image:""};field.querySelector("[data-badge-name]").value="";field.querySelector("img")?.remove();field.querySelector("input[type=file]").value="";remove.remove()});
 document.querySelector(".news-add").addEventListener("click",()=>document.getElementById("newsAdminList").insertAdjacentHTML("beforeend",newsEditorRow()));
 document.getElementById("newsAdminList").addEventListener("click",e=>{const remove=e.target.closest(".news-remove");if(remove){remove.closest(".news-editor-row").remove();return}const imageRemove=e.target.closest(".news-image-remove");if(imageRemove){const row=imageRemove.closest(".news-editor-row");row.querySelector('[data-news-field="image"]').value="";row.querySelector(".news-image-preview")?.remove();imageRemove.remove()}});
-document.getElementById("newsAdminList").addEventListener("change",async e=>{const input=e.target.closest("[data-news-image]");if(!input||!input.files[0])return;const file=input.files[0],row=input.closest(".news-editor-row"),image=new Image(),reader=new FileReader();if(file.size>1500000){alert("La imagen es demasiado grande. Usa un archivo de menos de 1,5 MB.");input.value="";return}reader.onload=()=>{image.onload=async()=>{if(image.width!==256||image.height!==256){alert(`La imagen mide ${image.width} × ${image.height}. Debe medir exactamente 256 × 256 píxeles.`);input.value="";return}try{const src=window.remoteEnabled?await uploadLeagueAsset(file,"noticias"):reader.result;row.querySelector('[data-news-field="image"]').value=src;row.querySelector(".news-image-preview")?.remove();const preview=document.createElement("img");preview.className="news-image-preview";preview.src=src;row.querySelector(".news-image-editor").prepend(preview);if(!row.querySelector(".news-image-remove")){const button=document.createElement("button");button.type="button";button.className="news-image-remove";button.textContent="QUITAR IMAGEN";row.querySelector(".news-image-editor").append(button)}}catch(error){alert(`No se pudo subir la imagen: ${error.message}`)}};image.src=reader.result};reader.readAsDataURL(file)});
+async function prepareNewsImage(file){
+  if(!file.type.startsWith("image/"))throw new Error("Selecciona un archivo de imagen válido.");
+  if(file.size>8000000)throw new Error("La imagen es demasiado grande. Usa un archivo de menos de 8 MB.");
+  const bitmap=await createImageBitmap(file),side=Math.min(bitmap.width,bitmap.height);
+  const canvas=document.createElement("canvas");canvas.width=256;canvas.height=256;
+  canvas.getContext("2d").drawImage(bitmap,(bitmap.width-side)/2,(bitmap.height-side)/2,side,side,0,0,256,256);
+  bitmap.close();
+  const blob=await new Promise((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error("No se pudo procesar la imagen.")),"image/webp",.88));
+  return new File([blob],`${file.name.replace(/\.[^.]+$/,"")||"noticia"}.webp`,{type:"image/webp"});
+}
+document.getElementById("newsAdminList").addEventListener("change",async e=>{
+  const input=e.target.closest("[data-news-image]");if(!input||!input.files[0])return;
+  const row=input.closest(".news-editor-row");
+  try{
+    input.disabled=true;
+    const file=await prepareNewsImage(input.files[0]);
+    const src=window.remoteEnabled?await uploadLeagueAsset(file,"noticias"):URL.createObjectURL(file);
+    row.querySelector('[data-news-field="image"]').value=src;
+    row.querySelector(".news-image-preview")?.remove();
+    const preview=document.createElement("img");preview.className="news-image-preview";preview.src=src;row.querySelector(".news-image-editor").prepend(preview);
+    if(!row.querySelector(".news-image-remove")){const button=document.createElement("button");button.type="button";button.className="news-image-remove";button.textContent="QUITAR IMAGEN";row.querySelector(".news-image-editor").append(button)}
+  }catch(error){input.value="";alert(`No se pudo preparar la imagen: ${error.message}`)}
+  finally{input.disabled=false}
+});
 function optionalIndex(value){return value===""?null:Number(value)}
 function readCupEditors(){document.querySelectorAll("[data-cup-admin]").forEach(editor=>{const cup=data.cups[editor.dataset.cupAdmin];editor.querySelectorAll("[data-cup-loser]").forEach(select=>cup.bestLosers[Number(select.dataset.cupLoser)]=optionalIndex(select.value));editor.querySelectorAll(".cup-tie-editor").forEach(row=>{const tie=cup.stages[row.dataset.stage][Number(row.dataset.tie)];row.querySelectorAll("[data-cup-team]").forEach(select=>tie.teams[Number(select.dataset.cupTeam)]=optionalIndex(select.value));row.querySelectorAll("[data-cup-score]").forEach(input=>{const [leg,team]=input.dataset.cupScore.split(":").map(Number);tie.scores[leg][team]=input.value===""?null:Math.max(0,Number(input.value)||0)});tie.date=row.querySelector('[data-cup-field="date"]').value.trim();tie.winner=optionalIndex(row.querySelector('[data-cup-field="winner"]').value)})})}
 document.getElementById("editorForm").addEventListener("submit",async e=>{
