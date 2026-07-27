@@ -1,0 +1,73 @@
+.league-countdown{
+  width:min(620px,100%);
+  margin:28px auto 0;
+  padding:14px 16px 13px;
+  border:1px solid rgba(255,255,255,.28);
+  border-left:4px solid #fff;
+  background:linear-gradient(135deg,#93000e,#b80716);
+  box-shadow:0 12px 30px rgba(45,0,5,.18);
+  position:relative;
+  z-index:2;
+}
+.countdown-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
+.countdown-kicker,.countdown-heading time{
+  color:#fff;
+  font:800 10px/1 Inter,sans-serif;
+  letter-spacing:1.8px;
+}
+.countdown-heading time{color:rgba(255,255,255,.7);font-size:9px}
+.countdown-units{
+  display:grid;
+  grid-template-columns:repeat(7,auto);
+  align-items:start;
+  justify-content:start;
+  gap:12px;
+  padding-top:11px;
+}
+.countdown-units div{min-width:48px;text-align:center}
+.countdown-units strong{
+  display:block;
+  color:#fff;
+  font:900 34px/.9 "Barlow Condensed",sans-serif;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:1px;
+}
+.countdown-units span{
+  display:block;
+  margin-top:6px;
+  color:rgba(255,255,255,.62);
+  font:700 7px/1 Inter,sans-serif;
+  letter-spacing:1.5px;
+}
+.countdown-units i{
+  color:rgba(255,255,255,.38);
+  font:800 24px/.9 "Barlow Condensed",sans-serif;
+  font-style:normal;
+}
+.countdown-started{
+  margin:12px 0 0;
+  color:#fff;
+  font:900 30px/.95 "Barlow Condensed",sans-serif;
+  letter-spacing:1px;
+}
+@media(max-width:700px){
+  .league-countdown{margin:20px auto 0;padding:12px;width:calc(100% - 40px)}
+  .countdown-heading{align-items:flex-start;flex-direction:column;gap:6px}
+  .countdown-units{gap:6px;width:100%;grid-template-columns:repeat(7,1fr)}
+  .countdown-units div{min-width:0}
+  .countdown-units strong{font-size:28px}
+  .countdown-units i{font-size:20px}
+}
+@media(max-width:420px){
+  #inicio .hero{grid-template-columns:1fr 82px}
+  .league-logo-slot{width:78px}
+  .countdown-units strong{font-size:24px}
+  .countdown-units span{font-size:6px;letter-spacing:1px}
+}

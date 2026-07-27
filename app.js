@@ -125,7 +125,7 @@ function renderTeamEditors(){
 function navigate(route){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
   const isClub=route.startsWith("club/");
-  const target=isClub?"club":(["inicio","equipos","apertura","clausura","liga-general","copa-apertura","copa-clausura","ranking-rf","ayuda"].includes(route)?route:"inicio");
+  const target=isClub?"club":(["inicio","equipos","apertura","clausura","liga-general","copa-apertura","copa-clausura","ranking-rf","normativa"].includes(route)?route:"inicio");
   document.getElementById(target).classList.add("active");
   document.querySelectorAll(".nav a").forEach(a=>a.classList.toggle("active",a.dataset.route===target));
   if(isClub){
@@ -194,4 +194,34 @@ document.getElementById("editorForm").addEventListener("submit",async e=>{
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify(data));if(window.remoteEnabled)await remoteSave();render();document.getElementById("saveMessage").textContent="Cambios guardados online correctamente."}catch(error){document.getElementById("saveMessage").textContent=`No se pudo guardar: ${error.message||"error desconocido"}`}setTimeout(()=>document.getElementById("saveMessage").textContent="",4000);
 });
 document.getElementById("changePassword").addEventListener("click",async()=>{const next=prompt("Escribe tu nueva contraseña (mínimo 8 caracteres):");if(next&&next.length>=8){try{if(window.remoteEnabled)await remoteChangePassword(next);else localStorage.setItem(PASSWORD_KEY,next);alert("Contraseña actualizada correctamente.")}catch(error){alert(`No se pudo cambiar: ${error.message}`)}}else if(next!==null){alert("La contraseña debe tener al menos 8 caracteres.")}});
-render();navigate(location.hash.slice(1)||"inicio");
+function startLeagueCountdown(){
+  const target=new Date("2026-08-01T00:00:00+02:00").getTime();
+  const units=document.querySelector(".countdown-units");
+  const started=document.getElementById("countdownStarted");
+  const fields={
+    days:document.getElementById("countdownDays"),
+    hours:document.getElementById("countdownHours"),
+    minutes:document.getElementById("countdownMinutes"),
+    seconds:document.getElementById("countdownSeconds")
+  };
+  let timer;
+  const update=()=>{
+    const remaining=Math.max(0,target-Date.now());
+    const totalSeconds=Math.floor(remaining/1000);
+    const values={
+      days:Math.floor(totalSeconds/86400),
+      hours:Math.floor(totalSeconds%86400/3600),
+      minutes:Math.floor(totalSeconds%3600/60),
+      seconds:totalSeconds%60
+    };
+    Object.entries(values).forEach(([key,value])=>fields[key].textContent=String(value).padStart(2,"0"));
+    if(remaining===0){
+      units.hidden=true;
+      started.hidden=false;
+      if(timer)clearInterval(timer);
+    }
+  };
+  update();
+  if(Date.now()<target)timer=setInterval(update,1000);
+}
+render();navigate(location.hash.slice(1)||"inicio");startLeagueCountdown();
