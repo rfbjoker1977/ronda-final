@@ -65,6 +65,8 @@ function standingsMarkup(pointsField){
   const ranked=data.clubs.map((club,index)=>({club,index})).sort((a,b)=>Number(b.club[pointsField])-Number(a.club[pointsField])||a.index-b.index);
   return ranked.map(({club,index},position)=>`<a class="standing-row" href="#club/${index}" data-club="${index}"><div class="standing-club"><span class="position">${String(position+1).padStart(2,"0")}</span>${crestMarkup(club,index,"mini-crest")}<span class="standing-name"><strong>${esc(club.name)}</strong><small>Manager · ${esc(club.manager)}</small></span></div><span class="standing-points"><b>${Number(club[pointsField])||0}</b><small>PTS</small></span></a>`).join("");
 }
+function matchdayStandingsMarkup(matchday){const ranked=data.clubs.map((club,index)=>({club,index,points:Number(club.matchdays[matchday])||0})).sort((a,b)=>b.points-a.points||a.index-b.index);return ranked.map(({club,index,points},position)=>`<a class="standing-row" href="#club/${index}" data-club="${index}"><div class="standing-club"><span class="position">${String(position+1).padStart(2,"0")}</span>${crestMarkup(club,index,"mini-crest")}<span class="standing-name"><strong>${esc(club.name)}</strong><small>Manager · ${esc(club.manager)}</small></span></div><span class="standing-points"><b>${points}</b><small>PTS</small></span></a>`).join("")}
+function renderLeagueMatchday(kind,matchday){const isApertura=kind==="apertura",start=isApertura?0:19,end=isApertura?19:38,index=Math.max(start,Math.min(end-1,Number(matchday)||start)),select=document.getElementById(`${kind}MatchdaySelect`);select.innerHTML=Array.from({length:end-start},(_,offset)=>{const jornada=start+offset;return `<option value="${jornada}" ${jornada===index?"selected":""}>Jornada ${jornada+1}</option>`}).join("");document.getElementById(`${kind}MatchdayList`).innerHTML=matchdayStandingsMarkup(index)}
 function compactStandingsMarkup(pointsField){const ranked=data.clubs.map((club,index)=>({club,index})).sort((a,b)=>Number(b.club[pointsField])-Number(a.club[pointsField])||a.index-b.index);return ranked.map(({club,index},position)=>`<a class="compact-standing-row" href="#club/${index}" data-club="${index}"><span class="compact-position">${String(position+1).padStart(2,"0")}</span>${club.crest?`<img class="compact-crest" src="${esc(club.crest)}" alt="">`:`<span class="compact-crest compact-fallback">${esc(initials(club.name,index))}</span>`}<strong class="compact-name">${esc(club.name)}</strong><span class="compact-points">${Number(club[pointsField])||0}<small>PTS</small></span></a>`).join("")}
 function clubName(index,fallback="Equipo por sortear"){return index===null||index===undefined?fallback:(data.clubs[index]?.name||fallback)}
 function scoreText(value){return value===null||value===""?"—":Number(value)}
@@ -146,7 +148,7 @@ function cupTieEditor(tie,stageKey,index){return `<div class="cup-tie-editor" da
 function renderCupAdmin(){document.getElementById("cupAdminEditors").innerHTML=Object.entries(data.cups).map(([key,cup])=>`<details class="cup-admin" data-cup-admin="${key}"><summary>Copa ${key==='apertura'?'Apertura':'Clausura'}</summary><div class="cup-special-editor">${cup.bestLosers.map((team,i)=>`<label>Mejor perdedor ${i+1}<select data-cup-loser="${i}">${clubOptions(team)}</select></label>`).join("")}</div>${CUP_STAGE_SPECS.map(stage=>`<section><h4>${stage.title}</h4><div class="cup-admin-grid">${cup.stages[stage.key].map((tie,i)=>cupTieEditor(tie,stage.key,i)).join("")}</div></section>`).join("")}</details>`).join("")}
 function renderFaq(){const list=data.faqs.filter(item=>item.question.trim());document.getElementById("faqList").innerHTML=list.map((item,i)=>`<details class="faq-item"><summary><span>${String(i+1).padStart(2,"0")}</span><strong>${esc(item.question)}</strong><i>＋</i></summary><div class="faq-answer">${esc(item.answer).replace(/\n/g,"<br>")}</div></details>`).join("");document.getElementById("faqEmpty").hidden=list.length>0}
 function faqAdminRow(item,index){return `<article class="faq-admin-row" data-faq-id="${esc(item.id)}"><span class="faq-admin-number">${String(index+1).padStart(2,"0")}</span><label>Pregunta<input data-faq-field="question" value="${esc(item.question)}" maxlength="180" placeholder="Escribe la pregunta"></label><label>Respuesta o explicación<textarea data-faq-field="answer" rows="5" maxlength="3000" placeholder="Escribe la respuesta completa">${esc(item.answer)}</textarea></label><div class="faq-admin-actions"><button type="button" data-faq-up aria-label="Subir pregunta">↑</button><button type="button" data-faq-down aria-label="Bajar pregunta">↓</button><button type="button" data-faq-delete>ELIMINAR</button></div></article>`}
-function renderFaqAdmin(){document.getElementById("faqAdmin").innerHTML=`<div class="faq-admin-toolbar"><strong>${data.faqs.length}</strong><span>preguntas publicadas</span><button type="button" id="faqAdd">＋ AÑADIR PREGUNTA</button></div><div class="faq-admin-list">${data.faqs.map(faqAdminRow).join("")}</div>`}
+function renderFaqAdmin(){document.getElementById("faqAdmin").innerHTML=`<div class="faq-admin-toolbar"><strong>${data.faqs.length}</strong><span>preguntas</span><button type="button" id="faqAdd">＋ AÑADIR PREGUNTA</button><button type="button" id="faqPublish">PUBLICAR FAQ</button></div><p class="faq-publish-help">Después de escribir o editar las preguntas, pulsa «Publicar FAQ» para guardarlas y mostrarlas en la web.</p><div class="faq-admin-list">${data.faqs.map(faqAdminRow).join("")}</div>`}
 let adminActive=false;
 function secureShuffle(items){const result=[...items];for(let i=result.length-1;i>0;i--){const range=0x100000000-(0x100000000%(i+1));let value;do value=crypto.getRandomValues(new Uint32Array(1))[0];while(value>=range);const j=value%(i+1);[result[i],result[j]]=[result[j],result[i]]}return result}
 function authorizeDraw(){const password=prompt("Contraseña del sorteo:");if(password===null)return false;if(password!=="sorteo"){alert("Contraseña incorrecta.");return false}return true}
@@ -161,6 +163,8 @@ function render(){
   document.getElementById("aperturaList").innerHTML=standingsMarkup("pointsApertura");
   document.getElementById("clausuraList").innerHTML=standingsMarkup("pointsClausura");
   document.getElementById("generalList").innerHTML=standingsMarkup("pointsGeneral");
+  renderLeagueMatchday("apertura",document.getElementById("aperturaMatchdaySelect").value||0);
+  renderLeagueMatchday("clausura",document.getElementById("clausuraMatchdaySelect").value||19);
   renderCupFormats();
   renderRanking();
   renderTeamEditors();
@@ -209,6 +213,8 @@ document.addEventListener("click",e=>{const route=e.target.closest("[data-route]
 document.addEventListener("click",e=>{const jump=e.target.closest("[data-help-target]");if(!jump)return;e.preventDefault();document.getElementById(jump.dataset.helpTarget)?.scrollIntoView({behavior:"smooth",block:"start"})});
 window.addEventListener("hashchange",()=>navigate(location.hash.slice(1)||"inicio"));
 document.getElementById("historySort").addEventListener("change",()=>renderHistory(data.clubs[currentClubIndex]));
+document.getElementById("aperturaMatchdaySelect").addEventListener("change",e=>renderLeagueMatchday("apertura",e.target.value));
+document.getElementById("clausuraMatchdaySelect").addEventListener("change",e=>renderLeagueMatchday("clausura",e.target.value));
 document.getElementById("menuToggle").addEventListener("click",()=>document.getElementById("mainNav").classList.toggle("open"));
 
 const modal=document.getElementById("adminModal");
@@ -255,6 +261,7 @@ document.getElementById("playersAdmin").addEventListener("click",e=>{
 document.getElementById("faqAdmin").addEventListener("input",e=>{const row=e.target.closest("[data-faq-id]"),field=e.target.closest("[data-faq-field]");if(!row||!field)return;const item=data.faqs.find(faq=>faq.id===row.dataset.faqId);if(item)item[field.dataset.faqField]=field.value});
 document.getElementById("faqAdmin").addEventListener("click",e=>{
   if(e.target.id==="faqAdd"){data.faqs.push({id:crypto.randomUUID(),question:"",answer:""});renderFaqAdmin();const rows=document.querySelectorAll(".faq-admin-row"),count=rows.length;if(count)rows[count-1].querySelector('[data-faq-field="question"]').focus();return}
+  if(e.target.id==="faqPublish"){renderFaq();document.querySelector(".admin-save-bar [type=submit]").click();return}
   const row=e.target.closest("[data-faq-id]");if(!row)return;const index=data.faqs.findIndex(item=>item.id===row.dataset.faqId);if(index<0)return;
   if(e.target.closest("[data-faq-delete]")){if(confirm("¿Eliminar esta pregunta frecuente?")){data.faqs.splice(index,1);renderFaqAdmin()}return}
   if(e.target.closest("[data-faq-up]")&&index>0)[data.faqs[index-1],data.faqs[index]]=[data.faqs[index],data.faqs[index-1]];
