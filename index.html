@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="badges.css">
-  <link rel="stylesheet" href="competitions.css?v=20260727-compact-heroes-v2">
+  <link rel="stylesheet" href="competitions.css?v=20260728-matchday-tables">
   <link rel="stylesheet" href="cups.css?v=20260728-apertura-calendar">
   <link rel="stylesheet" href="ranking-rf.css?v=20260721-distinct-badges">
   <link rel="stylesheet" href="roster.css?v=20260728-global-players">
@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="admin-refinements.css?v=20260728-treasury-contrast">
   <link rel="stylesheet" href="admin-alternating.css">
   <link rel="stylesheet" href="admin-strength.css?v=20260727">
-  <link rel="stylesheet" href="faq.css?v=20260728-faq-admin">
+  <link rel="stylesheet" href="faq.css?v=20260728-faq-publish">
   <link rel="stylesheet" href="badge-fit.css?v=20260721-club-visuals">
   <link rel="stylesheet" href="help.css?v=20260721-help-guide">
   <link rel="stylesheet" href="normativa.css?v=20260727">
@@ -104,11 +104,13 @@
     <section class="page competition-page" id="apertura">
       <div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Liga Apertura"><span>LIGA APERTURA</span></div><p class="eyebrow">PRIMERA VUELTA</p><h2>LIGA <em>APERTURA</em></h2><p>El primer gran desafío de la temporada. La clasificación recoge exclusivamente los puntos obtenidos durante la primera vuelta.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="aperturaList"></div></div>
+      <section class="matchday-standings"><header><div><p class="eyebrow red">DETALLE DE LA COMPETICIÓN</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><label>SELECCIONA JORNADA<select id="aperturaMatchdaySelect"></select></label></header><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS JORNADA</span></div><div id="aperturaMatchdayList"></div></div></section>
     </section>
 
     <section class="page competition-page" id="clausura">
       <div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Liga Clausura"><span>LIGA CLAUSURA</span></div><p class="eyebrow">SEGUNDA VUELTA</p><h2>LIGA <em>CLAUSURA</em></h2><p>La segunda mitad del campeonato. Una nueva clasificación y otra oportunidad para conquistar un título.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="clausuraList"></div></div>
+      <section class="matchday-standings"><header><div><p class="eyebrow red">DETALLE DE LA COMPETICIÓN</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><label>SELECCIONA JORNADA<select id="clausuraMatchdaySelect"></select></label></header><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS JORNADA</span></div><div id="clausuraMatchdayList"></div></div></section>
     </section>
 
     <section class="page competition-page" id="liga-general">
@@ -323,7 +325,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260728-crest-fix">
-  <script src="app.js?v=20260728-global-players"></script>
+  <script src="app.js?v=20260728-faq-matchdays"></script>
   <script src="supabase-sync.js?v=20260727-admin-rosters"></script>
 </body>
 </html>
