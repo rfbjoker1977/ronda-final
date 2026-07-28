@@ -36,7 +36,7 @@ const CUP_STAGE_SPECS=[{key:"preliminary",title:"RONDA PREVIA",count:6,prefix:"E
 const COMPETITION_NAMES=["Liga Apertura","Liga Clausura","Liga Ronda Final","Copa Apertura","Copa Clausura"];
 function emptyCup(){return {bestLosers:[null,null],stages:Object.fromEntries(CUP_STAGE_SPECS.map(stage=>[stage.key,Array.from({length:stage.count},()=>({teams:[null,null],scores:[[null,null],[null,null]],date:"",winner:null}))]))}}
 function mergeCup(saved={}){const base=emptyCup();return {...base,...saved,bestLosers:Array.from({length:2},(_,i)=>saved.bestLosers?.[i]??null),stages:Object.fromEntries(CUP_STAGE_SPECS.map(stage=>[stage.key,Array.from({length:stage.count},(_,i)=>{const tie=saved.stages?.[stage.key]?.[i]||{};return {...base.stages[stage.key][i],...tie,teams:Array.from({length:2},(_,t)=>tie.teams?.[t]??null),scores:Array.from({length:2},(_,leg)=>Array.from({length:2},(_,t)=>tie.scores?.[leg]?.[t]??null))}})]))}}
-const DEFAULT_DATA={league:"RONDA FINAL",season:"2026 / 2027",welcome:"",players:[],clubs:DEFAULT_CLUBS,cups:{apertura:emptyCup(),clausura:emptyCup()},leaguesCompleted:{apertura:false,clausura:false,general:false},draw:{enabled:false,title:"Sorteo oficial",participants:[],pairs:[],timestamp:"",resetToken:"20260728-reset-1"}};
+const DEFAULT_DATA={league:"RONDA FINAL",season:"2026 / 2027",welcome:"",faqs:[],players:[],clubs:DEFAULT_CLUBS,cups:{apertura:emptyCup(),clausura:emptyCup()},leaguesCompleted:{apertura:false,clausura:false,general:false},draw:{enabled:false,title:"Sorteo oficial",participants:[],pairs:[],timestamp:"",resetToken:"20260728-reset-1"}};
 const STORAGE_KEY="universoFantasyData";
 const PASSWORD_KEY="universoFantasyPassword";
 let data=loadData();
@@ -53,7 +53,7 @@ function loadData(){
     clubs.forEach((club,clubIndex)=>club.players.forEach(old=>{if(!migratedPlayers.some(player=>playerKey(player.name)===playerKey(old.name)))migratedPlayers.push({id:crypto.randomUUID(),name:old.name,position:old.position||"Medio",marketValue:numericPrice(old.marketValue),clause:numericPrice(old.clause),clubId:clubIndex,createdAt:new Date().toISOString(),transferCount:0,totalPaid:0,stints:[{clubId:clubIndex,from:"",to:"",points:Number(old.points)||0,price:0,type:"Migración"}]})}));
     const players=migratedPlayers.map(player=>({...player,id:player.id||crypto.randomUUID(),clubId:player.clubId===null||player.clubId===undefined?null:Number(player.clubId),position:player.position||"Medio",marketValue:numericPrice(player.marketValue),clause:numericPrice(player.clause),transferCount:Number(player.transferCount)||0,totalPaid:Number(player.totalPaid)||0,stints:Array.isArray(player.stints)?player.stints:[]}));
     clubs.forEach((club,i)=>club.players=players.filter(player=>player.clubId===i));
-    const merged={...DEFAULT_DATA,...saved,players,clubs};delete merged.news;merged.cups={apertura:mergeCup(saved.cups?.apertura),clausura:mergeCup(saved.cups?.clausura)};merged.leaguesCompleted={...DEFAULT_DATA.leaguesCompleted,...(saved.leaguesCompleted||{})};merged.draw={...DEFAULT_DATA.draw,...(saved.draw||{})};if(saved.draw?.resetToken!==DEFAULT_DATA.draw.resetToken)merged.draw={...merged.draw,participants:[],pairs:[],timestamp:"",resetToken:DEFAULT_DATA.draw.resetToken};if(merged.season==="2026 / 27")merged.season="2026 / 2027";if(merged.league==="UNIVERSO")merged.league="RONDA FINAL";return merged;
+    const merged={...DEFAULT_DATA,...saved,players,clubs};delete merged.news;merged.faqs=Array.isArray(saved.faqs)?saved.faqs.map(item=>({id:item.id||crypto.randomUUID(),question:String(item.question||""),answer:String(item.answer||"")})):[];merged.cups={apertura:mergeCup(saved.cups?.apertura),clausura:mergeCup(saved.cups?.clausura)};merged.leaguesCompleted={...DEFAULT_DATA.leaguesCompleted,...(saved.leaguesCompleted||{})};merged.draw={...DEFAULT_DATA.draw,...(saved.draw||{})};if(saved.draw?.resetToken!==DEFAULT_DATA.draw.resetToken)merged.draw={...merged.draw,participants:[],pairs:[],timestamp:"",resetToken:DEFAULT_DATA.draw.resetToken};if(merged.season==="2026 / 27")merged.season="2026 / 2027";if(merged.league==="UNIVERSO")merged.league="RONDA FINAL";return merged;
   }catch{return {...DEFAULT_DATA,clubs:DEFAULT_CLUBS.map(c=>({...c}))}}
 }
 function esc(value){const d=document.createElement("div");d.textContent=value;return d.innerHTML}
@@ -144,6 +144,9 @@ function teamOption(value,selected,label="Seleccionar equipo"){return `<option v
 function clubOptions(selected){return teamOption(null,selected)+data.clubs.map((club,i)=>teamOption(i,selected,club.name)).join("")}
 function cupTieEditor(tie,stageKey,index){return `<div class="cup-tie-editor" data-stage="${stageKey}" data-tie="${index}"><strong>ELIMINATORIA ${index+1}</strong><label>Fecha / jornada<input data-cup-field="date" value="${esc(tie.date)}" placeholder="Pendiente"></label>${[0,1].map(team=>`<div class="cup-editor-team"><label>Equipo ${team+1}<select data-cup-team="${team}">${clubOptions(tie.teams[team])}</select></label><label>Ida<input data-cup-score="0:${team}" type="number" min="0" value="${tie.scores[0][team]??''}"></label><label>Vuelta<input data-cup-score="1:${team}" type="number" min="0" value="${tie.scores[1][team]??''}"></label></div>`).join("")}<label>Clasificado<select data-cup-field="winner">${clubOptions(tie.winner)}</select></label></div>`}
 function renderCupAdmin(){document.getElementById("cupAdminEditors").innerHTML=Object.entries(data.cups).map(([key,cup])=>`<details class="cup-admin" data-cup-admin="${key}"><summary>Copa ${key==='apertura'?'Apertura':'Clausura'}</summary><div class="cup-special-editor">${cup.bestLosers.map((team,i)=>`<label>Mejor perdedor ${i+1}<select data-cup-loser="${i}">${clubOptions(team)}</select></label>`).join("")}</div>${CUP_STAGE_SPECS.map(stage=>`<section><h4>${stage.title}</h4><div class="cup-admin-grid">${cup.stages[stage.key].map((tie,i)=>cupTieEditor(tie,stage.key,i)).join("")}</div></section>`).join("")}</details>`).join("")}
+function renderFaq(){const list=data.faqs.filter(item=>item.question.trim());document.getElementById("faqList").innerHTML=list.map((item,i)=>`<details class="faq-item"><summary><span>${String(i+1).padStart(2,"0")}</span><strong>${esc(item.question)}</strong><i>＋</i></summary><div class="faq-answer">${esc(item.answer).replace(/\n/g,"<br>")}</div></details>`).join("");document.getElementById("faqEmpty").hidden=list.length>0}
+function faqAdminRow(item,index){return `<article class="faq-admin-row" data-faq-id="${esc(item.id)}"><span class="faq-admin-number">${String(index+1).padStart(2,"0")}</span><label>Pregunta<input data-faq-field="question" value="${esc(item.question)}" maxlength="180" placeholder="Escribe la pregunta"></label><label>Respuesta o explicación<textarea data-faq-field="answer" rows="5" maxlength="3000" placeholder="Escribe la respuesta completa">${esc(item.answer)}</textarea></label><div class="faq-admin-actions"><button type="button" data-faq-up aria-label="Subir pregunta">↑</button><button type="button" data-faq-down aria-label="Bajar pregunta">↓</button><button type="button" data-faq-delete>ELIMINAR</button></div></article>`}
+function renderFaqAdmin(){document.getElementById("faqAdmin").innerHTML=`<div class="faq-admin-toolbar"><strong>${data.faqs.length}</strong><span>preguntas publicadas</span><button type="button" id="faqAdd">＋ AÑADIR PREGUNTA</button></div><div class="faq-admin-list">${data.faqs.map(faqAdminRow).join("")}</div>`}
 let adminActive=false;
 function secureShuffle(items){const result=[...items];for(let i=result.length-1;i>0;i--){const range=0x100000000-(0x100000000%(i+1));let value;do value=crypto.getRandomValues(new Uint32Array(1))[0];while(value>=range);const j=value%(i+1);[result[i],result[j]]=[result[j],result[i]]}return result}
 function authorizeDraw(){const password=prompt("Contraseña del sorteo:");if(password===null)return false;if(password!=="sorteo"){alert("Contraseña incorrecta.");return false}return true}
@@ -163,6 +166,8 @@ function render(){
   renderTeamEditors();
   renderPlayersAdmin();
   renderCupAdmin();
+  renderFaq();
+  renderFaqAdmin();
   renderBadgeLibraries();
   renderDraw();
 }
@@ -178,7 +183,7 @@ function captureVisibleClubDraft(){const editor=document.querySelector("#teamInp
 function navigate(route){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
   const isClub=route.startsWith("club/");
-  const target=isClub?"club":(["inicio","equipos","apertura","clausura","liga-general","copa-apertura","copa-clausura","ranking-rf","normativa","sorteos"].includes(route)&&!(route==="sorteos"&&!data.draw.enabled)?route:"inicio");
+  const target=isClub?"club":(["inicio","equipos","apertura","clausura","liga-general","copa-apertura","copa-clausura","ranking-rf","normativa","faq","sorteos"].includes(route)&&!(route==="sorteos"&&!data.draw.enabled)?route:"inicio");
   document.getElementById(target).classList.add("active");
   document.querySelectorAll(".nav a").forEach(a=>a.classList.toggle("active",a.dataset.route===target));
   if(isClub){
@@ -246,6 +251,16 @@ document.getElementById("playersAdmin").addEventListener("click",e=>{
   const row=e.target.closest("[data-global-player]");if(!row)return;const player=data.players.find(item=>item.id===row.dataset.globalPlayer);if(!player)return;
   if(e.target.closest("[data-player-assign]")){try{const raw=row.querySelector("[data-player-destination]").value,destination=raw===""?null:Number(raw),price=Math.max(0,Number(row.querySelector("[data-player-price]").value)||0);if(destination!==null&&destination!==player.clubId&&clubBalance(data.clubs[destination])<price)throw new Error(`${data.clubs[destination].name} no tiene saldo suficiente para pagar ${formatMoney(price)}.`);movePlayer(player,destination,price);renderPlayersAdmin();renderTeamEditors();renderBadgeLibraries()}catch(error){alert(error.message)}return}
   if(e.target.closest("[data-player-delete]")){if(player.clubId!==null){alert("Primero debes dejar al jugador como agente libre.");return}if(player.stints.length&&!confirm(`¿Eliminar definitivamente a ${player.name}? Su historial de temporada también se borrará.`))return;data.players=data.players.filter(item=>item.id!==player.id);renderPlayersAdmin()}
+});
+document.getElementById("faqAdmin").addEventListener("input",e=>{const row=e.target.closest("[data-faq-id]"),field=e.target.closest("[data-faq-field]");if(!row||!field)return;const item=data.faqs.find(faq=>faq.id===row.dataset.faqId);if(item)item[field.dataset.faqField]=field.value});
+document.getElementById("faqAdmin").addEventListener("click",e=>{
+  if(e.target.id==="faqAdd"){data.faqs.push({id:crypto.randomUUID(),question:"",answer:""});renderFaqAdmin();const rows=document.querySelectorAll(".faq-admin-row"),count=rows.length;if(count)rows[count-1].querySelector('[data-faq-field="question"]').focus();return}
+  const row=e.target.closest("[data-faq-id]");if(!row)return;const index=data.faqs.findIndex(item=>item.id===row.dataset.faqId);if(index<0)return;
+  if(e.target.closest("[data-faq-delete]")){if(confirm("¿Eliminar esta pregunta frecuente?")){data.faqs.splice(index,1);renderFaqAdmin()}return}
+  if(e.target.closest("[data-faq-up]")&&index>0)[data.faqs[index-1],data.faqs[index]]=[data.faqs[index],data.faqs[index-1]];
+  else if(e.target.closest("[data-faq-down]")&&index<data.faqs.length-1)[data.faqs[index+1],data.faqs[index]]=[data.faqs[index],data.faqs[index+1]];
+  else return;
+  renderFaqAdmin();
 });
 function optionalIndex(value){return value===""?null:Number(value)}
 function readCupEditors(){document.querySelectorAll("[data-cup-admin]").forEach(editor=>{const cup=data.cups[editor.dataset.cupAdmin];editor.querySelectorAll("[data-cup-loser]").forEach(select=>cup.bestLosers[Number(select.dataset.cupLoser)]=optionalIndex(select.value));editor.querySelectorAll(".cup-tie-editor").forEach(row=>{const tie=cup.stages[row.dataset.stage][Number(row.dataset.tie)];row.querySelectorAll("[data-cup-team]").forEach(select=>tie.teams[Number(select.dataset.cupTeam)]=optionalIndex(select.value));row.querySelectorAll("[data-cup-score]").forEach(input=>{const [leg,team]=input.dataset.cupScore.split(":").map(Number);tie.scores[leg][team]=input.value===""?null:Math.max(0,Number(input.value)||0)});tie.date=row.querySelector('[data-cup-field="date"]').value.trim();tie.winner=optionalIndex(row.querySelector('[data-cup-field="winner"]').value)})})}
