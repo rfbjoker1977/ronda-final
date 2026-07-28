@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="admin-refinements.css?v=20260728-treasury-contrast">
   <link rel="stylesheet" href="admin-alternating.css">
   <link rel="stylesheet" href="admin-strength.css?v=20260727">
+  <link rel="stylesheet" href="faq.css?v=20260728-faq-admin">
   <link rel="stylesheet" href="badge-fit.css?v=20260721-club-visuals">
   <link rel="stylesheet" href="help.css?v=20260721-help-guide">
   <link rel="stylesheet" href="normativa.css?v=20260727">
@@ -52,6 +53,7 @@
       <a href="#sorteos" data-route="sorteos" id="drawNav" hidden>Sorteos</a>
       <a href="#ranking-rf" data-route="ranking-rf">Ranking RF</a>
       <a href="#normativa" data-route="normativa">Normativa</a>
+      <a href="#faq" data-route="faq">FAQ</a>
       <button class="admin-link" id="adminOpen"><span>●</span> Administrador</button>
     </nav>
   </header>
@@ -267,6 +269,10 @@
         </section>
       </div>
     </section>
+    <section class="page faq-page" id="faq">
+      <header class="faq-hero"><p class="eyebrow">AYUDA · RONDA FINAL</p><h2>PREGUNTAS<br><em>FRECUENTES</em></h2><p>Respuestas claras sobre el funcionamiento de la liga, el mercado y las competiciones.</p></header>
+      <div class="faq-content"><div class="faq-list" id="faqList"></div><div class="faq-empty" id="faqEmpty">Todavía no se han publicado preguntas frecuentes.</div></div>
+    </section>
   </main>
 
   <div class="modal" id="adminModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
@@ -296,6 +302,7 @@
             <button type="button" data-admin-module="players">MERCADO</button>
             <button type="button" data-admin-module="clubs">CLUBES</button>
             <button type="button" data-admin-module="competitions">COMPETICIONES</button>
+            <button type="button" data-admin-module="faq">FAQ</button>
           </nav>
           <div class="admin-module active" data-admin-panel="general">
             <div class="admin-module-heading"><small>CONFIGURACIÓN</small><h3>Datos generales de la liga</h3><p>Identidad, temporada, cierres oficiales y acceso a sorteos.</p></div>
@@ -307,6 +314,7 @@
           <section class="admin-module players-master-admin" data-admin-panel="players"><div class="admin-module-heading"><small>REGISTRO GLOBAL</small><h3>Mercado y jugadores libres</h3><p>Crea cada jugador una sola vez y pásalo automáticamente a un club, a otro o a agentes libres.</p></div><div id="playersAdmin"></div></section>
           <section class="admin-module" data-admin-panel="clubs"><div class="admin-module-heading"><small>GESTIÓN INDIVIDUAL</small><h3>Administración de clubes</h3><p>Selecciona un único club para editar su identidad, alineaciones, tesorería e histórico.</p></div><label class="admin-club-picker">Club que quieres administrar<select id="adminClubSelect"></select></label><div class="team-inputs" id="teamInputs"></div></section>
           <section class="admin-module cup-admin-section" data-admin-panel="competitions"><div class="admin-module-heading"><small>TORNEOS</small><h3>Administración de competiciones</h3><p>Edita cruces, resultados y clasificados sin mezclarlo con los datos de los clubes.</p></div><div id="cupAdminEditors"></div></section>
+          <section class="admin-module" data-admin-panel="faq"><div class="admin-module-heading"><small>AYUDA PÚBLICA</small><h3>Preguntas frecuentes</h3><p>Añade, edita, ordena o elimina las preguntas y explicaciones que aparecerán en la pestaña FAQ.</p></div><div id="faqAdmin"></div></section>
           <div class="admin-save-bar"><button class="button button-red" type="submit">GUARDAR CAMBIOS</button><button class="text-button" id="changePassword" type="button">Cambiar contraseña</button><p class="save-message" id="saveMessage"></p></div>
         </form>
       </div>
