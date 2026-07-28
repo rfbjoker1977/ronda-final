@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="competitions.css?v=20260727-compact-heroes-v2">
   <link rel="stylesheet" href="cups.css?v=20260728-apertura-calendar">
   <link rel="stylesheet" href="ranking-rf.css?v=20260721-distinct-badges">
-  <link rel="stylesheet" href="roster.css?v=20260727-editable-players">
+  <link rel="stylesheet" href="roster.css?v=20260728-global-players">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
   <link rel="stylesheet" href="score-list.css">
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="lineup-transfers.css">
   <link rel="stylesheet" href="field-markings.css">
   <link rel="stylesheet" href="finance-formation.css">
-  <link rel="stylesheet" href="admin-refinements.css">
+  <link rel="stylesheet" href="admin-refinements.css?v=20260728-modular-backoffice">
   <link rel="stylesheet" href="admin-alternating.css">
   <link rel="stylesheet" href="admin-strength.css?v=20260727">
   <link rel="stylesheet" href="badge-fit.css?v=20260721-club-visuals">
@@ -155,6 +155,10 @@
       <section class="club-visuals" aria-label="Equipación y escudo del club">
         <article><small>EQUIPACIÓN</small><div class="club-visual-frame"><img id="clubKitImage" alt="Equipación del club" hidden><span>IMAGEN 512 × 512</span></div></article>
         <article><small>ESCUDO</small><div class="club-visual-frame"><img id="clubDisplayCrest" alt="Escudo del club" hidden><span>IMAGEN 512 × 512</span></div></article>
+      </section>
+      <section class="squad-section">
+        <div class="squad-heading"><div><p class="eyebrow red">PLANTILLA ACTUAL</p><h3>JUGADORES <span id="squadCount">0 / 18</span></h3></div><div class="manager-balance"><small>TESORERÍA DISPONIBLE</small><strong id="clubBalance">100.000.000 €</strong><span>Saldo actualizado con cada movimiento</span></div></div>
+        <div class="squad-table-wrap"><table class="squad-table"><thead><tr><th>#</th><th>Jugador</th><th>Posición</th><th>Valor</th><th>Cláusula</th><th>Puntos temporada</th></tr></thead><tbody id="squadList"></tbody></table></div>
       </section>
       <section class="matchdays-section">
         <div class="matchdays-heading"><div><p class="eyebrow red">RENDIMIENTO</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><div class="matchdays-total"><small>TOTAL ACUMULADO</small><strong id="matchdaysTotal">0</strong><span>PTS</span></div></div>
@@ -285,19 +289,25 @@
       </div>
       <div id="editorView" hidden>
         <p class="eyebrow red">PANEL DE CONTROL</p>
-        <h2>EDITAR LA LIGA</h2>
+        <h2>ADMINISTRACIÓN</h2>
         <form id="editorForm">
-          <div class="admin-workflow"><b>ORDEN RECOMENDADO</b><span>1. Completa la plantilla de 18 jugadores.</span><span>2. Selecciona la jornada y crea el once.</span><span>3. Introduce los puntos y guarda.</span><span>El histórico se calcula automáticamente.</span></div>
-          <div class="form-row"><label>Nombre de la liga<input id="editLeague" maxlength="24"></label><label>Temporada<input id="editSeason" maxlength="12"></label></div>
-          <label>Texto de bienvenida<textarea id="editWelcome" rows="3" maxlength="180"></textarea></label>
-          <fieldset class="league-status-editor"><legend>Cierre oficial para Ranking RF</legend><label><input id="completedApertura" type="checkbox"> Liga Apertura finalizada</label><label><input id="completedClausura" type="checkbox"> Liga Clausura finalizada</label><label><input id="completedGeneral" type="checkbox"> Liga Ronda Final finalizada</label><p>Estas casillas activan únicamente la bonificación final por posición. Los puntos ordinarios ya se suman jornada a jornada.</p></fieldset>
-          <fieldset class="league-status-editor"><legend>Página de sorteos</legend><label><input id="drawEnabled" type="checkbox"> Habilitar la página de sorteos</label><label>Título del sorteo<input id="drawAdminTitle" maxlength="60" value="Sorteo oficial"></label><p>Al desactivarla desaparecerá del menú público sin borrar el último resultado.</p></fieldset>
-          <h3>Equipos, managers y puntuación</h3>
-          <div class="team-inputs" id="teamInputs"></div>
-          <section class="cup-admin-section"><h3>Copas · equipos y resultados</h3><p class="muted">Selecciona participantes, escribe los marcadores de ida y vuelta y marca el clasificado. Cada eliminatoria ganada sumará 50 PR automáticamente.</p><div id="cupAdminEditors"></div></section>
-          <button class="button button-red" type="submit">GUARDAR CAMBIOS</button>
-          <button class="text-button" id="changePassword" type="button">Cambiar contraseña</button>
-          <p class="save-message" id="saveMessage"></p>
+          <nav class="admin-module-nav" aria-label="Secciones de administración">
+            <button type="button" class="active" data-admin-module="general">GENERAL</button>
+            <button type="button" data-admin-module="players">MERCADO</button>
+            <button type="button" data-admin-module="clubs">CLUBES</button>
+            <button type="button" data-admin-module="competitions">COMPETICIONES</button>
+          </nav>
+          <div class="admin-module active" data-admin-panel="general">
+            <div class="admin-module-heading"><small>CONFIGURACIÓN</small><h3>Datos generales de la liga</h3><p>Identidad, temporada, cierres oficiales y acceso a sorteos.</p></div>
+            <div class="form-row"><label>Nombre de la liga<input id="editLeague" maxlength="24"></label><label>Temporada<input id="editSeason" maxlength="12"></label></div>
+            <label>Texto de bienvenida<textarea id="editWelcome" rows="3" maxlength="180"></textarea></label>
+            <fieldset class="league-status-editor"><legend>Cierre oficial para Ranking RF</legend><label><input id="completedApertura" type="checkbox"> Liga Apertura finalizada</label><label><input id="completedClausura" type="checkbox"> Liga Clausura finalizada</label><label><input id="completedGeneral" type="checkbox"> Liga Ronda Final finalizada</label><p>Estas casillas activan únicamente la bonificación final por posición. Los puntos ordinarios ya se suman jornada a jornada.</p></fieldset>
+            <fieldset class="league-status-editor"><legend>Página de sorteos</legend><label><input id="drawEnabled" type="checkbox"> Habilitar la página de sorteos</label><label>Título del sorteo<input id="drawAdminTitle" maxlength="60" value="Sorteo oficial"></label><p>Al desactivarla desaparecerá del menú público sin borrar el último resultado.</p></fieldset>
+          </div>
+          <section class="admin-module players-master-admin" data-admin-panel="players"><div class="admin-module-heading"><small>REGISTRO GLOBAL</small><h3>Mercado y jugadores libres</h3><p>Crea cada jugador una sola vez y pásalo automáticamente a un club, a otro o a agentes libres.</p></div><div id="playersAdmin"></div></section>
+          <section class="admin-module" data-admin-panel="clubs"><div class="admin-module-heading"><small>GESTIÓN INDIVIDUAL</small><h3>Administración de clubes</h3><p>Selecciona un único club para editar su identidad, alineaciones, tesorería e histórico.</p></div><label class="admin-club-picker">Club que quieres administrar<select id="adminClubSelect"></select></label><div class="team-inputs" id="teamInputs"></div></section>
+          <section class="admin-module cup-admin-section" data-admin-panel="competitions"><div class="admin-module-heading"><small>TORNEOS</small><h3>Administración de competiciones</h3><p>Edita cruces, resultados y clasificados sin mezclarlo con los datos de los clubes.</p></div><div id="cupAdminEditors"></div></section>
+          <div class="admin-save-bar"><button class="button button-red" type="submit">GUARDAR CAMBIOS</button><button class="text-button" id="changePassword" type="button">Cambiar contraseña</button><p class="save-message" id="saveMessage"></p></div>
         </form>
       </div>
     </div>
@@ -305,7 +315,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260728-crest-fix">
-  <script src="app.js?v=20260728-crest-fix"></script>
+  <script src="app.js?v=20260728-global-players"></script>
   <script src="supabase-sync.js?v=20260727-admin-rosters"></script>
 </body>
 </html>
