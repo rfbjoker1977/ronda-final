@@ -131,7 +131,7 @@
 
     <section class="page draw-page" id="sorteos" hidden>
       <div class="draw-hero"><p class="eyebrow">BOMBO OFICIAL · RONDA FINAL</p><h2 id="drawTitle">SORTEO OFICIAL</h2><p>Selección aleatoria sin repeticiones. Todos los equipos participantes tienen exactamente la misma probabilidad.</p></div>
-      <div class="draw-layout"><section class="draw-control"><h3>EQUIPOS EN EL BOMBO</h3><div id="drawTeams"></div><button class="button button-red" id="drawButton" type="button" hidden>REALIZAR SORTEO</button><p>El botón solo aparece al administrador. El resultado publicado será visible para todos.</p></section><section class="draw-result"><div class="draw-result-head"><span>◆</span><div><small>RESULTADO CERTIFICADO</small><h3>ENFRENTAMIENTOS</h3></div></div><div class="draw-theater" id="drawTheater" hidden><div class="draw-drum"><i></i><i></i><i></i><i></i><i></i><i></i><span>RF</span></div><p id="drawStatus">PREPARANDO EL BOMBO</p><div class="draw-progress"><i id="drawProgress"></i></div><div class="draw-live"><strong id="drawLiveA">?</strong><b>VS</b><strong id="drawLiveB">?</strong></div></div><div id="drawPairs"></div><p id="drawTimestamp"></p></section></div>
+      <div class="draw-layout"><section class="draw-control"><h3>EQUIPOS EN EL BOMBO</h3><div class="draw-actions"><button class="button button-red" id="drawButton" type="button">REALIZAR SORTEO</button><button class="draw-reset" id="drawReset" type="button">REINICIAR</button></div><div id="drawTeams"></div><p>Ambas acciones están protegidas por contraseña.</p></section><section class="draw-result"><div class="draw-result-head"><span>◆</span><div><small>RESULTADO CERTIFICADO</small><h3>ENFRENTAMIENTOS</h3></div></div><div class="draw-theater" id="drawTheater" hidden><div class="draw-drum"><i></i><i></i><i></i><i></i><i></i><i></i><span>RF</span></div><p id="drawStatus">PREPARANDO EL BOMBO</p><div class="draw-progress"><i id="drawProgress"></i></div><div class="draw-live"><strong id="drawLiveA">?</strong><b>VS</b><strong id="drawLiveB">?</strong></div></div><div id="drawPairs"></div><p id="drawTimestamp"></p></section></div>
     </section>
 
     <section class="page teams-page" id="equipos">
@@ -304,8 +304,8 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <link rel="stylesheet" href="draw.css?v=20260728-long-show">
-  <script src="app.js?v=20260728-long-draw"></script>
+  <link rel="stylesheet" href="draw.css?v=20260728-compact-controls">
+  <script src="app.js?v=20260728-protected-draw"></script>
   <script src="supabase-sync.js?v=20260727-admin-rosters"></script>
 </body>
 </html>
