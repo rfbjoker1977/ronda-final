@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="badges.css">
   <link rel="stylesheet" href="competitions.css?v=20260728-matchday-tables">
-  <link rel="stylesheet" href="cups.css?v=20260728-apertura-calendar">
+  <link rel="stylesheet" href="cups.css?v=20260731-globals">
   <link rel="stylesheet" href="ranking-rf.css?v=20260721-distinct-badges">
   <link rel="stylesheet" href="roster.css?v=20260728-global-players">
   <link rel="stylesheet" href="matchdays.css">
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="lineup-transfers.css">
   <link rel="stylesheet" href="field-markings.css">
   <link rel="stylesheet" href="finance-formation.css?v=20260728-treasury-contrast">
-  <link rel="stylesheet" href="admin-refinements.css?v=20260728-treasury-contrast">
+  <link rel="stylesheet" href="admin-refinements.css?v=20260731-mobile-save">
   <link rel="stylesheet" href="admin-alternating.css">
   <link rel="stylesheet" href="admin-strength.css?v=20260727">
   <link rel="stylesheet" href="faq.css?v=20260728-compact-hero">
@@ -135,7 +135,7 @@
 
     <section class="page draw-page" id="sorteos" hidden>
       <div class="draw-hero"><p class="eyebrow">BOMBO OFICIAL · RONDA FINAL</p><h2 id="drawTitle">SORTEO OFICIAL</h2><p>Selección aleatoria sin repeticiones. Todos los equipos participantes tienen exactamente la misma probabilidad.</p></div>
-      <div class="draw-layout"><section class="draw-control"><h3>EQUIPOS EN EL BOMBO</h3><div class="draw-actions"><button class="button button-red" id="drawButton" type="button">REALIZAR SORTEO</button><button class="draw-reset" id="drawReset" type="button">REINICIAR</button></div><div id="drawTeams"></div><p>Ambas acciones están protegidas por contraseña.</p></section><section class="draw-result"><div class="draw-result-head"><span>◆</span><div><small>RESULTADO CERTIFICADO</small><h3>ENFRENTAMIENTOS</h3></div></div><div class="draw-theater" id="drawTheater" hidden><div class="draw-drum"><i></i><i></i><i></i><i></i><i></i><i></i><span>RF</span></div><p id="drawStatus">PREPARANDO EL BOMBO</p><div class="draw-progress"><i id="drawProgress"></i></div><div class="draw-live"><strong id="drawLiveA">?</strong><b>VS</b><strong id="drawLiveB">?</strong></div></div><div id="drawPairs"></div><p id="drawTimestamp"></p></section></div>
+      <div class="draw-layout"><section class="draw-control"><h3>EQUIPOS EN EL BOMBO</h3><div class="draw-selection-tools"><span id="drawSelectionCount"></span><div><button type="button" data-draw-selection="all">SELECCIONAR TODOS</button><button type="button" data-draw-selection="none">NINGUNO</button></div></div><div id="drawTeams"></div><div class="draw-actions"><button class="button button-red" id="drawButton" type="button">REALIZAR SORTEO</button><button class="draw-reset" id="drawReset" type="button">REINICIAR</button></div><p>Elige los equipos de esta ronda. La selección debe ser par y se conservará para preparar el sorteo. Ambas acciones están protegidas por contraseña.</p></section><section class="draw-result"><div class="draw-result-head"><span>◆</span><div><small>RESULTADO CERTIFICADO</small><h3>ENFRENTAMIENTOS</h3></div></div><div class="draw-theater" id="drawTheater" hidden><div class="draw-drum"><i></i><i></i><i></i><i></i><i></i><i></i><span>RF</span></div><p id="drawStatus">PREPARANDO EL BOMBO</p><div class="draw-progress"><i id="drawProgress"></i></div><div class="draw-live"><strong id="drawLiveA">?</strong><b>VS</b><strong id="drawLiveB">?</strong></div></div><div id="drawPairs"></div><p id="drawTimestamp"></p></section></div>
     </section>
 
     <section class="page teams-page" id="equipos">
@@ -324,8 +324,8 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
-  <link rel="stylesheet" href="draw.css?v=20260728-crest-fix">
-  <script src="app.js?v=20260728-faq-matchdays"></script>
+  <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
+  <script src="app.js?v=20260731-cups-draw"></script>
   <script src="supabase-sync.js?v=20260727-admin-rosters"></script>
 </body>
 </html>

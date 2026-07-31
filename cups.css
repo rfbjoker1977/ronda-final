@@ -14,3 +14,11 @@
 .cup-schedule{margin-top:22px;background:#fff;border-left:6px solid var(--red);padding:26px 30px;box-shadow:0 12px 35px rgba(35,15,15,.08)}.cup-schedule header{display:flex;align-items:baseline;gap:15px;margin-bottom:18px}.cup-schedule header small{font:700 8px Inter;letter-spacing:1.5px;color:var(--red)}.cup-schedule header h3{font:900 28px 'Barlow Condensed';margin:0}.cup-schedule-rounds{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.cup-schedule-rounds article{background:#f3f0eb;padding:16px}.cup-schedule-rounds span,.cup-schedule-rounds strong,.cup-schedule-rounds small{display:block}.cup-schedule-rounds span{color:#888;font:700 8px Inter;letter-spacing:1.2px}.cup-schedule-rounds strong{font:900 21px 'Barlow Condensed';margin:6px 0 4px}.cup-schedule-rounds small{color:#aaa;font:700 7px Inter;letter-spacing:1px}.cup-schedule-rounds .cup-schedule-final{background:#171717}.cup-schedule-final span,.cup-schedule-final small{color:#999}.cup-schedule-final strong{color:#fff}.cup-schedule-note{margin:16px 0 0;padding:13px 15px;background:#fff5e8;border:1px solid #eddbc2;color:#5f5141;font-size:10px;line-height:1.55}.cup-schedule-note b{color:var(--red);margin-right:6px}
 @media(max-width:850px){.cup-schedule-rounds{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.cup-schedule{padding:22px}.cup-schedule header{display:block}.cup-schedule header h3{margin-top:5px;font-size:25px}.cup-schedule-rounds{grid-template-columns:1fr}}
+
+/* Resultado acumulado de ida y vuelta. */
+.cup-team{grid-template-columns:25px minmax(0,1fr) auto 42px}
+.cup-total{align-self:stretch;display:grid;place-items:center;text-align:center;background:#f0ece7;border-left:1px solid #ddd}
+.cup-total small{font:700 6px Inter;letter-spacing:.5px;color:#888}
+.cup-total em{font:900 22px 'Barlow Condensed';color:#171717!important;margin:0}
+.cup-team-leading .cup-total{background:var(--red)}
+.cup-team-leading .cup-total small,.cup-team-leading .cup-total em{color:#fff!important}
