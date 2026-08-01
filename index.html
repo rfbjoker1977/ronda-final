@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="competitions.css?v=20260728-matchday-tables">
   <link rel="stylesheet" href="cups.css?v=20260731-globals">
   <link rel="stylesheet" href="ranking-rf.css?v=20260721-distinct-badges">
-  <link rel="stylesheet" href="roster.css?v=20260728-global-players">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
   <link rel="stylesheet" href="score-list.css">
@@ -22,11 +21,8 @@
   <link rel="stylesheet" href="hero-final.css">
   <link rel="stylesheet" href="countdown.css?v=20260726">
   <link rel="stylesheet" href="graph-white.css">
-  <link rel="stylesheet" href="history.css?v=20260727-player-history">
   <link rel="stylesheet" href="managers.css">
-  <link rel="stylesheet" href="lineup-transfers.css">
   <link rel="stylesheet" href="field-markings.css">
-  <link rel="stylesheet" href="finance-formation.css?v=20260728-treasury-contrast">
   <link rel="stylesheet" href="admin-refinements.css?v=20260731-mobile-save">
   <link rel="stylesheet" href="admin-alternating.css">
   <link rel="stylesheet" href="admin-strength.css?v=20260727">
@@ -160,10 +156,6 @@
         <article><small>EQUIPACIÓN</small><div class="club-visual-frame"><img id="clubKitImage" alt="Equipación del club" hidden><span>IMAGEN 512 × 512</span></div></article>
         <article><small>ESCUDO</small><div class="club-visual-frame"><img id="clubDisplayCrest" alt="Escudo del club" hidden><span>IMAGEN 512 × 512</span></div></article>
       </section>
-      <section class="squad-section">
-        <div class="squad-heading"><div><p class="eyebrow red">PLANTILLA ACTUAL</p><h3>JUGADORES <span id="squadCount">0 / 18</span></h3></div><div class="manager-balance"><small>TESORERÍA DISPONIBLE</small><strong id="clubBalance">100.000.000 €</strong><span>Saldo actualizado con cada movimiento</span></div></div>
-        <div class="squad-table-wrap"><table class="squad-table"><thead><tr><th>#</th><th>Jugador</th><th>Posición</th><th>Valor</th><th>Cláusula</th><th>Puntos temporada</th></tr></thead><tbody id="squadList"></tbody></table></div>
-      </section>
       <section class="matchdays-section">
         <div class="matchdays-heading"><div><p class="eyebrow red">RENDIMIENTO</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><div class="matchdays-total"><small>TOTAL ACUMULADO</small><strong id="matchdaysTotal">0</strong><span>PTS</span></div></div>
         <div class="journey-highlights"><article class="highlight-card best"><small>MEJOR JORNADA</small><strong id="bestMatchdayPoints">0</strong><span>PTS</span><p id="bestMatchdayLabel">Jornada —</p></article><article class="highlight-card worst"><small>PEOR JORNADA</small><strong id="worstMatchdayPoints">0</strong><span>PTS</span><p id="worstMatchdayLabel">Jornada —</p></article></div>
@@ -173,14 +165,6 @@
           <div class="round-block"><div class="round-title"><span>02</span><div><small>SEGUNDA VUELTA</small><strong>LIGA CLAUSURA</strong></div></div><div class="round-list" id="clausuraMatchdays"></div></div>
         </div>
       </section>
-      <section class="transfers-section">
-        <div class="transfers-heading"><div><p class="eyebrow red">MOVIMIENTOS DEL CLUB</p><h3>MERCADO DE <span>FICHAJES</span></h3></div></div>
-        <div class="transfers-table-wrap"><table class="transfers-table"><thead><tr><th>#</th><th>Jugador</th><th>Operación</th><th>Precio</th></tr></thead><tbody id="transfersList"></tbody></table><div class="transfers-empty" id="transfersEmpty">Las compras y ventas del club aparecerán aquí.</div></div>
-      </section>
-      <section class="history-section">
-        <div class="history-heading"><div><p class="eyebrow red">ARCHIVO DEL CLUB</p><h3>JUGADORES <span>UTILIZADOS</span></h3></div><label>ORDENAR POR PUNTOS<select id="historySort"><option value="desc">Mayor a menor</option><option value="asc">Menor a mayor</option></select></label></div>
-        <div class="history-table-wrap"><table class="history-table"><thead><tr><th>#</th><th>Jugador · puntos por jornada</th><th>Puntos totales</th><th>Entrada</th><th>Salida</th><th>Días en el club</th></tr></thead><tbody id="historyList"></tbody></table><div class="history-empty" id="historyEmpty">El histórico aparecerá automáticamente al añadir jugadores y alineaciones.</div></div>
-      </section>
     </section>
     <section class="page rules-page" id="normativa">
       <header class="rules-hero">
@@ -189,90 +173,36 @@
           <h2>NORMATIVA<br><em>DE TEMPORADA</em></h2>
           <p>Una competición más equilibrada, activa y justa. Estas son las reglas y configuraciones que marcarán la nueva temporada.</p>
         </div>
-        <aside class="rules-seal"><small>REGLAMENTO</small><strong>15</strong><span>NORMAS CLAVE</span><i>VIGENTE ESTA TEMPORADA</i></aside>
+        <aside class="rules-seal"><small>REGLAMENTO</small><strong>3</strong><span>ÁREAS CLAVE</span><i>VIGENTE ESTA TEMPORADA</i></aside>
       </header>
       <div class="rules-content">
         <nav class="rules-jump" aria-label="Índice de la normativa">
           <a href="#normativa" data-help-target="reglas-base">BASE</a>
-          <a href="#normativa" data-help-target="reglas-mercado">MERCADO</a>
-          <a href="#normativa" data-help-target="reglas-clausulas">CLÁUSULAS</a>
           <a href="#normativa" data-help-target="reglas-jornada">JORNADA</a>
-          <a href="#normativa" data-help-target="reglas-premios">PREMIOS</a>
+          <a href="#normativa" data-help-target="reglas-ranking">RANKING RF</a>
         </nav>
 
         <section class="rules-section" id="reglas-base">
           <header><span>01</span><div><small>CONFIGURACIÓN GENERAL</small><h3>LAS BASES DE LA <em>COMPETICIÓN</em></h3></div></header>
           <div class="rules-grid">
             <article class="rule-card featured-rule"><span class="rule-icon">PTS</span><small>SISTEMA DE PUNTUACIÓN</small><h4>CRONISTAS MARCA + ESTADÍSTICAS</h4><p>La puntuación combina la valoración de los cronistas de Marca con los datos estadísticos de cada partido.</p></article>
-            <article class="rule-card"><span class="rule-value">18</span><small>JUGADORES POR EQUIPO</small><h4>PLANTILLA LIMITADA</h4><p>Máximo de 18 futbolistas por plantilla.</p><div class="rule-reason"><b>¿POR QUÉ?</b> Evitamos acumular jugadores y dejar al resto sin opciones de escoger buenos futbolistas.</div></article>
-            <article class="rule-card"><span class="rule-value">3</span><small>DEL MISMO CLUB</small><h4>LÍMITE POR EQUIPO REAL</h4><p>Cada manager podrá tener como máximo tres jugadores pertenecientes al mismo club.</p><div class="rule-reason"><b>OBJETIVO</b> Impedir que un manager monopolice un equipo concreto.</div></article>
-            <article class="rule-card start-pack"><span class="rule-value">15 + 100M</span><small>REPARTO INICIAL</small><h4>PACK DE BIENVENIDA</h4><p>Los nuevos miembros comienzan con 15 jugadores aleatorios y 100 millones de euros para fichar en el mercado.</p></article>
-          </div>
-        </section>
-
-        <section class="rules-section dark-rules" id="reglas-mercado">
-          <header><span>02</span><div><small>FICHAJES Y VENTAS</small><h3>UN MERCADO CON <em>RITMO</em></h3></div></header>
-          <div class="market-timeline">
-            <article><time>05:00</time><span>PRIMERA TANDA</span></article><i>→</i>
-            <article><time>13:00</time><span>SEGUNDA TANDA</span></article><i>→</i>
-            <article><time>21:00</time><span>TERCERA TANDA</span></article>
-          </div>
-          <div class="rules-grid compact-rules">
-            <article class="rule-card"><span class="rule-value">20</span><small>MÁXIMO EN EL MERCADO</small><h4>TRES RENOVACIONES DIARIAS</h4><p>Se pondrán hasta 20 jugadores en el mercado en cada actualización: 05:00, 13:00 y 21:00.</p></article>
-            <article class="rule-card"><span class="rule-value">3</span><small>VENTAS SIMULTÁNEAS</small><h4>LÍMITE POR MANAGER</h4><p>Cada manager puede poner como máximo tres jugadores a la venta al mismo tiempo.</p></article>
-            <article class="rule-card"><span class="rule-value">+25%</span><small>DEUDA MÁXIMA</small><h4>MARGEN FINANCIERO</h4><p>El límite de deuda de cada manager será su saldo actual más el 25% del valor total de su equipo.</p></article>
-          </div>
-        </section>
-
-        <section class="rules-section" id="reglas-clausulas">
-          <header><span>03</span><div><small>PROTECCIÓN DE PLANTILLAS</small><h3>CLÁUSULAS DE <em>RESCISIÓN</em></h3></div></header>
-          <div class="clause-visual">
-            <article><small>VENTANA DE CLAUSULAZOS</small><strong>HASTA 48H ANTES</strong><p>Se podrá fichar a un jugador mediante cláusula de rescisión hasta 48 horas antes del inicio de la jornada.</p></article>
-            <div class="clause-lock"><span>48</span><b>HORAS</b><i>CIERRE</i></div>
-            <article><small>LÍMITE DIARIO</small><strong>3 HECHOS · 3 RECIBIDOS</strong><p>Puedes ejecutar tres clausulazos al día y solo podrán hacerte tres clausulazos diarios.</p><div class="rule-reason"><b>EQUILIBRIO</b> Evitamos que un manager sufra una pérdida exagerada de jugadores en un solo día.</div></article>
+            <article class="rule-card"><span class="rule-value">38</span><small>JORNADAS</small><h4>TEMPORADA COMPLETA</h4><p>Las primeras 19 jornadas forman la Liga Apertura y las 19 restantes, la Liga Clausura.</p></article>
+            <article class="rule-card"><span class="rule-value">3</span><small>CLASIFICACIONES</small><h4>APERTURA, CLAUSURA Y GENERAL</h4><p>Cada competición muestra su tabla y la Liga Ronda Final reúne toda la temporada.</p></article>
           </div>
         </section>
 
         <section class="rules-section dark-rules" id="reglas-jornada">
-          <header><span>04</span><div><small>CUANDO RUEDA EL BALÓN</small><h3>REGLAS DE <em>JORNADA</em></h3></div></header>
+          <header><span>02</span><div><small>CUANDO RUEDA EL BALÓN</small><h3>PUNTOS DE <em>JORNADA</em></h3></div></header>
           <div class="match-rule">
-            <div class="no-changes"><span>×</span><strong>SIN CAMBIOS</strong><small>DURANTE LA JORNADA</small></div>
-            <div><h4>LA ALINEACIÓN QUEDA CERRADA</h4><p>No se permiten cambios una vez comenzada la jornada.</p><div class="rule-reason"><b>JUEGO JUSTO</b> Evitamos dar ventaja a quienes disponen de más tiempo o dinero para reaccionar durante los partidos.</div></div>
+            <div class="no-changes"><span>PTS</span><strong>PUNTUACIÓN</strong><small>POR JORNADA</small></div>
+            <div><h4>CADA RESULTADO CUENTA</h4><p>La puntuación total de cada equipo se publica por jornada y se acumula automáticamente en las clasificaciones.</p></div>
           </div>
         </section>
-
-        <section class="rules-section" id="reglas-premios">
-          <header><span>05</span><div><small>ECONOMÍA DE LA LIGA</small><h3>BONIFICACIONES Y <em>PREMIOS</em></h3></div></header>
-          <div class="reward-grid">
-            <article><span>500.000 €</span><h4>POR CADA PUNTO</h4><p>Se abonarán 500.000 euros por cada punto conseguido en la jornada.</p></article>
-            <article><span>1.000.000 €</span><h4>ONCE IDEAL</h4><p>Bonificación por cada jugador del equipo incluido en el once ideal de la jornada.</p></article>
-            <article><span>100.000 €</span><h4>POR ACIERTO</h4><p>La Quiniela estará habilitada y premiará cada resultado acertado.</p></article>
-          </div>
-          <div class="ranking-reward">
-            <div><small>BONIFICACIÓN POR CLASIFICACIÓN DE JORNADA</small><h4>PREMIAMOS LA REMONTADA</h4><p>Los tres primeros reciben 1 millón. El 4.º recibe 2 millones, el 5.º recibe 3 millones y así sucesivamente.</p><div class="rule-reason"><b>CAMBIO DE TEMPORADA</b> Damos más ayuda al peor clasificado de la jornada para evitar que las diferencias de nivel crezcan demasiado.</div></div>
-            <ol>
-              <li><b>1.º</b><span>1 M€</span></li>
-              <li><b>2.º</b><span>1 M€</span></li>
-              <li><b>3.º</b><span>1 M€</span></li>
-              <li><b>4.º</b><span>2 M€</span></li>
-              <li><b>5.º</b><span>3 M€</span></li>
-              <li><b>6.º</b><span>4 M€</span></li>
-              <li><b>7.º</b><span>5 M€</span></li>
-              <li><b>8.º</b><span>6 M€</span></li>
-              <li><b>9.º</b><span>7 M€</span></li>
-              <li><b>10.º</b><span>8 M€</span></li>
-              <li><b>11.º</b><span>9 M€</span></li>
-              <li><b>12.º</b><span>10 M€</span></li>
-            </ol>
-          </div>
-          <div class="marca-credit">
-            <span>CM</span><div><small>CRÉDITOS MARCA · ANUNCIOS</small><h4>SOLO PARA NUEVAS FORMACIONES</h4><p>Esta temporada los créditos Marca obtenidos mediante anuncios únicamente servirán para comprar formaciones distintas.</p><div class="rule-reason"><b>MÁS JUSTO</b> Igualamos las posibilidades de quienes tienen menos tiempo para entrar en la aplicación.</div></div>
-          </div>
-        </section>
+        <section class="rules-section" id="reglas-ranking"><header><span>03</span><div><small>HISTÓRICO GLOBAL</small><h3>SISTEMA DE <em>RANKING RF</em></h3></div></header><div class="rules-grid"><article class="rule-card featured-rule"><span class="rule-icon">PR</span><small>PUNTOS DE RANKING</small><h4>RENDIMIENTO ACUMULADO</h4><p>Los puntos de las jornadas, las posiciones finales y las eliminatorias de copa construyen el Ranking RF.</p></article><article class="rule-card"><span class="rule-value">+50</span><small>POR ELIMINATORIA</small><h4>AVANZAR EN COPA</h4><p>Cada eliminatoria ganada suma 50 PR al ranking histórico.</p></article></div></section>
       </div>
     </section>
     <section class="page faq-page" id="faq">
-      <header class="faq-hero"><p class="eyebrow">AYUDA · RONDA FINAL</p><h2>PREGUNTAS<br><em>FRECUENTES</em></h2><p>Respuestas claras sobre el funcionamiento de la liga, el mercado y las competiciones.</p></header>
+      <header class="faq-hero"><p class="eyebrow">AYUDA · RONDA FINAL</p><h2>PREGUNTAS<br><em>FRECUENTES</em></h2><p>Respuestas claras sobre puntuaciones, clasificaciones y competiciones.</p></header>
       <div class="faq-content"><div class="faq-list" id="faqList"></div><div class="faq-empty" id="faqEmpty">Todavía no se han publicado preguntas frecuentes.</div></div>
     </section>
   </main>
@@ -301,7 +231,6 @@
         <form id="editorForm">
           <nav class="admin-module-nav" aria-label="Secciones de administración">
             <button type="button" class="active" data-admin-module="general">GENERAL</button>
-            <button type="button" data-admin-module="players">MERCADO</button>
             <button type="button" data-admin-module="clubs">CLUBES</button>
             <button type="button" data-admin-module="competitions">COMPETICIONES</button>
             <button type="button" data-admin-module="faq">FAQ</button>
@@ -313,8 +242,7 @@
             <fieldset class="league-status-editor"><legend>Cierre oficial para Ranking RF</legend><label><input id="completedApertura" type="checkbox"> Liga Apertura finalizada</label><label><input id="completedClausura" type="checkbox"> Liga Clausura finalizada</label><label><input id="completedGeneral" type="checkbox"> Liga Ronda Final finalizada</label><p>Estas casillas activan únicamente la bonificación final por posición. Los puntos ordinarios ya se suman jornada a jornada.</p></fieldset>
             <fieldset class="league-status-editor"><legend>Página de sorteos</legend><label><input id="drawEnabled" type="checkbox"> Habilitar la página de sorteos</label><label>Título del sorteo<input id="drawAdminTitle" maxlength="60" value="Sorteo oficial"></label><p>Al desactivarla desaparecerá del menú público sin borrar el último resultado.</p></fieldset>
           </div>
-          <section class="admin-module players-master-admin" data-admin-panel="players"><div class="admin-module-heading"><small>REGISTRO GLOBAL</small><h3>Mercado y jugadores libres</h3><p>Crea cada jugador una sola vez y pásalo automáticamente a un club, a otro o a agentes libres.</p></div><div id="playersAdmin"></div></section>
-          <section class="admin-module" data-admin-panel="clubs"><div class="admin-module-heading"><small>GESTIÓN INDIVIDUAL</small><h3>Administración de clubes</h3><p>Selecciona un único club para editar su identidad, alineaciones, tesorería e histórico.</p></div><label class="admin-club-picker">Club que quieres administrar<select id="adminClubSelect"></select></label><div class="team-inputs" id="teamInputs"></div></section>
+          <section class="admin-module" data-admin-panel="clubs"><div class="admin-module-heading"><small>GESTIÓN INDIVIDUAL</small><h3>Administración de clubes</h3><p>Edita la identidad del club, sus puntos por jornada, títulos e insignias.</p></div><label class="admin-club-picker">Club que quieres administrar<select id="adminClubSelect"></select></label><div class="team-inputs" id="teamInputs"></div></section>
           <section class="admin-module cup-admin-section" data-admin-panel="competitions"><div class="admin-module-heading"><small>TORNEOS</small><h3>Administración de competiciones</h3><p>Edita cruces, resultados y clasificados sin mezclarlo con los datos de los clubes.</p></div><div id="cupAdminEditors"></div></section>
           <section class="admin-module" data-admin-panel="faq"><div class="admin-module-heading"><small>AYUDA PÚBLICA</small><h3>Preguntas frecuentes</h3><p>Añade, edita, ordena o elimina las preguntas y explicaciones que aparecerán en la pestaña FAQ.</p></div><div id="faqAdmin"></div></section>
           <div class="admin-save-bar"><button class="button button-red" type="submit">GUARDAR CAMBIOS</button><button class="text-button" id="changePassword" type="button">Cambiar contraseña</button><p class="save-message" id="saveMessage"></p></div>
