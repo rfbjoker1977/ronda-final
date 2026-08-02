@@ -259,34 +259,4 @@ document.querySelector(".draw-selection-tools").addEventListener("click",e=>{con
 document.getElementById("drawButton").addEventListener("click",async()=>{if(!authorizeDraw())return;const selected=[...document.querySelectorAll("#drawTeams input:checked")].map(input=>Number(input.value));if(selected.length<2||selected.length%2){alert("Selecciona un número par de equipos, con un mínimo de dos.");return}const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms)),button=document.getElementById("drawButton"),theater=document.getElementById("drawTheater"),status=document.getElementById("drawStatus"),progress=document.getElementById("drawProgress"),liveA=document.getElementById("drawLiveA"),liveB=document.getElementById("drawLiveB"),pairsBox=document.getElementById("drawPairs"),shuffled=secureShuffle(selected),pairs=Array.from({length:shuffled.length/2},(_,i)=>[shuffled[i*2],shuffled[i*2+1]]),extract=async(target,team,number,total)=>{status.textContent=`EXTRAYENDO EQUIPO ${number} DE ${total}`;progress.style.transition="none";progress.style.width="0";await wait(50);progress.style.transition="width 18s linear";progress.style.width="100%";const spin=setInterval(()=>target.textContent=data.clubs[selected[Math.floor(Math.random()*selected.length)]].name,90);await wait(18000);clearInterval(spin);target.textContent=data.clubs[team].name;theater.classList.add("pair-locked");await wait(2000);theater.classList.remove("pair-locked")};button.disabled=true;button.textContent="SORTEO EN DIRECTO…";document.querySelector(".draw-result").classList.add("drawing");theater.hidden=false;pairsBox.innerHTML="";document.getElementById("drawTimestamp").textContent="";for(let count=3;count>0;count--){status.textContent=`EL BOMBO SE ABRE EN ${count}`;await wait(800)}let extracted=0;for(let i=0;i<pairs.length;i++){liveA.textContent="?";liveB.textContent="?";await extract(liveA,pairs[i][0],++extracted,selected.length);await extract(liveB,pairs[i][1],++extracted,selected.length);pairsBox.insertAdjacentHTML("beforeend",`<article class="just-drawn"><small>ENFRENTAMIENTO ${String(i+1).padStart(2,"0")}</small><div>${esc(data.clubs[pairs[i][0]].name)}</div><b>VS</b><div>${esc(data.clubs[pairs[i][1]].name)}</div></article>`);await wait(1000)}status.textContent="SORTEO COMPLETADO";await wait(1200);data.draw.participants=selected;data.draw.pairs=pairs;data.draw.timestamp=new Date().toISOString();localStorage.setItem(STORAGE_KEY,JSON.stringify(data));if(window.remoteEnabled)try{await remoteSave()}catch(error){alert(`El sorteo se ha realizado, pero no se pudo publicar: ${error.message}`)}theater.hidden=true;document.querySelector(".draw-result").classList.remove("drawing");renderDraw();button.disabled=false;button.textContent="REALIZAR SORTEO"});
 document.getElementById("drawReset").addEventListener("click",async()=>{if(!authorizeDraw()||!confirm("¿Reiniciar el sorteo y borrar todos los enfrentamientos publicados?"))return;data.draw.participants=[];data.draw.pairs=[];data.draw.timestamp="";data.draw.resetToken=DEFAULT_DATA.draw.resetToken;localStorage.setItem(STORAGE_KEY,JSON.stringify(data));if(window.remoteEnabled)try{await remoteSave()}catch(error){alert(`Se ha reiniciado en este dispositivo, pero no se pudo publicar: ${error.message}`)}renderDraw()});
 document.getElementById("changePassword").addEventListener("click",async()=>{const next=prompt("Escribe tu nueva contraseña (mínimo 8 caracteres):");if(next&&next.length>=8){try{if(window.remoteEnabled)await remoteChangePassword(next);else localStorage.setItem(PASSWORD_KEY,next);alert("Contraseña actualizada correctamente.")}catch(error){alert(`No se pudo cambiar: ${error.message}`)}}else if(next!==null){alert("La contraseña debe tener al menos 8 caracteres.")}});
-function startLeagueCountdown(){
-  const target=new Date("2026-08-01T00:00:00+02:00").getTime();
-  const units=document.querySelector(".countdown-units");
-  const started=document.getElementById("countdownStarted");
-  const fields={
-    days:document.getElementById("countdownDays"),
-    hours:document.getElementById("countdownHours"),
-    minutes:document.getElementById("countdownMinutes"),
-    seconds:document.getElementById("countdownSeconds")
-  };
-  let timer;
-  const update=()=>{
-    const remaining=Math.max(0,target-Date.now());
-    const totalSeconds=Math.floor(remaining/1000);
-    const values={
-      days:Math.floor(totalSeconds/86400),
-      hours:Math.floor(totalSeconds%86400/3600),
-      minutes:Math.floor(totalSeconds%3600/60),
-      seconds:totalSeconds%60
-    };
-    Object.entries(values).forEach(([key,value])=>fields[key].textContent=String(value).padStart(2,"0"));
-    if(remaining===0){
-      units.hidden=true;
-      started.hidden=false;
-      if(timer)clearInterval(timer);
-    }
-  };
-  update();
-  if(Date.now()<target)timer=setInterval(update,1000);
-}
-render();navigate(location.hash.slice(1)||"inicio");startLeagueCountdown();
+render();navigate(location.hash.slice(1)||"inicio");
