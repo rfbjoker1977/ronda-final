@@ -28,7 +28,6 @@
   <link rel="stylesheet" href="faq.css?v=20260728-compact-hero">
   <link rel="stylesheet" href="badge-fit.css?v=20260802-ranking-columns">
   <link rel="stylesheet" href="help.css?v=20260721-help-guide">
-  <link rel="stylesheet" href="normativa.css?v=20260727">
 </head>
 <body>
   <header class="site-header">
@@ -47,7 +46,6 @@
       <a href="#copa-clausura" data-route="copa-clausura">Copa Clausura</a>
       <a href="#sorteos" data-route="sorteos" id="drawNav" hidden>Sorteos</a>
       <a href="#ranking-rf" data-route="ranking-rf">Ranking RF</a>
-      <a href="#normativa" data-route="normativa">Normativa</a>
       <a href="#faq" data-route="faq">FAQ</a>
       <button class="admin-link" id="adminOpen"><span>●</span> Administrador</button>
     </nav>
@@ -109,7 +107,7 @@
 
     <section class="page ranking-page" id="ranking-rf">
       <div class="ranking-hero"><p class="eyebrow">CLASIFICACIÓN HISTÓRICA GLOBAL</p><h2>RANKING <em>RF</em></h2><p>Cada punto, cada posición y cada eliminatoria dejan huella. El Ranking RF reúne el rendimiento de todos los campeonatos.</p></div>
-      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><p class="ranking-lock-note">Los puntos, los premios de cada jornada y las rondas de copa se suman al momento. Solo las bonificaciones por posición de las ligas esperan al cierre oficial.</p><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado, actualizado jornada a jornada</span></article><article><b>+20 / −5 PR</b><span>Para el primer y el último clasificado de cada jornada</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición al finalizar</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición al finalizar</span></article><article><b>+50 PR</b><span>Por eliminatoria de copa ganada, al pasar de ronda</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>PARTICIPACIÓN</span><span>JORNADAS</span><span>BONUS LIGAS</span><span>COPAS</span><span>TOTAL</span></div><div id="rankingRfList"></div></section></div>
+      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><p class="ranking-lock-note">Los puntos de Liga Apertura y Liga Clausura, los premios de cada jornada y las rondas de copa se suman al momento. Los puntos de Liga Ronda Final no se vuelven a sumar, porque ya están incluidos en las dos vueltas.</p><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado en Liga Apertura y Liga Clausura, actualizado jornada a jornada</span></article><article><b>+20 / −5 PR</b><span>Para el primer y el último clasificado de cada jornada</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición al finalizar</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición al finalizar</span></article><article><b>+50 PR</b><span>Por eliminatoria de copa ganada, al pasar de ronda</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>TOTAL</span><span>PARTICIPACIÓN</span><span>JORNADAS</span><span>BONUS LIGAS</span><span>COPAS</span></div><div id="rankingRfList"></div></section></div>
     </section>
 
     <section class="page draw-page" id="sorteos" hidden>
@@ -147,41 +145,6 @@
           <div class="round-block"><div class="round-title"><span>02</span><div><small>SEGUNDA VUELTA</small><strong>LIGA CLAUSURA</strong></div></div><div class="round-list" id="clausuraMatchdays"></div></div>
         </div>
       </section>
-    </section>
-    <section class="page rules-page" id="normativa">
-      <header class="rules-hero">
-        <div>
-          <p class="eyebrow">RONDA FINAL · 2026 / 2027</p>
-          <h2>NORMATIVA<br><em>DE TEMPORADA</em></h2>
-          <p>Una competición más equilibrada, activa y justa. Estas son las reglas y configuraciones que marcarán la nueva temporada.</p>
-        </div>
-        <aside class="rules-seal"><small>REGLAMENTO</small><strong>3</strong><span>ÁREAS CLAVE</span><i>VIGENTE ESTA TEMPORADA</i></aside>
-      </header>
-      <div class="rules-content">
-        <nav class="rules-jump" aria-label="Índice de la normativa">
-          <a href="#normativa" data-help-target="reglas-base">BASE</a>
-          <a href="#normativa" data-help-target="reglas-jornada">JORNADA</a>
-          <a href="#normativa" data-help-target="reglas-ranking">RANKING RF</a>
-        </nav>
-
-        <section class="rules-section" id="reglas-base">
-          <header><span>01</span><div><small>CONFIGURACIÓN GENERAL</small><h3>LAS BASES DE LA <em>COMPETICIÓN</em></h3></div></header>
-          <div class="rules-grid">
-            <article class="rule-card featured-rule"><span class="rule-icon">PTS</span><small>SISTEMA DE PUNTUACIÓN</small><h4>CRONISTAS MARCA + ESTADÍSTICAS</h4><p>La puntuación combina la valoración de los cronistas de Marca con los datos estadísticos de cada partido.</p></article>
-            <article class="rule-card"><span class="rule-value">38</span><small>JORNADAS</small><h4>TEMPORADA COMPLETA</h4><p>Las primeras 19 jornadas forman la Liga Apertura y las 19 restantes, la Liga Clausura.</p></article>
-            <article class="rule-card"><span class="rule-value">3</span><small>CLASIFICACIONES</small><h4>APERTURA, CLAUSURA Y GENERAL</h4><p>Cada competición muestra su tabla y la Liga Ronda Final reúne toda la temporada.</p></article>
-          </div>
-        </section>
-
-        <section class="rules-section dark-rules" id="reglas-jornada">
-          <header><span>02</span><div><small>CUANDO RUEDA EL BALÓN</small><h3>PUNTOS DE <em>JORNADA</em></h3></div></header>
-          <div class="match-rule">
-            <div class="no-changes"><span>PTS</span><strong>PUNTUACIÓN</strong><small>POR JORNADA</small></div>
-            <div><h4>CADA RESULTADO CUENTA</h4><p>La puntuación total de cada equipo se publica por jornada y se acumula automáticamente en las clasificaciones.</p></div>
-          </div>
-        </section>
-        <section class="rules-section" id="reglas-ranking"><header><span>03</span><div><small>HISTÓRICO GLOBAL</small><h3>SISTEMA DE <em>RANKING RF</em></h3></div></header><div class="rules-grid"><article class="rule-card featured-rule"><span class="rule-icon">PR</span><small>PUNTOS DE RANKING</small><h4>RENDIMIENTO ACUMULADO</h4><p>Los puntos de las jornadas, las posiciones finales y las eliminatorias de copa construyen el Ranking RF.</p></article><article class="rule-card"><span class="rule-value">+20</span><small>GANADOR DE JORNADA</small><h4>PREMIO AL PRIMERO</h4><p>El equipo con más puntos de cada jornada suma 20 PR adicionales.</p></article><article class="rule-card"><span class="rule-value">−5</span><small>ÚLTIMO DE JORNADA</small><h4>PENALIZACIÓN</h4><p>El equipo con menos puntos de cada jornada resta 5 PR.</p></article><article class="rule-card"><span class="rule-value">+50</span><small>POR ELIMINATORIA</small><h4>AVANZAR EN COPA</h4><p>Cada eliminatoria ganada suma 50 PR al ranking histórico.</p></article></div></section>
-      </div>
     </section>
     <section class="page faq-page" id="faq">
       <header class="faq-hero"><p class="eyebrow">AYUDA · RONDA FINAL</p><h2>PREGUNTAS<br><em>FRECUENTES</em></h2><p>Respuestas claras sobre puntuaciones, clasificaciones y competiciones.</p></header>
