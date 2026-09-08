@@ -68,6 +68,28 @@
         </div>
       </div>
       <section class="standings-section">
+        <div class="standings-heading home-standings-heading">
+          <div>
+            <p class="eyebrow red">CLASIFICACIONES · RESUMEN</p>
+            <h2>LAS TRES <em>LIGAS</em></h2>
+          </div>
+          <p>Consulta de un vistazo el top 5 de Apertura, Clausura y la clasificación general de la temporada.</p>
+        </div>
+        <div class="home-round-rankings">
+          <section class="home-ranking-card">
+            <header class="home-ranking-title"><span>01</span><div><small>PRIMERA VUELTA · TOP 5</small><h3>LIGA APERTURA</h3></div><a href="#apertura" data-route="apertura">VER COMPLETA →</a></header>
+            <div id="homeAperturaList"></div>
+          </section>
+          <section class="home-ranking-card">
+            <header class="home-ranking-title"><span>02</span><div><small>SEGUNDA VUELTA · TOP 5</small><h3>LIGA CLAUSURA</h3></div><a href="#clausura" data-route="clausura">VER COMPLETA →</a></header>
+            <div id="homeClausuraList"></div>
+          </section>
+        </div>
+        <section class="general-home-ranking">
+          <header class="general-ranking-title"><div><small>TEMPORADA COMPLETA · TOP 5</small><h3>LIGA RONDA FINAL</h3></div><a href="#liga-general" data-route="liga-general">VER COMPLETA →</a></header>
+          <div class="standings-card"><div id="homeGeneralList"></div></div>
+        </section>
+        <div class="home-competitions-heading"><small>TODAS LAS COMPETICIONES</small><strong>ACCESOS DIRECTOS</strong></div>
         <div class="home-competitions">
           <a class="home-cup-card" href="#apertura" data-route="apertura"><span>01</span><div><small>PRIMERA VUELTA · LIGA</small><h3>LIGA APERTURA</h3><p>Consulta la clasificación de la primera vuelta.</p></div><b>ENTRAR →</b></a>
           <a class="home-cup-card" href="#clausura" data-route="clausura"><span>02</span><div><small>SEGUNDA VUELTA · LIGA</small><h3>LIGA CLAUSURA</h3><p>Consulta la clasificación de la segunda vuelta.</p></div><b>ENTRAR →</b></a>
@@ -107,7 +129,7 @@
 
     <section class="page ranking-page" id="ranking-rf">
       <div class="ranking-hero"><p class="eyebrow">CLASIFICACIÓN HISTÓRICA GLOBAL</p><h2>RANKING <em>RF</em></h2><p>Cada punto, cada posición y cada eliminatoria dejan huella. El Ranking RF reúne el rendimiento de todos los campeonatos.</p></div>
-      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><p class="ranking-lock-note">Los puntos por jornada de Liga Ronda Final no se vuelven a sumar, porque ya están incluidos en Apertura y Clausura. Su bonificación final por clasificación sí cuenta en el Ranking RF.</p><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado en Liga Apertura y Liga Clausura, actualizado jornada a jornada</span></article><article><b>+20 / −5 PR</b><span>Para el primer y el último clasificado de cada jornada</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición al finalizar</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición al finalizar</span></article><article><b>+50 PR</b><span>Por eliminatoria de copa ganada, al pasar de ronda</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>TOTAL</span><span>PARTICIPACIÓN</span><span>JORNADAS</span><span>BONUS LIGAS</span><span>COPAS</span></div><div id="rankingRfList"></div></section></div>
+      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><p class="ranking-lock-note">Los puntos por jornada de Liga Ronda Final no se vuelven a sumar, porque ya están incluidos en Apertura y Clausura. Su bonificación final por clasificación sí cuenta en el Ranking RF.</p><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado en Liga Apertura y Liga Clausura, actualizado jornada a jornada</span></article><article><b>+20 / −5 PR</b><span>Para el primer y el último clasificado de cada jornada</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición al finalizar</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición al finalizar</span></article><article><b>+50 PR</b><span>Por cada pase de ronda en Copa, incluidos los dos mejores perdedores de la primera ronda</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>TOTAL</span><span>PARTICIPACIÓN</span><span>JORNADAS</span><span>BONUS LIGAS</span><span>COPAS</span></div><div id="rankingRfList"></div></section></div>
     </section>
 
     <section class="page draw-page" id="sorteos" hidden>
