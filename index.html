@@ -11,12 +11,13 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="badges.css">
   <link rel="stylesheet" href="competitions.css?v=20260728-matchday-tables">
-  <link rel="stylesheet" href="cups.css?v=20260731-globals">
+  <link rel="stylesheet" href="cups.css?v=20260908-bracket-tree">
   <link rel="stylesheet" href="ranking-rf.css?v=20260802-matchday-bonuses">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
   <link rel="stylesheet" href="score-list.css">
-  <link rel="stylesheet" href="home-rankings.css">
+  <link rel="stylesheet" href="home-rankings.css?v=20260908-summary-only">
+  <link rel="stylesheet" href="audit.css?v=20260908-club-ranking-audit">
   <link rel="stylesheet" href="hero-compact.css">
   <link rel="stylesheet" href="hero-final.css">
   <link rel="stylesheet" href="graph-white.css">
@@ -53,21 +54,7 @@
 
   <main>
     <section class="page active" id="inicio">
-      <div class="hero">
-        <div class="hero-noise"></div>
-        <div class="hero-copy">
-          <p class="eyebrow">TEMPORADA <span id="seasonText">2026 / 2027</span></p>
-          <h1>RONDA FINAL<br><em>LEAGUE</em></h1>
-          <p class="hero-lead" id="welcomeText" hidden></p>
-          <div class="hero-actions">
-            <a href="#equipos" data-route="equipos" class="button button-light">CONOCER LOS EQUIPOS <span>→</span></a>
-          </div>
-        </div>
-        <div class="league-logo-slot" aria-label="Espacio reservado para el logo oficial de la liga">
-          <img src="imagenes/liga/ronda_final_crest_512.png" alt="Escudo oficial de Ronda Final">
-        </div>
-      </div>
-      <section class="standings-section">
+      <section class="standings-section home-summary-only">
         <div class="standings-heading home-standings-heading">
           <div>
             <p class="eyebrow red">CLASIFICACIONES · RESUMEN</p>
@@ -89,14 +76,6 @@
           <header class="general-ranking-title"><div><small>TEMPORADA COMPLETA · TOP 5</small><h3>LIGA RONDA FINAL</h3></div><a href="#liga-general" data-route="liga-general">VER COMPLETA →</a></header>
           <div class="standings-card"><div id="homeGeneralList"></div></div>
         </section>
-        <div class="home-competitions-heading"><small>TODAS LAS COMPETICIONES</small><strong>ACCESOS DIRECTOS</strong></div>
-        <div class="home-competitions">
-          <a class="home-cup-card" href="#apertura" data-route="apertura"><span>01</span><div><small>PRIMERA VUELTA · LIGA</small><h3>LIGA APERTURA</h3><p>Consulta la clasificación de la primera vuelta.</p></div><b>ENTRAR →</b></a>
-          <a class="home-cup-card" href="#clausura" data-route="clausura"><span>02</span><div><small>SEGUNDA VUELTA · LIGA</small><h3>LIGA CLAUSURA</h3><p>Consulta la clasificación de la segunda vuelta.</p></div><b>ENTRAR →</b></a>
-          <a class="home-cup-card featured" href="#liga-general" data-route="liga-general"><span>03</span><div><small>TEMPORADA COMPLETA · LIGA</small><h3>LIGA RONDA FINAL</h3><p>Clasificación definitiva de toda la temporada.</p></div><b>ENTRAR →</b></a>
-          <a class="home-cup-card" href="#copa-apertura" data-route="copa-apertura"><span>04</span><div><small>ELIMINATORIA · DOBLE PARTIDO</small><h3>COPA APERTURA</h3><p>Ronda previa, cuartos, semifinales y final.</p></div><b>VER CUADRO →</b></a>
-          <a class="home-cup-card" href="#copa-clausura" data-route="copa-clausura"><span>05</span><div><small>ELIMINATORIA · DOBLE PARTIDO</small><h3>COPA CLAUSURA</h3><p>Una segunda oportunidad de levantar la copa.</p></div><b>VER CUADRO →</b></a>
-        </div>
       </section>
     </section>
 
@@ -118,7 +97,7 @@
     </section>
 
     <section class="page cup-page" id="copa-apertura">
-      <div class="cup-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Copa Apertura"><span>COPA APERTURA</span></div><p class="eyebrow">PRIMER TORNEO ELIMINATORIO</p><h2>COPA <em>APERTURA</em></h2><p>Doce clubes y seis eliminatorias a doble partido. Los seis ganadores y los dos mejores segundos avanzan a cuartos.</p></div>
+      <div class="cup-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Copa Apertura"><span>COPA APERTURA</span></div><p class="eyebrow">PRIMER TORNEO ELIMINATORIO</p><h2>COPA <em>APERTURA</em></h2><p>Doce clubes y seis eliminatorias a doble partido. Los seis ganadores y los dos mejores perdedores avanzan a cuartos.</p></div>
       <div class="cup-format" data-cup="Copa Apertura"></div>
     </section>
 
@@ -155,6 +134,7 @@
         <div class="club-identity"><p class="eyebrow">FICHA DEL CLUB</p><h2 id="clubName">EQUIPO 1</h2><p class="club-manager">MANAGER · <strong id="clubManager">Por asignar</strong></p><p id="clubMotto">La historia está a punto de escribirse.</p></div>
         <aside class="club-badges"><p class="badges-label">INSIGNIAS DEL CLUB</p><div class="badges-list" id="clubBadges"></div></aside>
       </div>
+      <section class="ranking-audit-section" id="clubRankingAudit" aria-label="Auditoría de puntos del Ranking RF"></section>
       <section class="club-visuals" aria-label="Equipación y escudo del club">
         <article><small>EQUIPACIÓN</small><div class="club-visual-frame"><img id="clubKitImage" alt="Equipación del club" hidden><span>IMAGEN 512 × 512</span></div></article>
         <article><small>ESCUDO</small><div class="club-visual-frame"><img id="clubDisplayCrest" alt="Escudo del club" hidden><span>IMAGEN 512 × 512</span></div></article>
@@ -220,7 +200,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
-  <script src="app.js?v=20260802-matchday-bonuses"></script>
+  <script src="app.js?v=20260908-bracket-audit"></script>
   <script src="supabase-sync.js?v=20260801-score-only-hotfix"></script>
 </body>
 </html>
