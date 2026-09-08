@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="badges.css">
   <link rel="stylesheet" href="competitions.css?v=20260728-matchday-tables">
-  <link rel="stylesheet" href="cups.css?v=20260908-bracket-tree">
+  <link rel="stylesheet" href="cups.css?v=20260908-home-cup-hooks">
   <link rel="stylesheet" href="ranking-rf.css?v=20260802-matchday-bonuses">
   <link rel="stylesheet" href="matchdays.css">
   <link rel="stylesheet" href="rounds.css">
@@ -76,6 +76,22 @@
           <header class="general-ranking-title"><div><small>TEMPORADA COMPLETA · TOP 5</small><h3>LIGA RONDA FINAL</h3></div><a href="#liga-general" data-route="liga-general">VER COMPLETA →</a></header>
           <div class="standings-card"><div id="homeGeneralList"></div></div>
         </section>
+        <div class="home-competitions-heading">
+          <small>ELIMINATORIAS</small>
+          <strong>LAS DOS COPAS</strong>
+        </div>
+        <div class="home-cups">
+          <a class="home-cup-card" href="#copa-apertura" data-route="copa-apertura">
+            <span>01</span>
+            <div><small id="homeCupAperturaStage">RONDA PREVIA</small><h3>COPA APERTURA</h3><p id="homeCupAperturaStatus">Cuadro preparado para doce clubes.</p></div>
+            <b>VER CUADRO →</b>
+          </a>
+          <a class="home-cup-card clausura" href="#copa-clausura" data-route="copa-clausura">
+            <span>02</span>
+            <div><small id="homeCupClausuraStage">RONDA PREVIA</small><h3>COPA CLAUSURA</h3><p id="homeCupClausuraStatus">Cuadro preparado para doce clubes.</p></div>
+            <b>VER CUADRO →</b>
+          </a>
+        </div>
       </section>
     </section>
 
@@ -200,7 +216,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
-  <script src="app.js?v=20260908-bracket-audit"></script>
+  <script src="app.js?v=20260908-home-cup-hooks"></script>
   <script src="supabase-sync.js?v=20260801-score-only-hotfix"></script>
 </body>
 </html>
