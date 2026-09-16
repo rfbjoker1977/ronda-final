@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="score-list.css">
   <link rel="stylesheet" href="home-rankings.css?v=20260908-summary-only">
   <link rel="stylesheet" href="news.css?v=20260908-managed-news">
+  <link rel="stylesheet" href="roster.css?v=20260916-player-admin">
+  <link rel="stylesheet" href="player-rankings.css?v=20260916-home-player-rankings">
   <link rel="stylesheet" href="audit.css?v=20260908-club-ranking-audit">
   <link rel="stylesheet" href="hero-compact.css">
   <link rel="stylesheet" href="hero-final.css">
@@ -61,6 +63,26 @@
         <section class="home-news" aria-labelledby="homeNewsTitle">
           <header><div><p class="eyebrow red">ACTUALIDAD</p><h2 id="homeNewsTitle">ÚLTIMAS <em>NOTICIAS</em></h2></div></header>
           <div class="home-news-grid" id="homeNewsGrid"></div>
+        </section>
+        <section class="home-player-rankings" aria-labelledby="homePlayerRankingsTitle">
+          <header class="home-player-rankings-heading">
+            <div><p class="eyebrow red">MERCADO Y RENDIMIENTO</p><h2 id="homePlayerRankingsTitle">TOP DE <em>JUGADORES</em></h2></div>
+            <p>Clasificaciones actualizadas automáticamente con los datos de la temporada.</p>
+          </header>
+          <div class="home-player-ranking-grid">
+            <section class="player-ranking-card thefts">
+              <header><span>01</span><div><small>ÚLTIMOS 7 DÍAS</small><h3>ROBOS DE LA JORNADA</h3></div></header>
+              <div id="homeTheftsRanking" class="player-ranking-list"></div>
+            </section>
+            <section class="player-ranking-card expensive">
+              <header><span>02</span><div><small>POR CLÁUSULA</small><h3>JUGADORES MÁS CAROS</h3></div></header>
+              <div id="homeExpensivePlayers" class="player-ranking-list"></div>
+            </section>
+            <section class="player-ranking-card points">
+              <header><span>03</span><div><small>TEMPORADA</small><h3>JUGADORES CON MÁS PUNTOS</h3></div></header>
+              <div id="homePointsPlayers" class="player-ranking-list"></div>
+            </section>
+          </div>
         </section>
         <div class="home-round-rankings">
           <section class="home-ranking-card">
@@ -195,6 +217,7 @@
           <nav class="admin-module-nav" aria-label="Secciones de administración">
             <button type="button" class="active" data-admin-module="general">GENERAL</button>
             <button type="button" data-admin-module="clubs">CLUBES</button>
+            <button type="button" data-admin-module="players">JUGADORES</button>
             <button type="button" data-admin-module="competitions">COMPETICIONES</button>
             <button type="button" data-admin-module="news">NOTICIAS</button>
             <button type="button" data-admin-module="faq">FAQ</button>
@@ -207,6 +230,7 @@
             <fieldset class="league-status-editor"><legend>Página de sorteos</legend><label><input id="drawEnabled" type="checkbox"> Habilitar la página de sorteos</label><label>Título del sorteo<input id="drawAdminTitle" maxlength="60" value="Sorteo oficial"></label><p>Al desactivarla desaparecerá del menú público sin borrar el último resultado.</p></fieldset>
           </div>
           <section class="admin-module" data-admin-panel="clubs"><div class="admin-module-heading"><small>GESTIÓN INDIVIDUAL</small><h3>Administración de clubes</h3><p>Edita la identidad del club, sus puntos por jornada, títulos e insignias.</p></div><label class="admin-club-picker">Club que quieres administrar<select id="adminClubSelect"></select></label><div class="team-inputs" id="teamInputs"></div></section>
+          <section class="admin-module" data-admin-panel="players"><div class="admin-module-heading"><small>MERCADO Y RENDIMIENTO</small><h3>Administración de jugadores</h3><p>Gestiona precios, cláusulas, puntos y cambios de club. Los rankings de portada se recalculan al guardar.</p></div><div id="playersAdmin"></div></section>
           <section class="admin-module cup-admin-section" data-admin-panel="competitions"><div class="admin-module-heading"><small>TORNEOS</small><h3>Administración de competiciones</h3><p>Edita cruces, resultados y clasificados sin mezclarlo con los datos de los clubes.</p></div><div id="cupAdminEditors"></div></section>
           <section class="admin-module" data-admin-panel="news"><div class="admin-module-heading"><small>PORTADA</small><h3>Noticias de Ronda Final</h3><p>Publica hasta cuatro noticias con imagen, titular y un texto breve. Las imágenes se comprimen automáticamente.</p></div><div id="newsAdmin"></div></section>
           <section class="admin-module" data-admin-panel="faq"><div class="admin-module-heading"><small>AYUDA PÚBLICA</small><h3>Preguntas frecuentes</h3><p>Añade, edita, ordena o elimina las preguntas y explicaciones que aparecerán en la pestaña FAQ.</p></div><div id="faqAdmin"></div></section>
@@ -218,7 +242,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
-  <script src="app.js?v=20260909-news-titles-only"></script>
+  <script src="app.js?v=20260916-home-player-rankings"></script>
   <script src="supabase-sync.js?v=20260801-score-only-hotfix"></script>
 </body>
 </html>
