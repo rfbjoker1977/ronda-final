@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="faq.css?v=20260728-compact-hero">
   <link rel="stylesheet" href="badge-fit.css?v=20260802-ranking-columns">
   <link rel="stylesheet" href="help.css?v=20260721-help-guide">
+  <link rel="stylesheet" href="divisions.css?v=20260921">
 </head>
 <body>
   <header class="site-header">
@@ -43,10 +44,8 @@
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav" id="mainNav" aria-label="Navegación principal">
       <a href="#inicio" data-route="inicio" class="active">Inicio</a>
-      <a href="#equipos" data-route="equipos">Equipos</a>
-      <a href="#apertura" data-route="apertura">Liga Apertura</a>
-      <a href="#clausura" data-route="clausura">Liga Clausura</a>
-      <a href="#liga-general" data-route="liga-general">Liga Ronda Final</a>
+      <details class="division-menu"><summary>Primera División</summary><div class="division-menu-links"><a href="#equipos" data-route="equipos">Equipos</a><a href="#apertura" data-route="apertura">Liga Apertura</a><a href="#clausura" data-route="clausura">Liga Clausura</a><a href="#liga-general" data-route="liga-general">Liga Ronda Final</a></div></details>
+      <details class="division-menu"><summary>Segunda División</summary><div class="division-menu-links"><a href="#segunda-equipos" data-route="segunda-equipos">Equipos</a><a href="#segunda-apertura" data-route="segunda-apertura">Liga Apertura</a><a href="#segunda-clausura" data-route="segunda-clausura">Liga Clausura</a><a href="#segunda-general" data-route="segunda-general">Liga Ronda Final</a></div></details>
       <a href="#copa-apertura" data-route="copa-apertura">Copa Apertura</a>
       <a href="#copa-clausura" data-route="copa-clausura">Copa Clausura</a>
       <a href="#sorteos" data-route="sorteos" id="drawNav" hidden>Sorteos</a>
@@ -76,6 +75,15 @@
         <section class="general-home-ranking">
           <header class="general-ranking-title"><div><small>TEMPORADA COMPLETA · TOP 5</small><h3>LIGA RONDA FINAL</h3></div><a href="#liga-general" data-route="liga-general">VER COMPLETA →</a></header>
           <div class="standings-card"><div id="homeGeneralList"></div></div>
+        </section>
+        <section class="second-home-division">
+          <header><small>LA NUEVA CATEGORÍA</small><h2>SEGUNDA <em>DIVISIÓN</em></h2></header>
+          <div class="home-round-rankings">
+            <section class="home-ranking-card"><header class="home-ranking-title"><span>01</span><div><small>PRIMERA VUELTA · TOP 5</small><h3>LIGA APERTURA</h3></div><a href="#segunda-apertura" data-route="segunda-apertura">VER COMPLETA →</a></header><div id="homeSecondAperturaList"></div></section>
+            <section class="home-ranking-card"><header class="home-ranking-title"><span>02</span><div><small>SEGUNDA VUELTA · TOP 5</small><h3>LIGA CLAUSURA</h3></div><a href="#segunda-clausura" data-route="segunda-clausura">VER COMPLETA →</a></header><div id="homeSecondClausuraList"></div></section>
+          </div>
+          <section class="general-home-ranking"><header class="general-ranking-title"><div><small>TEMPORADA COMPLETA · TOP 5</small><h3>LIGA RONDA FINAL</h3></div><a href="#segunda-general" data-route="segunda-general">VER COMPLETA →</a></header><div class="standings-card"><div id="homeSecondGeneralList"></div></div></section>
+          <a class="second-home-teams" href="#segunda-equipos" data-route="segunda-equipos">VER EQUIPOS DE SEGUNDA DIVISIÓN →</a>
         </section>
         <div class="home-competitions-heading">
           <small>ELIMINATORIAS</small>
@@ -112,6 +120,11 @@
       <div class="competition-hero general"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Liga Ronda Final"><span>LIGA RONDA FINAL</span></div><p class="eyebrow">TEMPORADA COMPLETA</p><h2>LIGA <em>RONDA FINAL</em></h2><p>La clasificación definitiva de la temporada, con la puntuación global acumulada por todos los clubes.</p></div>
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="generalList"></div></div>
     </section>
+
+    <section class="page teams-page" id="segunda-equipos"><div class="section-heading"><div><p class="eyebrow red">SEGUNDA DIVISIÓN</p><h2>NUESTROS <em>EQUIPOS</em></h2></div><p>Los clubes de Segunda División. Entra en cada escudo para descubrir su historia.</p></div><div class="teams-grid" id="secondTeamsGrid"></div></section>
+    <section class="page competition-page" id="segunda-apertura"><div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo de Liga Apertura"><span>SEGUNDA DIVISIÓN</span></div><p class="eyebrow">SEGUNDA DIVISIÓN</p><h2>LIGA <em>APERTURA</em></h2><p>Clasificación de los clubes de Segunda División.</p></div><div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="secondAperturaList"></div></div><section class="matchday-standings"><header><div><p class="eyebrow red">DETALLE DE LA COMPETICIÓN</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><label>SELECCIONA JORNADA<select id="secondAperturaMatchdaySelect"></select></label></header><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS JORNADA</span></div><div id="secondAperturaMatchdayList"></div></div></section></section>
+    <section class="page competition-page" id="segunda-clausura"><div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo de Liga Clausura"><span>SEGUNDA DIVISIÓN</span></div><p class="eyebrow">SEGUNDA DIVISIÓN</p><h2>LIGA <em>CLAUSURA</em></h2><p>Clasificación de los clubes de Segunda División.</p></div><div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="secondClausuraList"></div></div><section class="matchday-standings"><header><div><p class="eyebrow red">DETALLE DE LA COMPETICIÓN</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><label>SELECCIONA JORNADA<select id="secondClausuraMatchdaySelect"></select></label></header><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS JORNADA</span></div><div id="secondClausuraMatchdayList"></div></div></section></section>
+    <section class="page competition-page" id="segunda-general"><div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo de Liga Ronda Final"><span>SEGUNDA DIVISIÓN</span></div><p class="eyebrow">SEGUNDA DIVISIÓN</p><h2>LIGA <em>RONDA FINAL</em></h2><p>Clasificación de los clubes de Segunda División.</p></div><div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="secondGeneralList"></div></div></section>
 
     <section class="page cup-page" id="copa-apertura">
       <div class="cup-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo oficial de Copa Apertura"><span>COPA APERTURA</span></div><p class="eyebrow">PRIMER TORNEO ELIMINATORIO</p><h2>COPA <em>APERTURA</em></h2><p>Doce clubes y seis eliminatorias a doble partido. Los seis ganadores y los dos mejores perdedores avanzan a cuartos.</p></div>
@@ -208,7 +221,7 @@
             <fieldset class="league-status-editor"><legend>Cierre oficial para Ranking RF</legend><label><input id="completedApertura" type="checkbox"> Liga Apertura finalizada</label><label><input id="completedClausura" type="checkbox"> Liga Clausura finalizada</label><label><input id="completedGeneral" type="checkbox"> Liga Ronda Final finalizada</label><p>Estas casillas activan únicamente la bonificación final por posición. Los puntos por jornada de Liga Ronda Final no se vuelven a sumar.</p></fieldset>
             <fieldset class="league-status-editor"><legend>Página de sorteos</legend><label><input id="drawEnabled" type="checkbox"> Habilitar la página de sorteos</label><label>Título del sorteo<input id="drawAdminTitle" maxlength="60" value="Sorteo oficial"></label><p>Al desactivarla desaparecerá del menú público sin borrar el último resultado.</p></fieldset>
           </div>
-          <section class="admin-module" data-admin-panel="clubs"><div class="admin-module-heading"><small>GESTIÓN INDIVIDUAL</small><h3>Administración de clubes</h3><p>Edita la identidad del club, sus puntos por jornada, títulos e insignias.</p></div><label class="admin-club-picker">Club que quieres administrar<select id="adminClubSelect"></select></label><div class="team-inputs" id="teamInputs"></div></section>
+          <section class="admin-module" data-admin-panel="clubs"><div class="admin-module-heading"><small>GESTIÓN INDIVIDUAL</small><h3>Administración de clubes</h3><p>Edita los clubes de Primera y añade los de Segunda División.</p></div><label class="admin-club-picker">Club que quieres administrar<select id="adminClubSelect"></select></label><button type="button" id="addSecondClub" class="division-add-club">＋ AÑADIR CLUB DE SEGUNDA DIVISIÓN</button><div class="team-inputs" id="teamInputs"></div></section>
           <section class="admin-module" data-admin-panel="players"><div class="admin-module-heading"><small>PORTADA</small><h3>Rankings de jugadores</h3><p>Añade únicamente los datos que quieras mostrar. Cada ranking funciona de forma independiente.</p></div><div id="playersAdmin"></div></section>
           <section class="admin-module cup-admin-section" data-admin-panel="competitions"><div class="admin-module-heading"><small>TORNEOS</small><h3>Administración de competiciones</h3><p>Edita cruces, resultados y clasificados sin mezclarlo con los datos de los clubes.</p></div><div id="cupAdminEditors"></div></section>
           <section class="admin-module" data-admin-panel="news"><div class="admin-module-heading"><small>PORTADA</small><h3>Noticias de Ronda Final</h3><p>Publica hasta cuatro noticias con imagen, titular y un texto breve. Las imágenes se comprimen automáticamente.</p></div><div id="newsAdmin"></div></section>
@@ -221,7 +234,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
-  <script src="app.js?v=20260921-fixed-preview"></script>
+  <script src="app.js?v=20260921-second-division"></script>
   <script src="supabase-sync.js?v=20260801-score-only-hotfix"></script>
 </body>
 </html>
