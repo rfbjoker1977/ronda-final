@@ -2,3 +2,11 @@
 @media(min-width:641px){.site-header{padding-left:clamp(16px,2vw,32px);padding-right:clamp(16px,2vw,32px)}.nav{gap:clamp(10px,1.4vw,20px)}.nav>a,.nav>.admin-link{letter-spacing:.5px;font-size:11px}}
 @media(min-width:641px) and (max-width:1020px){.site-header{height:auto;min-height:82px;flex-wrap:wrap;padding-top:12px}.nav{height:56px;width:100%;justify-content:space-between}.division-menu-links{top:100%}}
 .standing-result{display:flex;flex-direction:column;align-items:flex-end;gap:4px;min-width:0}.movement-badge{display:inline-block;padding:5px 7px;border-radius:3px;font:800 9px/1.2 Inter,Arial,sans-serif;letter-spacing:.35px;text-align:right;white-space:normal}.movement-asciende{background:#f2faf4;border-left:5px solid #19844b}.movement-asciende .movement-badge{color:#0d6635;background:#d6f2e0}.movement-desciende{background:#fff5f3;border-left:5px solid #cf513b}.movement-desciende .movement-badge{color:#8f2d1d;background:#ffe0d9}.movement-legend{font-size:12px;line-height:1.5;color:#555;margin:18px 4px}.legend-promotion{color:#19844b}.legend-relegation{color:#cf513b}@media(max-width:640px){.standing-result{max-width:90px}.movement-badge{font-size:8px;padding:4px}.movement-asciende,.movement-desciende{border-left-width:3px}}
+/* Zonas de ascenso y descenso visibles a lo largo de toda la fila. */
+.competition-table .standing-row.movement-asciende{background:#dceddf;border-left:7px solid #14783e;border-bottom-color:#b9dac2}
+.competition-table .standing-row.movement-asciende:hover{background:#cce5d3}
+.competition-table .standing-row.movement-desciende{background:#f5dcd6;border-left:7px solid #bd432f;border-bottom-color:#e4bcb3}
+.competition-table .standing-row.movement-desciende:hover{background:#efcbc2}
+.competition-table .movement-asciende .position{color:#126837;font-weight:900}
+.competition-table .movement-desciende .position{color:#9c3424;font-weight:900}
+@media(max-width:640px){.competition-table .standing-row.movement-asciende,.competition-table .standing-row.movement-desciende{border-left-width:5px}}
