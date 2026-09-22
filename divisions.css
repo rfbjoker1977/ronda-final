@@ -32,3 +32,12 @@
 .team-card .card-manager{margin-top:auto;text-align:center}
 .teams-grid .team-card h3{text-align:center;overflow-wrap:anywhere}
 @media(max-width:640px){.team-directory-controls{margin-top:0}.team-directory-controls label:last-child{flex:1 1 140px}.team-crest-backdrop{width:85px;height:85px;border-radius:13px}.team-crest-backdrop .crest{max-width:68px;max-height:73px}.team-card .team-division-tag{font-size:8px}}
+/* Las seis ligas permanecen a la vista, agrupadas por división. */
+.division-shortcuts{display:flex;justify-content:center;gap:clamp(22px,3vw,58px);padding:12px 24px;background:#202023;color:#fff;border-bottom:3px solid #b80716;position:relative;z-index:19}
+.division-shortcut-group{display:flex;align-items:center;gap:clamp(9px,1.4vw,22px);min-width:0}
+.division-shortcut-group+ .division-shortcut-group{border-left:1px solid #5a5457;padding-left:clamp(22px,3vw,58px)}
+.division-shortcut-group strong{white-space:nowrap;color:#f2bac0;font:800 11px Inter,Arial,sans-serif;letter-spacing:.6px}
+.division-shortcut-group a{white-space:nowrap;color:#f2f2f2;font:700 12px Inter,Arial,sans-serif;text-decoration:none;padding:8px 5px;border-bottom:2px solid transparent}
+.division-shortcut-group a.active,.division-shortcut-group a:hover{color:#fff;border-bottom-color:#f95d69}
+@media(max-width:1050px){.division-shortcuts{justify-content:flex-start;overflow-x:auto;gap:22px;scrollbar-width:thin}.division-shortcut-group+ .division-shortcut-group{padding-left:22px}}
+@media(max-width:640px){.division-shortcuts{padding:8px 14px}.division-shortcut-group{gap:10px}.division-shortcut-group strong{font-size:10px}.division-shortcut-group a{font-size:11px}}

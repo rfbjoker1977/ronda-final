@@ -231,7 +231,7 @@ function navigate(route){
   const target=isClub?"club":(["inicio","equipos","apertura","clausura","liga-general","segunda-apertura","segunda-clausura","segunda-general","copa-apertura","copa-clausura","ranking-rf","faq","sorteos"].includes(route)&&!(route==="sorteos"&&!data.draw.enabled)?route:"inicio");
   document.getElementById(target).classList.add("active");
   document.querySelectorAll(".nav a").forEach(a=>a.classList.toggle("active",a.dataset.route===target));
-  document.querySelectorAll(".division-menu").forEach(menu=>menu.classList.toggle("is-active",[...menu.querySelectorAll("a")].some(a=>a.dataset.route===target)));
+  document.querySelectorAll(".division-shortcuts a").forEach(link=>link.classList.toggle("active",link.dataset.route===target));
   if(isClub){
     const index=Number(route.split("/")[1]);const club=data.clubs[index];
     if(club){currentClubIndex=index;
@@ -254,7 +254,6 @@ document.getElementById("aperturaMatchdaySelect").addEventListener("change",e=>r
 document.getElementById("clausuraMatchdaySelect").addEventListener("change",e=>renderLeagueMatchday("clausura",e.target.value));
 document.getElementById("secondAperturaMatchdaySelect").addEventListener("change",e=>renderLeagueMatchday("apertura",e.target.value,2));
 document.getElementById("secondClausuraMatchdaySelect").addEventListener("change",e=>renderLeagueMatchday("clausura",e.target.value,2));
-document.querySelectorAll(".division-menu a").forEach(link=>link.addEventListener("click",()=>link.closest("details").open=false));
 document.getElementById("addSecondClub").addEventListener("click",()=>{captureVisibleClubDraft();data.clubs.push(blankSecondClub(data.clubs.length));adminClubIndex=data.clubs.length-1;renderTeamEditors();renderBadgeLibraries();document.querySelector("#teamInputs [data-field=name]")?.focus()});
 document.getElementById("teamsSearch").addEventListener("input",renderTeamDirectory);
 document.getElementById("teamsSort").addEventListener("change",renderTeamDirectory);

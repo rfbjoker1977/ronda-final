@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="faq.css?v=20260728-compact-hero">
   <link rel="stylesheet" href="badge-fit.css?v=20260802-ranking-columns">
   <link rel="stylesheet" href="help.css?v=20260721-help-guide">
-  <link rel="stylesheet" href="divisions.css?v=20260922-directory">
+  <link rel="stylesheet" href="divisions.css?v=20260922-visible-leagues">
 </head>
 <body>
   <header class="site-header">
@@ -45,8 +45,6 @@
     <nav class="nav" id="mainNav" aria-label="Navegación principal">
       <a href="#inicio" data-route="inicio" class="active">Inicio</a>
       <a href="#equipos" data-route="equipos">Equipos</a>
-      <details class="division-menu"><summary>Primera División</summary><div class="division-menu-links"><a href="#apertura" data-route="apertura">Liga Apertura</a><a href="#clausura" data-route="clausura">Liga Clausura</a><a href="#liga-general" data-route="liga-general">Liga Ronda Final</a></div></details>
-      <details class="division-menu"><summary>Segunda División</summary><div class="division-menu-links"><a href="#segunda-apertura" data-route="segunda-apertura">Liga Apertura</a><a href="#segunda-clausura" data-route="segunda-clausura">Liga Clausura</a><a href="#segunda-general" data-route="segunda-general">Liga Ronda Final</a></div></details>
       <a href="#copa-apertura" data-route="copa-apertura">Copa Apertura</a>
       <a href="#copa-clausura" data-route="copa-clausura">Copa Clausura</a>
       <a href="#sorteos" data-route="sorteos" id="drawNav" hidden>Sorteos</a>
@@ -55,6 +53,10 @@
       <button class="admin-link" id="adminOpen"><span>●</span> Administrador</button>
     </nav>
   </header>
+  <nav class="division-shortcuts" aria-label="Ligas por división">
+    <div class="division-shortcut-group"><strong>PRIMERA DIVISIÓN</strong><a href="#apertura" data-route="apertura">Apertura</a><a href="#clausura" data-route="clausura">Clausura</a><a href="#liga-general" data-route="liga-general">Ronda Final</a></div>
+    <div class="division-shortcut-group"><strong>SEGUNDA DIVISIÓN</strong><a href="#segunda-apertura" data-route="segunda-apertura">Apertura</a><a href="#segunda-clausura" data-route="segunda-clausura">Clausura</a><a href="#segunda-general" data-route="segunda-general">Ronda Final</a></div>
+  </nav>
 
   <main>
     <section class="page active" id="inicio">
@@ -233,7 +235,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
-  <script src="app.js?v=20260922-directory"></script>
+  <script src="app.js?v=20260922-visible-leagues"></script>
   <script src="supabase-sync.js?v=20260801-score-only-hotfix"></script>
 </body>
 </html>
