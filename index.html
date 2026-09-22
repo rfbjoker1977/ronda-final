@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="faq.css?v=20260728-compact-hero">
   <link rel="stylesheet" href="badge-fit.css?v=20260802-ranking-columns">
   <link rel="stylesheet" href="help.css?v=20260721-help-guide">
-  <link rel="stylesheet" href="divisions.css?v=20260921-shaded-places">
+  <link rel="stylesheet" href="divisions.css?v=20260922-directory">
 </head>
 <body>
   <header class="site-header">
@@ -44,8 +44,9 @@
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav" id="mainNav" aria-label="Navegación principal">
       <a href="#inicio" data-route="inicio" class="active">Inicio</a>
-      <details class="division-menu"><summary>Primera División</summary><div class="division-menu-links"><a href="#equipos" data-route="equipos">Equipos</a><a href="#apertura" data-route="apertura">Liga Apertura</a><a href="#clausura" data-route="clausura">Liga Clausura</a><a href="#liga-general" data-route="liga-general">Liga Ronda Final</a></div></details>
-      <details class="division-menu"><summary>Segunda División</summary><div class="division-menu-links"><a href="#segunda-equipos" data-route="segunda-equipos">Equipos</a><a href="#segunda-apertura" data-route="segunda-apertura">Liga Apertura</a><a href="#segunda-clausura" data-route="segunda-clausura">Liga Clausura</a><a href="#segunda-general" data-route="segunda-general">Liga Ronda Final</a></div></details>
+      <a href="#equipos" data-route="equipos">Equipos</a>
+      <details class="division-menu"><summary>Primera División</summary><div class="division-menu-links"><a href="#apertura" data-route="apertura">Liga Apertura</a><a href="#clausura" data-route="clausura">Liga Clausura</a><a href="#liga-general" data-route="liga-general">Liga Ronda Final</a></div></details>
+      <details class="division-menu"><summary>Segunda División</summary><div class="division-menu-links"><a href="#segunda-apertura" data-route="segunda-apertura">Liga Apertura</a><a href="#segunda-clausura" data-route="segunda-clausura">Liga Clausura</a><a href="#segunda-general" data-route="segunda-general">Liga Ronda Final</a></div></details>
       <a href="#copa-apertura" data-route="copa-apertura">Copa Apertura</a>
       <a href="#copa-clausura" data-route="copa-clausura">Copa Clausura</a>
       <a href="#sorteos" data-route="sorteos" id="drawNav" hidden>Sorteos</a>
@@ -62,6 +63,8 @@
           <header><div><p class="eyebrow red">ACTUALIDAD</p><h2 id="homeNewsTitle">ÚLTIMAS <em>NOTICIAS</em></h2></div></header>
           <div class="home-news-grid" id="homeNewsGrid"></div>
         </section>
+        <section class="first-home-division">
+          <header><small>LA CATEGORÍA PRINCIPAL</small><h2>PRIMERA <em>DIVISIÓN</em></h2></header>
         <div class="home-round-rankings">
           <section class="home-ranking-card">
             <header class="home-ranking-title"><span>01</span><div><small>PRIMERA VUELTA · TOP 5</small><h3>LIGA APERTURA</h3></div><a href="#apertura" data-route="apertura">VER COMPLETA →</a></header>
@@ -76,6 +79,7 @@
           <header class="general-ranking-title"><div><small>TEMPORADA COMPLETA · TOP 5</small><h3>LIGA RONDA FINAL</h3></div><a href="#liga-general" data-route="liga-general">VER COMPLETA →</a></header>
           <div class="standings-card"><div id="homeGeneralList"></div></div>
         </section>
+        </section>
         <section class="second-home-division">
           <header><small>LA NUEVA CATEGORÍA</small><h2>SEGUNDA <em>DIVISIÓN</em></h2></header>
           <div class="home-round-rankings">
@@ -83,7 +87,7 @@
             <section class="home-ranking-card"><header class="home-ranking-title"><span>02</span><div><small>SEGUNDA VUELTA · TOP 5</small><h3>SEGUNDA · LIGA CLAUSURA</h3></div><a href="#segunda-clausura" data-route="segunda-clausura">VER COMPLETA →</a></header><div id="homeSecondClausuraList"></div></section>
           </div>
           <section class="general-home-ranking"><header class="general-ranking-title"><div><small>TEMPORADA COMPLETA · TOP 5</small><h3>SEGUNDA · LIGA RONDA FINAL</h3></div><a href="#segunda-general" data-route="segunda-general">VER COMPLETA →</a></header><div class="standings-card"><div id="homeSecondGeneralList"></div></div></section>
-          <a class="second-home-teams" href="#segunda-equipos" data-route="segunda-equipos">VER EQUIPOS DE SEGUNDA DIVISIÓN →</a>
+          <a class="second-home-teams" href="#equipos" data-route="equipos">VER TODOS LOS EQUIPOS →</a>
         </section>
         <div class="home-competitions-heading">
           <small>ELIMINATORIAS</small>
@@ -121,7 +125,6 @@
       <div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="generalList"></div></div><p class="movement-legend"><span class="legend-relegation">●</span> Las tres últimas plazas descenderán a Segunda División al finalizar la Liga Ronda Final.</p>
     </section>
 
-    <section class="page teams-page" id="segunda-equipos"><div class="section-heading"><div><p class="eyebrow red">SEGUNDA DIVISIÓN</p><h2>NUESTROS <em>EQUIPOS</em></h2></div><p>Los clubes de Segunda División. Entra en cada escudo para descubrir su historia.</p></div><div class="teams-grid" id="secondTeamsGrid"></div></section>
     <section class="page competition-page" id="segunda-apertura"><div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo de Liga Apertura"><span>SEGUNDA DIVISIÓN</span></div><p class="eyebrow">SEGUNDA DIVISIÓN</p><h2>SEGUNDA DIVISIÓN <em>· LIGA APERTURA</em></h2><p>Clasificación de los clubes de Segunda División.</p></div><div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="secondAperturaList"></div></div><section class="matchday-standings"><header><div><p class="eyebrow red">DETALLE DE LA COMPETICIÓN</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><label>SELECCIONA JORNADA<select id="secondAperturaMatchdaySelect"></select></label></header><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS JORNADA</span></div><div id="secondAperturaMatchdayList"></div></div></section></section>
     <section class="page competition-page" id="segunda-clausura"><div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo de Liga Clausura"><span>SEGUNDA DIVISIÓN</span></div><p class="eyebrow">SEGUNDA DIVISIÓN</p><h2>SEGUNDA DIVISIÓN <em>· LIGA CLAUSURA</em></h2><p>Clasificación de los clubes de Segunda División.</p></div><div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="secondClausuraList"></div></div><section class="matchday-standings"><header><div><p class="eyebrow red">DETALLE DE LA COMPETICIÓN</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><label>SELECCIONA JORNADA<select id="secondClausuraMatchdaySelect"></select></label></header><div class="standings-card"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS JORNADA</span></div><div id="secondClausuraMatchdayList"></div></div></section></section>
     <section class="page competition-page" id="segunda-general"><div class="competition-hero"><div class="competition-logo"><img src="imagenes/liga/ronda_final_crest_512.png" alt="Logo de Liga Ronda Final"><span>SEGUNDA DIVISIÓN</span></div><p class="eyebrow">SEGUNDA DIVISIÓN</p><h2>SEGUNDA DIVISIÓN <em>· LIGA RONDA FINAL</em></h2><p>Clasificación de los clubes de Segunda División.</p></div><div class="standings-card competition-table"><div class="standings-top"><span>POSICIÓN Y CLUB</span><span>PUNTOS</span></div><div id="secondGeneralList"></div></div><p class="movement-legend"><span class="legend-promotion">●</span> Las tres primeras plazas ascenderán a Primera División al finalizar la Liga Ronda Final.</p></section>
@@ -152,9 +155,9 @@
           <p class="eyebrow red">LOS PROTAGONISTAS</p>
           <h2>NUESTROS <em>EQUIPOS</em></h2>
         </div>
-        <p>Doce clubes, doce formas de vivir el fútbol. Entra en cada escudo para descubrir su historia.</p>
+        <p>Todos los clubes de Primera y Segunda División. Busca un equipo y accede a su ficha.</p>
       </div>
-      <div class="teams-grid" id="teamsGrid"></div>
+      <div class="team-directory-controls"><label>BUSCAR EQUIPO<input id="teamsSearch" type="search" placeholder="Nombre del equipo o manager" autocomplete="off"></label><label>ORDENAR POR<select id="teamsSort"><option value="asc">Nombre: A → Z</option><option value="desc">Nombre: Z → A</option></select></label></div><p class="team-directory-count" id="teamsCount" role="status"></p><div class="teams-grid" id="teamsGrid"></div><p class="division-empty" id="teamsEmpty" hidden>No hay equipos que coincidan con la búsqueda.</p>
     </section>
 
     <section class="page club-page" id="club">
@@ -164,10 +167,6 @@
         <div class="club-identity"><p class="eyebrow">FICHA DEL CLUB</p><h2 id="clubName">EQUIPO 1</h2><p class="club-manager">MANAGER · <strong id="clubManager">Por asignar</strong></p><p id="clubMotto">La historia está a punto de escribirse.</p></div>
         <aside class="club-badges"><p class="badges-label">INSIGNIAS DEL CLUB</p><div class="badges-list" id="clubBadges"></div></aside>
       </div>
-      <section class="club-visuals" aria-label="Equipación y escudo del club">
-        <article><small>EQUIPACIÓN</small><div class="club-visual-frame"><img id="clubKitImage" alt="Equipación del club" hidden><span>IMAGEN 512 × 512</span></div></article>
-        <article><small>ESCUDO</small><div class="club-visual-frame"><img id="clubDisplayCrest" alt="Escudo del club" hidden><span>IMAGEN 512 × 512</span></div></article>
-      </section>
       <section class="matchdays-section">
         <div class="matchdays-heading"><div><p class="eyebrow red">RENDIMIENTO</p><h3>PUNTOS POR <span>JORNADA</span></h3></div><div class="matchdays-total"><small>TOTAL ACUMULADO</small><strong id="matchdaysTotal">0</strong><span>PTS</span></div></div>
         <div class="chart-card white-chart"><div class="chart-scale" id="chartScale"></div><div class="columns-chart" id="matchdaysChart"></div></div>
@@ -234,7 +233,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
-  <script src="app.js?v=20260921-second-ranking"></script>
+  <script src="app.js?v=20260922-directory"></script>
   <script src="supabase-sync.js?v=20260801-score-only-hotfix"></script>
 </body>
 </html>

@@ -10,3 +10,25 @@
 .competition-table .movement-asciende .position{color:#126837;font-weight:900}
 .competition-table .movement-desciende .position{color:#9c3424;font-weight:900}
 @media(max-width:640px){.competition-table .standing-row.movement-asciende,.competition-table .standing-row.movement-desciende{border-left-width:5px}}
+.first-home-division{margin:10px 0 44px}
+.first-home-division>header{margin-bottom:19px;border-bottom:1px solid #ddd;padding-bottom:17px}
+.first-home-division>header small{color:var(--red);font-weight:700;letter-spacing:2px}
+.first-home-division>header h2{font-size:clamp(36px,5vw,55px);margin-top:8px}
+.team-directory-controls{display:flex;gap:16px;align-items:end;margin:-20px 0 12px;flex-wrap:wrap}
+.team-directory-controls label{display:grid;gap:8px;font:700 11px Inter,Arial,sans-serif;letter-spacing:1px;color:#555}
+.team-directory-controls label:first-child{flex:1 1 250px}
+.team-directory-controls label:last-child{flex:0 1 210px}
+.team-directory-controls input,.team-directory-controls select{width:100%;height:46px;padding:0 12px;border:1px solid #d5d0ca;border-radius:2px;background:#fff;color:#222;font:500 14px Inter,Arial,sans-serif}
+.team-directory-controls input:focus-visible,.team-directory-controls select:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.team-directory-count{margin:12px 0 20px;color:#666;font-size:12px}
+.teams-grid .team-card{min-width:0;gap:8px;overflow:hidden;justify-content:flex-start;padding-top:24px}
+.team-card .team-division-tag{font:800 9px Inter,Arial,sans-serif;letter-spacing:1.1px;color:#8a2331;align-self:flex-start}
+.team-card.division-2 .team-division-tag{color:#245274}
+.team-crest-backdrop{display:grid;place-items:center;width:105px;height:106px;margin:10px 0 8px;border-radius:18px;background:linear-gradient(145deg,#d44857,#8e1327);box-shadow:0 12px 25px #8e132733;flex:none}
+.team-card.division-2 .team-crest-backdrop{background:linear-gradient(145deg,#477c9d,#153955);box-shadow:0 12px 25px #15395533}
+.team-crest-backdrop .crest{margin:0;background:transparent!important;max-width:84px;max-height:88px;object-fit:contain}
+.team-card.division-1{background:#fff9f8;border-color:#ead8d8}
+.team-card.division-2{background:#f2f7fa;border-color:#c9dce7}
+.team-card .card-manager{margin-top:auto;text-align:center}
+.teams-grid .team-card h3{text-align:center;overflow-wrap:anywhere}
+@media(max-width:640px){.team-directory-controls{margin-top:0}.team-directory-controls label:last-child{flex:1 1 140px}.team-crest-backdrop{width:85px;height:85px;border-radius:13px}.team-crest-backdrop .crest{max-width:68px;max-height:73px}.team-card .team-division-tag{font-size:8px}}
