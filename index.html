@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="help.css?v=20260721-help-guide">
   <link rel="stylesheet" href="divisions.css?v=20260922-division-filter">
   <link rel="stylesheet" href="mobile-fixes.css?v=20260922-readable-mobile">
+  <link rel="stylesheet" href="home-epic.css?v=20260922-epic-home">
 </head>
 <body>
   <header class="site-header">
@@ -61,6 +62,24 @@
 
   <main>
     <section class="page active" id="inicio">
+      <section class="home-epic-hero" aria-labelledby="homeEpicTitle">
+        <div class="home-epic-copy">
+          <p class="home-epic-kicker">FANTASY LEAGUE · TEMPORADA <span id="seasonText">2026 / 2027</span></p>
+          <h1 id="homeEpicTitle"><span>RONDA</span> FINAL</h1>
+          <p class="home-epic-intro" id="welcomeText">Cada jornada escribe una historia. Cada punto acerca a la gloria.</p>
+          <div class="home-epic-actions">
+            <a class="home-epic-primary" href="#equipos" data-route="equipos">CONOCE A LOS CLUBES</a>
+            <a class="home-epic-secondary" href="#ranking-rf" data-route="ranking-rf">EXPLORA EL RANKING RF</a>
+          </div>
+        </div>
+        <div class="home-epic-emblem" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <img src="imagenes/liga/ronda_final_crest_512.png" alt="">
+          <strong>LA BATALLA POR LA GLORIA</strong>
+          <span>PRIMERA · SEGUNDA · COPAS</span>
+        </div>
+        <div class="home-epic-scroll" aria-hidden="true"><span></span>DESCUBRE LA TEMPORADA</div>
+      </section>
       <section class="standings-section home-summary-only">
         <section class="home-news" aria-labelledby="homeNewsTitle">
           <header><div><p class="eyebrow red">ACTUALIDAD</p><h2 id="homeNewsTitle">ÚLTIMAS <em>NOTICIAS</em></h2></div></header>
@@ -108,6 +127,11 @@
             <b>VER CUADRO →</b>
           </a>
         </div>
+        <a class="home-ranking-rf-callout" href="#ranking-rf" data-route="ranking-rf">
+          <span class="home-ranking-rf-mark">RF</span>
+          <span><small>LA HUELLA DE CADA CLUB</small><strong>RANKING RF</strong><em>Todos los puntos. Todos los títulos. Una clasificación histórica.</em></span>
+          <b>VER RANKING →</b>
+        </a>
       </section>
     </section>
 

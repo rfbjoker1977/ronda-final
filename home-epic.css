@@ -1,0 +1,94 @@
+/* Portada épica · mantiene intactos los datos y componentes dinámicos. */
+#inicio{background:#0b0909;color:#f7f2eb;overflow:hidden}
+#inicio .home-epic-hero{min-height:clamp(560px,78vh,790px);position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);align-items:center;gap:48px;padding:clamp(76px,9vw,132px) max(5vw,calc((100vw - 1180px)/2));isolation:isolate;background:radial-gradient(circle at 78% 45%,rgba(190,12,30,.34),transparent 28%),radial-gradient(circle at 12% 92%,rgba(130,0,14,.22),transparent 32%),linear-gradient(115deg,#080707 0%,#130b0c 47%,#25070a 100%)}
+#inicio .home-epic-hero:before{content:"";position:absolute;inset:0;z-index:-2;opacity:.33;background:repeating-linear-gradient(115deg,transparent 0 80px,rgba(255,255,255,.025) 80px 81px),linear-gradient(90deg,transparent 49.9%,rgba(255,255,255,.04) 50%,transparent 50.1%)}
+#inicio .home-epic-hero:after{content:"RF";position:absolute;right:-2vw;bottom:-14%;z-index:-1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.055);font:900 clamp(260px,37vw,570px)/.7 'Barlow Condensed';letter-spacing:-.08em}
+.home-epic-copy{position:relative;z-index:2;max-width:720px}
+.home-epic-kicker{display:flex;align-items:center;gap:9px;margin:0 0 20px;color:#d6b26b;font:800 11px Inter;letter-spacing:2.5px}
+.home-epic-kicker:before{content:"";width:42px;height:2px;background:#b80716;box-shadow:0 0 18px #ef233c}
+.home-epic-copy h1{margin:0;color:#fff;font:900 clamp(82px,11vw,158px)/.72 'Barlow Condensed';letter-spacing:-.055em;text-shadow:0 8px 45px rgba(0,0,0,.65)}
+.home-epic-copy h1 span{display:block;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.68)}
+.home-epic-intro{max-width:540px;margin:34px 0 0;border-left:3px solid #b80716;padding-left:18px;color:#cfc5bd;font-size:16px;line-height:1.65}
+.home-epic-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.home-epic-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;text-decoration:none;font:800 10px Inter;letter-spacing:1.3px;transition:.25s ease}
+.home-epic-primary{background:#b80716;color:#fff;box-shadow:0 12px 40px rgba(184,7,22,.25)}
+.home-epic-primary:hover{background:#e00b21;transform:translateY(-2px)}
+.home-epic-secondary{border:1px solid rgba(255,255,255,.22);color:#fff;background:rgba(255,255,255,.03)}
+.home-epic-secondary:hover{border-color:#d6b26b;color:#d6b26b}
+.home-epic-emblem{position:relative;display:grid;justify-items:center;align-content:center;min-height:430px;text-align:center}
+.home-epic-emblem i{position:absolute;inset:50% auto auto 50%;width:min(34vw,420px);aspect-ratio:1;border:1px solid rgba(214,178,107,.2);border-radius:50%;transform:translate(-50%,-50%)}
+.home-epic-emblem i:nth-child(2){width:min(29vw,350px);border-color:rgba(255,255,255,.08)}
+.home-epic-emblem i:nth-child(3){width:min(24vw,290px);border-color:rgba(184,7,22,.5);box-shadow:0 0 90px rgba(184,7,22,.25),inset 0 0 70px rgba(184,7,22,.13)}
+.home-epic-emblem img{position:relative;width:min(22vw,260px);filter:drop-shadow(0 20px 36px rgba(0,0,0,.8)) drop-shadow(0 0 22px rgba(184,7,22,.25))}
+.home-epic-emblem strong{position:relative;margin-top:25px;color:#fff;font:900 23px 'Barlow Condensed';letter-spacing:1.7px}
+.home-epic-emblem span{position:relative;margin-top:6px;color:#9d8e83;font:700 8px Inter;letter-spacing:2.1px}
+.home-epic-scroll{position:absolute;left:max(5vw,calc((100vw - 1180px)/2));bottom:25px;display:flex;align-items:center;gap:12px;color:#6f6560;font:700 8px Inter;letter-spacing:1.8px}
+.home-epic-scroll span{width:52px;height:1px;background:#b80716}
+
+#inicio .home-summary-only{max-width:none;min-height:0;padding:80px max(5vw,calc((100vw - 1180px)/2)) 96px;background:radial-gradient(circle at 100% 22%,rgba(184,7,22,.08),transparent 23%),linear-gradient(#100d0d,#0b0909)}
+#inicio .home-news{margin-bottom:74px}
+#inicio .home-news>header{border-color:rgba(255,255,255,.12);padding-bottom:18px}
+#inicio .home-news>header h2{color:#fff;font-size:clamp(42px,5vw,64px)}
+#inicio .home-news-card{border-top:0;border-bottom:4px solid #b80716;background:#1b1717;color:#fff;box-shadow:0 22px 55px rgba(0,0,0,.3)}
+#inicio .home-news-image{position:relative}
+#inicio .home-news-image:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 60%,rgba(15,12,12,.55))}
+#inicio .home-news-content{position:relative;padding:23px}
+#inicio .home-news-content:before{content:"";position:absolute;left:0;top:22px;width:3px;height:36px;background:#b80716}
+#inicio .home-news-content h3{color:#fff;font-size:27px}
+#inicio .home-news-content p{color:#aFA6a0}
+
+#inicio .first-home-division,#inicio .second-home-division{position:relative;margin:0 0 74px;padding:34px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));box-shadow:0 32px 80px rgba(0,0,0,.23);overflow:hidden}
+#inicio .first-home-division:before,#inicio .second-home-division:before{content:"I";position:absolute;right:22px;top:-45px;color:rgba(255,255,255,.035);font:900 210px 'Barlow Condensed'}
+#inicio .second-home-division:before{content:"II";right:-6px}
+#inicio .first-home-division>header,#inicio .second-home-division>header{position:relative;margin-bottom:25px;padding-left:17px;border-left:4px solid #b80716}
+#inicio .second-home-division>header{border-left-color:#4e91bc}
+#inicio .first-home-division>header small,#inicio .second-home-division>header small{color:#a69a92;font:700 8px Inter;letter-spacing:2.1px}
+#inicio .first-home-division>header h2,#inicio .second-home-division>header h2{margin:5px 0 0;color:#fff;font:900 clamp(38px,5vw,60px)/.9 'Barlow Condensed'}
+#inicio .first-home-division>header em{color:#d20a1d;font-style:normal}
+#inicio .second-home-division>header em{color:#62a7d3;font-style:normal}
+#inicio .home-ranking-card{position:relative;border-top:3px solid #b80716;box-shadow:0 18px 45px rgba(0,0,0,.28)}
+#inicio .second-home-division .home-ranking-card{border-top-color:#4e91bc}
+#inicio .home-ranking-title{background:#181414}
+#inicio .home-ranking-title>span{color:#d20a1d}
+#inicio .second-home-division .home-ranking-title>span{color:#62a7d3}
+#inicio .general-ranking-title{background:linear-gradient(110deg,#99000d,#3b050a)}
+#inicio .second-home-division .general-ranking-title{background:linear-gradient(110deg,#265e82,#102e42)}
+#inicio .general-home-ranking{margin-bottom:0}
+#inicio .second-home-teams{display:inline-flex;margin-top:22px;color:#8fc6e7;text-decoration:none;font:800 9px Inter;letter-spacing:1.4px}
+
+#inicio .home-competitions-heading{margin:0 0 22px;color:#fff}
+#inicio .home-competitions-heading small{color:#d6b26b}
+#inicio .home-competitions-heading strong{font-size:31px}
+#inicio .home-competitions-heading:after{background:rgba(255,255,255,.12)}
+#inicio .home-cups{margin-bottom:24px}
+#inicio .home-cup-card{position:relative;min-height:185px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(120deg,#211719,#430910);box-shadow:0 20px 50px rgba(0,0,0,.25);overflow:hidden}
+#inicio .home-cup-card.clausura{background:linear-gradient(120deg,#161b21,#102d40)}
+#inicio .home-cup-card:after{content:"COPA";position:absolute;right:-10px;bottom:-32px;color:rgba(255,255,255,.035);font:900 95px 'Barlow Condensed'}
+#inicio .home-cup-card h3,#inicio .home-cup-card b{color:#fff}
+#inicio .home-ranking-rf-callout{display:grid;grid-template-columns:100px 1fr auto;align-items:center;gap:25px;margin-top:24px;padding:26px 30px;border:1px solid rgba(214,178,107,.35);color:#fff;text-decoration:none;background:linear-gradient(115deg,#171311,#2b1c0d 52%,#4b130e);box-shadow:0 24px 65px rgba(0,0,0,.3);transition:.25s ease}
+#inicio .home-ranking-rf-callout:hover{border-color:#d6b26b;transform:translateY(-2px)}
+.home-ranking-rf-mark{display:grid;place-items:center;width:78px;height:78px;border:1px solid #d6b26b;border-radius:50%;color:#d6b26b;font:900 34px 'Barlow Condensed';box-shadow:inset 0 0 25px rgba(214,178,107,.12)}
+.home-ranking-rf-callout>span:nth-child(2){display:grid;gap:3px}
+.home-ranking-rf-callout small{color:#d6b26b;font:800 8px Inter;letter-spacing:2px}
+.home-ranking-rf-callout strong{font:900 36px 'Barlow Condensed';letter-spacing:.5px}
+.home-ranking-rf-callout em{color:#a99e96;font:400 13px Inter;font-style:normal}
+.home-ranking-rf-callout b{font:800 9px Inter;letter-spacing:1.2px}
+
+@media(max-width:900px){
+  #inicio .home-epic-hero{grid-template-columns:1fr;min-height:auto;padding-top:85px;padding-bottom:90px;text-align:center}
+  .home-epic-copy{margin:auto}.home-epic-kicker,.home-epic-actions{justify-content:center}.home-epic-intro{margin-left:auto;margin-right:auto;border-left:0;border-top:2px solid #b80716;padding:17px 0 0}.home-epic-emblem{min-height:330px}.home-epic-emblem i{width:330px}.home-epic-emblem i:nth-child(2){width:280px}.home-epic-emblem i:nth-child(3){width:230px}.home-epic-emblem img{width:210px}.home-epic-scroll{display:none}
+  #inicio .home-summary-only{padding-top:60px}
+  #inicio .first-home-division,#inicio .second-home-division{padding:24px}
+  #inicio .home-news-image:after{background:linear-gradient(0deg,rgba(15,12,12,.4),transparent 55%)}
+}
+@media(max-width:640px){
+  #inicio .home-epic-hero{padding:65px 18px 68px;gap:24px}.home-epic-copy h1{font-size:clamp(73px,25vw,108px)}.home-epic-kicker{font-size:8px;letter-spacing:1.5px}.home-epic-intro{font-size:14px}.home-epic-actions{display:grid}.home-epic-actions a{width:100%;box-sizing:border-box}.home-epic-emblem{min-height:275px}.home-epic-emblem i{width:270px}.home-epic-emblem i:nth-child(2){width:225px}.home-epic-emblem i:nth-child(3){width:190px}.home-epic-emblem img{width:170px}.home-epic-emblem strong{font-size:19px}
+  #inicio .home-summary-only{padding:44px 14px 65px}
+  #inicio .home-news{margin-bottom:48px}#inicio .home-news>header h2{font-size:39px}
+  #inicio .first-home-division,#inicio .second-home-division{margin-bottom:48px;padding:19px 12px 12px}
+  #inicio .first-home-division>header,#inicio .second-home-division>header{margin-left:5px}
+  #inicio .home-ranking-title h3{font-size:18px}
+  #inicio .home-cup-card{min-height:0}
+  #inicio .home-ranking-rf-callout{grid-template-columns:62px 1fr;padding:19px 16px;gap:14px}.home-ranking-rf-mark{width:56px;height:56px;font-size:25px}.home-ranking-rf-callout strong{font-size:28px}.home-ranking-rf-callout em{display:none}.home-ranking-rf-callout b{grid-column:2;color:#d6b26b}
+}
+@media(prefers-reduced-motion:reduce){.home-epic-actions a,#inicio .home-ranking-rf-callout{transition:none}}
