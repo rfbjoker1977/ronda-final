@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="faq.css?v=20260728-compact-hero">
   <link rel="stylesheet" href="badge-fit.css?v=20260802-ranking-columns">
   <link rel="stylesheet" href="help.css?v=20260721-help-guide">
-  <link rel="stylesheet" href="divisions.css?v=20260922-visible-leagues">
+  <link rel="stylesheet" href="divisions.css?v=20260922-division-filter">
   <link rel="stylesheet" href="mobile-fixes.css?v=20260922-readable-mobile">
 </head>
 <body>
@@ -160,7 +160,7 @@
         </div>
         <p>Todos los clubes de Primera y Segunda División. Busca un equipo y accede a su ficha.</p>
       </div>
-      <div class="team-directory-controls"><label>BUSCAR EQUIPO<input id="teamsSearch" type="search" placeholder="Nombre del equipo o manager" autocomplete="off"></label><label>ORDENAR POR<select id="teamsSort"><option value="asc">Nombre: A → Z</option><option value="desc">Nombre: Z → A</option></select></label></div><p class="team-directory-count" id="teamsCount" role="status"></p><div class="teams-grid" id="teamsGrid"></div><p class="division-empty" id="teamsEmpty" hidden>No hay equipos que coincidan con la búsqueda.</p>
+      <div class="team-directory-controls"><label class="team-directory-search">BUSCAR EQUIPO<input id="teamsSearch" type="search" placeholder="Nombre del equipo o manager" autocomplete="off"></label><label>DIVISIÓN<select id="teamsDivision"><option value="all">Todas las divisiones</option><option value="1">Primera División</option><option value="2">Segunda División</option></select></label><label>ORDENAR POR<select id="teamsSort"><option value="asc">Nombre: A → Z</option><option value="desc">Nombre: Z → A</option></select></label></div><p class="team-directory-count" id="teamsCount" role="status"></p><div class="teams-grid" id="teamsGrid"></div><p class="division-empty" id="teamsEmpty" hidden>No hay equipos que coincidan con los filtros.</p>
     </section>
 
     <section class="page club-page" id="club">
@@ -236,7 +236,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
-  <script src="app.js?v=20260922-visible-leagues"></script>
+  <script src="app.js?v=20260922-division-filter"></script>
   <script src="supabase-sync.js?v=20260801-score-only-hotfix"></script>
 </body>
 </html>

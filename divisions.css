@@ -41,3 +41,6 @@
 .division-shortcut-group a.active,.division-shortcut-group a:hover{color:#fff;border-bottom-color:#f95d69}
 @media(max-width:1050px){.division-shortcuts{justify-content:flex-start;overflow-x:auto;gap:22px;scrollbar-width:thin}.division-shortcut-group+ .division-shortcut-group{padding-left:22px}}
 @media(max-width:640px){.division-shortcuts{padding:8px 14px}.division-shortcut-group{gap:10px}.division-shortcut-group strong{font-size:10px}.division-shortcut-group a{font-size:11px}}
+.team-directory-controls .team-directory-search{flex:1 1 250px}
+.team-directory-controls label:not(.team-directory-search){flex:0 1 210px}
+@media(max-width:640px){.team-directory-controls .team-directory-search{flex:1 1 100%}.team-directory-controls label:not(.team-directory-search){flex:1 1 145px}}
