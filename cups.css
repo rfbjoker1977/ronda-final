@@ -50,3 +50,8 @@
 .clausura-schedule .cup-schedule-final span,.clausura-schedule .cup-schedule-final small{color:#cac1ba}
 @media(max-width:1000px){.clausura-schedule .cup-schedule-rounds{grid-template-columns:repeat(2,minmax(0,1fr))}.clausura-schedule .cup-schedule-final{grid-column:1/-1}}
 @media(max-width:520px){.clausura-schedule .cup-schedule-rounds{grid-template-columns:1fr}}
+
+.clausura-bracket-round{margin-top:20px}
+.clausura-bracket-round h4{margin:0 0 8px;font:800 22px 'Barlow Condensed',sans-serif}
+.clausura-bracket-matches{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr));gap:10px}
+.clausura-bracket-matches .bracket-match{height:auto;min-width:0}
