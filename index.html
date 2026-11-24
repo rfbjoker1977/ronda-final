@@ -164,7 +164,7 @@
 
     <section class="page ranking-page" id="ranking-rf">
       <div class="ranking-hero"><p class="eyebrow">CLASIFICACIÓN HISTÓRICA GLOBAL</p><h2>RANKING <em>RF</em></h2><p>Cada punto, cada posición y cada eliminatoria dejan huella. El Ranking RF reúne el rendimiento de todos los campeonatos.</p></div>
-      <div class="ranking-layout"><section class="ranking-rules"><p class="eyebrow red">SISTEMA DE PUNTUACIÓN</p><h3>CÓMO SE GANAN LOS <em>PR</em></h3><p class="ranking-lock-note">Los puntos por jornada de Liga Ronda Final no se vuelven a sumar, porque ya están incluidos en Apertura y Clausura. Su bonificación final por clasificación sí cuenta en el Ranking RF.</p><div class="ranking-rule-grid"><article><b>+1 PR</b><span>Por cada punto ganado en Liga Apertura y Liga Clausura, actualizado jornada a jornada</span></article><article><b>+20 / −5 PR</b><span>Para el primero y el último de cada jornada de Primera División; no se aplica en Segunda</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Apertura y Clausura; después, −25 por posición al finalizar</span></article><article><b>1200 / 800 / 600</b><span>Top 3 de Liga Ronda Final; después, −50 por posición al finalizar</span></article><article><b>300 / 200 / 150</b><span>Top 3 de Apertura y Clausura de Segunda; después, −15 por posición al finalizar</span></article><article><b>600 / 400 / 300</b><span>Top 3 de Liga Ronda Final de Segunda; después, −25 por posición al finalizar</span></article><article><b>+50 PR</b><span>Por cada pase de ronda en Copa, incluidos los dos mejores perdedores de la primera ronda</span></article><article><b>+600 / +200 PR</b><span>Premio adicional al campeón y al finalista de cada Copa, respectivamente</span></article></div></section><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>TOTAL</span><span>PARTICIPACIÓN</span><span>JORNADAS</span><span>BONUS LIGAS</span><span>COPAS</span></div><div id="rankingRfList"></div></section></div>
+      <div class="ranking-layout"><section class="ranking-table-card"><div class="ranking-table-head"><span>POS. · CLUB</span><span>TOTAL</span><span>PARTICIPACIÓN</span><span>JORNADAS</span><span>BONUS LIGAS</span><span>COPAS</span></div><div id="rankingRfList"></div></section></div>
     </section>
 
     <section class="page draw-page" id="sorteos" hidden>
@@ -202,7 +202,7 @@
     </section>
     <section class="page faq-page" id="faq">
       <header class="faq-hero"><p class="eyebrow">AYUDA · RONDA FINAL</p><h2>PREGUNTAS<br><em>FRECUENTES</em></h2><p>Respuestas claras sobre puntuaciones, clasificaciones y competiciones.</p></header>
-      <div class="faq-content"><div class="faq-list" id="faqList"></div><div class="faq-empty" id="faqEmpty">Todavía no se han publicado preguntas frecuentes.</div></div>
+      <div class="faq-content"><div class="faq-list"><details class="faq-item"><summary><span>01</span><strong>¿Cómo se ganan los PR del Ranking RF?</strong><i>＋</i></summary><div class="faq-answer"><p>Los puntos por jornada de Liga Ronda Final no se vuelven a sumar, porque ya están incluidos en Apertura y Clausura. Su bonificación final por clasificación sí cuenta en el Ranking RF.</p><ul><li><strong>+1 PR</strong> · Por cada punto ganado en Liga Apertura y Liga Clausura, actualizado jornada a jornada</li><li><strong>+20 / −5 PR</strong> · Para el primero y el último de cada jornada de Primera División; no se aplica en Segunda</li><li><strong>600 / 400 / 300</strong> · Top 3 de Apertura y Clausura; después, −25 por posición al finalizar</li><li><strong>1200 / 800 / 600</strong> · Top 3 de Liga Ronda Final; después, −50 por posición al finalizar</li><li><strong>300 / 200 / 150</strong> · Top 3 de Apertura y Clausura de Segunda; después, −15 por posición al finalizar</li><li><strong>600 / 400 / 300</strong> · Top 3 de Liga Ronda Final de Segunda; después, −25 por posición al finalizar</li><li><strong>+50 PR</strong> · Por cada pase de ronda en Copa, incluidos los dos mejores perdedores de la primera ronda</li><li><strong>+600 / +200 PR</strong> · Premio adicional al campeón y al finalista de cada Copa, respectivamente</li></ul></div></details><div id="faqList"></div></div></div>
     </section>
   </main>
 
@@ -256,7 +256,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <link rel="stylesheet" href="draw.css?v=20260731-team-selection">
-  <script src="app.js?v=20261124-clausura-bracket"></script>
+  <script src="app.js?v=20261124-faq-ranking"></script>
   <script src="supabase-sync.js?v=20261124-retire-clubs"></script>
 </body>
 </html>
