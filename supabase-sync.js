@@ -20,7 +20,7 @@ async function remoteRecoverPassword(){
   const {error}=await supabaseClient.auth.resetPasswordForEmail(ADMIN_EMAIL,{redirectTo:location.origin+location.pathname});
   if(error)throw error;
 }
-async function remoteSave(){
+async function remoteSave(nextData=data){
   let {data:sessionData,error:sessionError}=await supabaseClient.auth.getSession();
   if(sessionError)throw sessionError;
   if(!sessionData.session)throw new Error("La sesión ha caducado. Cierra el panel y vuelve a entrar como administrador.");
@@ -30,7 +30,7 @@ async function remoteSave(){
     if(refreshError)throw new Error("No se pudo renovar la sesión. Vuelve a entrar como administrador.");
     sessionData=refreshed;
   }
-  const payload={data,updated_at:new Date().toISOString(),updated_by:sessionData.session.user.id};
+  const payload={data:nextData,updated_at:new Date().toISOString(),updated_by:sessionData.session.user.id};
   const {data:saved,error}=await supabaseClient.from("league_state").update(payload).eq("id","main").select("id").maybeSingle();
   if(error)throw new Error(`No se pudo publicar: ${error.message}`);
   if(!saved){
