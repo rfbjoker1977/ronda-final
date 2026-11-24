@@ -43,3 +43,10 @@
 
 /* Resúmenes de Copa en portada */
 .home-cups{margin-top:0}.home-cup-card{min-height:128px;background:linear-gradient(120deg,#171717,#242020);position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}.home-cup-card:after{content:"COPA";position:absolute;right:18px;bottom:-28px;color:#fff;opacity:.025;font:900 86px 'Barlow Condensed';pointer-events:none}.home-cup-card:hover{box-shadow:0 15px 35px rgba(35,10,10,.18)}.home-cup-card small{display:block;font-size:11px;color:#d08f95}.home-cup-card h3{font-size:27px}.home-cup-card p{font-size:13px;line-height:1.4}.home-cup-card b{position:relative;z-index:1;font-size:11px;white-space:nowrap}.home-cup-card.clausura{border-left-color:#087b7d;background:linear-gradient(120deg,#171717,#163335)}.home-cup-card.clausura>span{color:#20a7aa}.home-cup-card.clausura small,.home-cup-card.clausura b{color:#8edadd}
+
+.clausura-schedule .cup-schedule-rounds{grid-template-columns:repeat(5,minmax(0,1fr))}
+.clausura-schedule .cup-schedule-rounds p,.clausura-ranking-note{margin:10px 0 0;font-size:12px;line-height:1.5;color:#514942}
+.clausura-schedule .cup-schedule-rounds span,.clausura-schedule .cup-schedule-rounds small{font-size:9px;color:#625952}
+.clausura-schedule .cup-schedule-final span,.clausura-schedule .cup-schedule-final small{color:#cac1ba}
+@media(max-width:1000px){.clausura-schedule .cup-schedule-rounds{grid-template-columns:repeat(2,minmax(0,1fr))}.clausura-schedule .cup-schedule-final{grid-column:1/-1}}
+@media(max-width:520px){.clausura-schedule .cup-schedule-rounds{grid-template-columns:1fr}}
